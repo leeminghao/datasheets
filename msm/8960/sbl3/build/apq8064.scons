@@ -1,0 +1,307 @@
+#===============================================================================
+#
+# SBL3 build script
+#
+# GENERAL DESCRIPTION
+#    build script
+#
+# Copyright 2009-2012 by QUALCOMM, Incorporated.
+# All Rights Reserved.
+# QUALCOMM Proprietary/GTDR
+#
+#-------------------------------------------------------------------------------
+#
+#  $Header: //source/qcom/qct/core/boot/scons/main/latest/target/msm8960/src/bsp/bootloaders/sbl3/build/SConscript#4 $
+#  $DateTime: 2011/03/25 17:59:34 $
+#  $Author: shirleyy $
+#  $Change: 1673282 $
+#                      EDIT HISTORY FOR FILE
+#
+#  This section contains comments describing changes made to the module.
+#  Notice that changes are listed in reverse chronological order.
+#
+# when       who     what, where, why
+# --------   ---     ---------------------------------------------------------
+# 04/03/12   plc     Use correct V4 PBL header
+# 03/16/12   plc     Add more appropriate macro
+# 01/16/12   kpa     Fix RVCT compiler check.
+# 11/14/11   kpa     Added define for FEATURE_BOOT_KRAIT_ERRATA.
+# 12/05/11   sy      Adding SHORT_BUILDPATH to enable compiling in same flavor but different folder
+# 12/07/11   aus     Adding rollback version feature
+# 11/08/11   sy      Change DAL_BOOT_IMAGE_SSBL to DAL_BOOT_IMAGE_SBL3
+# 10/21/11   sy      Adding Prng driver
+# 10/10/11   plc     Add support for DLOAD and RAMDUMP
+# 09/13/11   sy      Fixing tools location
+# 09/01/11   plc     Initial release
+#===============================================================================
+import os
+Import('env')
+
+env = env.Clone()
+
+#------------------------------------------------------------------------------
+# Check if we need to load this script or just bail-out
+#------------------------------------------------------------------------------
+# alias first alias is always the target then the other possibles aliases
+aliases = [
+   'sbl3', 'boot', 'cbsp', 'cbsp_modem', 'all'
+]
+
+env.InitImageVars(
+   alias_list = aliases,               # list of aliases, unique name index [0]
+   proc = 'scorpion',                  # proc settings
+   config = 'apps',                    # config settings
+   build_tags = [                      # list of build tags for sub lib scripts
+   'SBL3_BOOT',
+   'EMMC_BOOT_DRIVER',
+   'ERR_STUBS_BOOT_DRIVER',
+   'ERR_RESET_DETECT_BOOT_DRIVER',
+   'SMEM_BOOT_DRIVER',
+   'CHIPINFO_BOOT_DRIVER',
+   'PLATFORMINFO_BOOT_DRIVER',
+   'HW_SBL_BOOT_DRIVER',
+   'DAL_BOOT_DRIVER',
+   'AUTH_BOOT_DRIVER',
+   'UTILS_BOOT_DRIVER',
+   'BUSYWAIT_BOOT_DRIVER',
+   'DLOAD_BOOT_DRIVER',
+   'USB_DLOAD_MS_BOOT_DRIVER',
+   'SSBI_DAL_DRIVER', 
+   #'BUSES_AHB_BOOT_DRIVER',
+   'TLMM_BOOT_DRIVER',
+   'HWIO_BOOT_DRIVER',
+   'CLOCK_BOOT_DRIVER',
+   'PMIC_BOOT_DRIVER',
+   'CE_REG_BOOT_DRIVER',
+   'DAL_DEVCFG_IMG'],   
+   deprecated_build_tags = [
+   'SSBL_BOOT_IMAGE',
+   'SBL3',
+   'APPS_BOOT_2',
+   'SBL3_BOOT_IMAGE'],
+    tools = [
+	'${BUILD_ROOT}/core/bsp/build/scripts/mbn_builder.py', 
+	'${BUILD_ROOT}/core/bsp/build/scripts/bin_builder.py', 
+	'${BUILD_ROOT}/core/bsp/build/scripts/hex_builder.py', 
+   '${BUILD_ROOT}/core/bsp/build/scripts/scl_builder.py', 
+   '${BUILD_ROOT}/core/bsp/build/scripts/devcfg_builder.py',
+	 'buildspec_builder.py']  
+   )
+   
+
+if not env.CheckAlias():
+   Return()
+
+#------------------------------------------------------------------------------
+# Init defualt values this PROC/Image
+#------------------------------------------------------------------------------
+
+# add environment variables
+env.Replace(BUILD_BOOT_CHAIN = 'yes')
+env.Replace(USES_DM = 'yes')
+env.Replace(USES_FS_HFAT = 'yes')
+env.Replace(USES_FS_HOTPLUG_SD = 'yes')
+env.Replace(USES_DEVCFG = 'yes')
+
+#===============================================================================
+# BOOT/SBL3 build rules
+#===============================================================================
+
+#------------------------------------------------------------------------------
+# configure and load in uses and path variables,
+#------------------------------------------------------------------------------
+env.InitBuildConfig()
+
+#---------------------------------------------------------------------------
+# Load in the tools scripts
+#---------------------------------------------------------------------------
+env.LoadToolScript('rvct', toolpath = ['${BUILD_ROOT}/tools/build/scons/scripts'])
+env.LoadToolScript('apps_defs', toolpath = ['${BUILD_ROOT}/tools/build/scons/scripts'])
+env.Replace(CC = env['ARMCC'])
+
+# After loading default rules, make some optimization changes to
+# strip unused code
+env.Replace(ARMLD_NOREMOVE_CMD = "")
+env.Replace(CC = env['ARMCC'])
+env.Replace(ARMCC_OPT = "${ARM_OPT_SPACE} ${ARM_OPT_2}")
+env.Replace(ARMCC_CODE = "${ARM_END} ${ARM_NO_UNALIGNED_ACCESS} ${ARM_SPLIT_SECTIONS} --diag_suppress=2523")
+env.Append(ARMCXX_CODE = " ${ARM_NO_UNALIGNED_ACCESS}")
+env.Append(ASFLAGS = " ${ARM_NO_UNALIGNED_ACCESS}")
+
+#------------------------------------------------------------------------------
+# Check RVCT compiler sub version. If the version is not higher than P713, exit 
+#------------------------------------------------------------------------------
+rvct_command = env.subst("$ARMCC")+ " --version_number"
+rvct_stdout_handle = os.popen(rvct_command, "r")
+rvct_compiler_version = rvct_stdout_handle.read()
+rvct_stdout_handle.close()
+# rvct compiler versions 3.1 up support version_number option. rvct2.x and below will return
+# error upon running version number check, resulting in empty rvct_compiler_version.
+if ((rvct_compiler_version == "") or (int(rvct_compiler_version) < 410713)):
+      env.PrintError("-------------------------------------------------------------------------------")
+      env.PrintError("8064 Bootloader must use RVCT41P713 or higher revision.")
+      env.PrintError("-------------------------------------------------------------------------------")
+      raise RuntimeError, "ARM compiler is not expected version."
+#------------------------------------------------------------------------------
+# Add extension flags for SBL3
+#------------------------------------------------------------------------------
+if env['BUILD_VER'] == "":
+   env.Replace(BUILD_VER = '0')
+
+env.Append(CPPDEFINES = [
+   "BUILD_BOOT_CHAIN",
+   "FEATURE_BOOT_RAMDUMPS_TO_SD_CARD",
+   "FEATURE_SDCC_USES_DAL_DM",
+   "FEATURE_SDCC_DISABLE_DMA",
+   "BOOT_LOADER",
+   "BOOT_WATCHDOG_DISABLED",
+   "SSBL_CLK_PAUSE_WORKAROUND",
+   "FEATURE_HS_USB_BASIC",
+   "BOOT_PBL_H=\\\"boot_pbl_v4.h\\\"",
+   "BOOT_TARGET_H=\\\"sbl3_target.h\\\"",
+   "DAL_BOOT_IMAGE_SBL3",
+   "BOOT_HEAP_SIZE=0x10000",
+   "STACK_PTR_ADDR=\\\"SCL_SBL3_STACK_BASE-SCL_SBL3_STACK_SIZE\\\"",
+   "MI_PBT_MAX_SEGMENTS=50", 
+   "BOOT_MMU_ASM_H=\\\"boot_krait_mmu.h\\\"",
+   "FEATURE_BOOT_ROLLBACK_VERSION",
+   "DAL_CONFIG_IMAGE_BOOT",
+   "DAL_CONFIG_TARGET_ID=0x${MSM_ID}"
+])
+
+#***Change USES_BOOT_NAND_BOOT to USES_NAND_BOOT to use common .builds flag
+if 'USES_BOOT_NAND_BOOT' in env:
+   env.Append(CPPDEFINES = [
+       "FEATURE_BOOT_NAND_BOOT",
+   ])
+
+if 'USES_SDCC_BOOT' in env:
+   env.Append(CPPDEFINES = [
+       "FEATURE_BOOT_SDCC_BOOT",
+   ])
+
+if 'USES_ELF_LOAD_BOOT' in env:
+   env.Append(CPPDEFINES = [
+       "FEATURE_BOOT_LOAD_ELF",
+   ])
+
+if 'USES_DCACHE_IN_BOOT' in env:
+   env.Append(CPPDEFINES = [
+          "BOOT_USES_DCACHE",
+   ])
+
+if 'USES_PRE_SILICON_STUB_CLK_REGIME' in env:
+   env.Append(CPPDEFINES = [
+       "FEATURE_STUB_CLK_REGIME",
+   ])
+
+if 'USES_PRE_SILICON_NEW_8064_REGS' in env:
+   env.Append(CPPDEFINES = [
+       "FEATURE_STUB_OBSOLETE_REGS",
+       "FEATURE_NEW_8064_REGS",
+   ])
+
+env.Replace(ARM_CPU_SCORPION = '7-A.security')
+
+env.Append(ASFLAGS = ' --predefine "BOOT_KRAIT_ERRATA SETL {TRUE}"')
+
+#------------------------------------------------------------------------------
+# Decide build steps
+#------------------------------------------------------------------------------
+# regular build steps (no filter) is build everything, once a user start 
+# using filters we have to make decisions depending on user input.
+# The LoadAUSoftwareUnits function will take care of filtering subsystem, units, 
+# etc. This is to take care of what steps to enable disable from the top level
+# script, such as building files specify in this script i.e. quatz, stubs, etc.
+do_local_files = True
+do_link = True
+do_post_link = True
+
+# get user input from command line
+filter_opt = env.get('FILTER_OPT')
+
+# make decisions
+if filter_opt is not None:
+   do_link = False
+   do_post_link = False
+
+   if not env.FilterMatch(os.getcwd()):
+      do_local_files = False
+	  
+#-------------------------------------------------------------------------------
+# Libraries Section
+#-------------------------------------------------------------------------------
+
+core_libs, core_objs = env.LoadAUSoftwareUnits('core')
+modem_libs, modem_objs = env.LoadAUSoftwareUnits('modem', 'rfa/pmic')
+sbl3_units = [core_objs, core_libs, modem_libs, modem_objs]
+
+
+if do_local_files:
+   #============================================================================
+   # SBL3 Environment
+   #============================================================================
+
+   #----------------------------------------------------------------------------
+   # Begin building SBL3
+   #----------------------------------------------------------------------------
+   env.Replace(TARGET_NAME = 'SBL3_${BUILD_ID}')
+   env.Replace(SBL3_ROOT = "${COREBSP_ROOT}/boot/secboot3/hw/${CHIPSET}/sbl3")
+
+   # Add boot API for scl builder
+   env.RequireRestrictedApi(['BOOT'])
+   
+   #----------------------------------------------------------------------------
+   # Generate scatter load file
+   #----------------------------------------------------------------------------
+   target_scl = env.SclBuilder('${SHORT_BUILDPATH}/${TARGET_NAME}', 
+      '${SBL3_ROOT}/sbl3.scl')
+      
+   sbl3_units.extend(target_scl)
+   
+if do_link:	  
+   #----------------------------------------------------------------------------
+   # Generate sbl3 elf
+   #----------------------------------------------------------------------------
+   libs_path = env['INSTALL_LIBPATH']
+   SBL3_elf = env.Program('${SHORT_BUILDPATH}/${TARGET_NAME}', source=[core_objs, modem_objs], LIBS=[core_libs, modem_libs], LIBPATH=libs_path)
+   env.Depends(SBL3_elf, target_scl)
+   
+   SBL3_map = env.SideEffect(env.subst('${SHORT_BUILDPATH}/${TARGET_NAME}.map'), SBL3_elf)
+   SBL3_sym = env.SideEffect(env.subst('${SHORT_BUILDPATH}/${TARGET_NAME}.sym'), SBL3_elf)
+   
+if do_post_link:   
+
+   #----------------------------------------------------------------------------
+   # Generate sbl3 bin
+   #----------------------------------------------------------------------------
+   SBL3_bin = env.BinBuilder('${SHORT_BUILDPATH}/${TARGET_NAME}', SBL3_elf)
+
+   #----------------------------------------------------------------------------
+   # Generate sbl3 mbn
+   #----------------------------------------------------------------------------
+   SBL3_mbn = env.MbnBuilder('${SHORT_BUILDPATH}/${TARGET_NAME}', SBL3_bin, 
+      IMAGE_TYPE="sbl3", FLASH_TYPE="sdcc", ENABLE_ENCRYPT=True)
+
+   SBL3_product= env.BuildProductsFile('${SHORT_BUILDPATH}/${TARGET_NAME}',SBL3_mbn)
+   
+   #----------------------------------------------------------------------------
+   # Install generated files for debugging
+   #----------------------------------------------------------------------------   
+   install_dbg_files = Install(env.subst("${SBL3_ROOT}"),
+      [SBL3_elf, SBL3_map, SBL3_sym, SBL3_bin])
+   
+
+   #============================================================================
+   # Define units that will be build
+   #============================================================================
+   sbl3_units = env.Alias ('arm11_sbl3_units', [
+      SBL3_elf,
+      SBL3_bin,
+      SBL3_product,
+      install_dbg_files,
+   ])
+
+# add aliases
+for alias in aliases:
+   env.Alias(alias, sbl3_units)

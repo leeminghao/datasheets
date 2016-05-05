@@ -1,0 +1,310 @@
+#===============================================================================
+#
+# SBL2 build script
+#
+# GENERAL DESCRIPTION
+#    build script
+#
+# Copyright 2009-2012 by QUALCOMM, Incorporated.
+# All Rights Reserved.
+# QUALCOMM Proprietary/GTDR
+#
+#-------------------------------------------------------------------------------
+#
+#  $Header: //source/qcom/qct/core/boot/scons/main/latest/target/msm8960/src/bsp/bootloaders/sbl2/build/SConscript#2 $
+#  $DateTime: 2011/02/02 15:24:47 $
+#  $Author: pconnors $
+#  $Change: 1604566 $
+#                      EDIT HISTORY FOR FILE
+#
+#  This section contains comments describing changes made to the module.
+#  Notice that changes are listed in reverse chronological order.
+#
+# when       who     what, where, why
+# --------   ---     ---------------------------------------------------------
+# 05/29/12   kpa     Fix undefined instruction exception issue when CPU is QSP.
+# 05/25/12   kpa     Change cpu to QSP to allow VFP instructions compilation.
+# 04/03/12   plc     Use correct V4 PBL header
+# 03/30/12   plc     Bring in ChipInfo driver
+# 03/21/12   plc     Adding changes to support PCDDR3
+# 03/16/12   plc     Add more appropriate macro
+# 01/16/12   kpa     Fix RVCT compiler check.
+# 12/05/11   sy      Adding SHORT_BUILDPATH to enable compiling in same flavor but different folder
+# 12/28/11   sl      Added DDR drivers
+# 12/07/11   aus     Adding rollback version feature
+# 11/14/11   kpa     Added define for FEATURE_BOOT_KRAIT_ERRATA.
+# 10/21/11   sy      Adding Prng driver
+# 09/08/11   kpa     Add ARM_CPU_SCORPION = '7' attribute.
+# 09/13/11   sy      Fixing tools location
+# 09/01/11   plc     Initial release
+#===============================================================================
+import os
+Import('env')
+
+env = env.Clone()
+
+#------------------------------------------------------------------------------
+# Check if we need to load this script or just bail-out
+#------------------------------------------------------------------------------
+# alias first alias is always the target then the other possibles aliases
+aliases = [
+   'sbl2', 'boot', 'cbsp', 'cbsp_modem', 'all'
+]
+
+env.InitImageVars(
+   alias_list = aliases,               # list of aliases, unique name index [0]
+   proc = 'scorpion',                  # proc settings
+   config = 'apps',                    # config settings
+   build_tags = [                      # list of build tags for sub lib scripts
+   'SBL2_BOOT',
+   'EMMC_BOOT_DRIVER',
+   'ERR_STUBS_BOOT_DRIVER',
+   'HW_SBL_BOOT_DRIVER',
+   'AUTH_BOOT_DRIVER',
+   'UTILS_BOOT_DRIVER',
+   'BUSYWAIT_BOOT_DRIVER',
+   'HWIO_BOOT_DRIVER',
+   'CLOCK_MINI_BOOT_DRIVER',
+   'I2C_BOOT_DRIVER',
+   'CE_REGHASH_BOOT_DRIVER',
+   'DDR_BOOT_DRIVER',
+   'DAL_DEVCFG_IMG',
+   'CHIPINFO_BOOT_DRIVER',
+   'PMIC_PWR_BOOT_IMAGE',
+   'SSBI_MINI_PCDDR3_DRIVER'],
+   deprecated_build_tags = [
+   'SPBL',
+   'SBL2',
+   'SPBL_BOOT_IMAGE',
+   'SBL2_BOOT_IMAGE'],
+   tools = [
+	'${BUILD_ROOT}/core/bsp/build/scripts/mbn_builder.py', 
+	'${BUILD_ROOT}/core/bsp/build/scripts/bin_builder.py', 
+	'${BUILD_ROOT}/core/bsp/build/scripts/hex_builder.py', 
+   '${BUILD_ROOT}/core/bsp/build/scripts/scl_builder.py', 
+   '${BUILD_ROOT}/core/bsp/build/scripts/devcfg_builder.py',
+	'buildspec_builder.py']
+   )
+
+if not env.CheckAlias():
+   Return()
+
+#------------------------------------------------------------------------------
+# Init defualt values this PROC/Image
+#------------------------------------------------------------------------------
+
+# add environment variables
+env.Replace(BUILD_BOOT_CHAIN = 'yes')
+env.Replace(USES_DM = 'yes')
+env.Replace(USES_FS_HOTPLUG_SD = 'yes')
+env.Replace(USES_HOTPLUG_WITHOUT_EFS = 'yes')
+env.Replace(USES_DEVCFG = 'yes')
+
+#===============================================================================
+# BOOT/SBL2 build rules
+#===============================================================================
+
+#------------------------------------------------------------------------------
+# configure and load in uses and path variables,
+#------------------------------------------------------------------------------
+env.InitBuildConfig()
+
+#---------------------------------------------------------------------------
+# Load in the tools scripts
+#---------------------------------------------------------------------------
+env.LoadToolScript('rvct', toolpath = ['${BUILD_ROOT}/tools/build/scons/scripts'])
+env.LoadToolScript('apps_defs', toolpath = ['${BUILD_ROOT}/tools/build/scons/scripts'])
+
+# After loading default rules, make some optimization changes
+env.Replace(ARMLD_NOREMOVE_CMD = "")
+env.Replace(CC = env['ARMCC'])
+env.Replace(ARMCC_OPT = "${ARM_OPT_SPACE} ${ARM_OPT_2}")
+env.Replace(ARMCC_CODE = "${ARM_END} ${ARM_NO_UNALIGNED_ACCESS}  ${ARM_SPLIT_SECTIONS} --diag_suppress=2523")
+env.Append(ARMCXX_CODE = " ${ARM_NO_UNALIGNED_ACCESS}")
+env.Append(ASFLAGS = " ${ARM_NO_UNALIGNED_ACCESS}")
+#------------------------------------------------------------------------------
+# Check RVCT compiler sub version. If the version is not higher than P713, exit 
+#------------------------------------------------------------------------------
+
+rvct_command = env.subst("$ARMCC")+ " --version_number"
+rvct_stdout_handle = os.popen(rvct_command, "r")
+rvct_compiler_version = rvct_stdout_handle.read()
+rvct_stdout_handle.close()
+
+# rvct compiler versions 3.1 up support version_number option. rvct2.x and below will return
+# error upon running version number check, resulting in empty rvct_compiler_version.
+if ((rvct_compiler_version == "") or (int(rvct_compiler_version) < 410713)):
+      env.PrintError("-------------------------------------------------------------------------------")
+      env.PrintError("8064 Bootloader must use RVCT41P713 or higher revision.")
+      env.PrintError("-------------------------------------------------------------------------------")
+      raise RuntimeError, "ARM compiler is not expected version."
+
+#------------------------------------------------------------------------------
+# Add extension flags for SBL2
+#------------------------------------------------------------------------------
+if env['BUILD_VER'] == "":
+   env.Replace(BUILD_VER = '0')
+
+env.Append(CPPDEFINES = [
+   "BUILD_BOOT_CHAIN",
+   "FEATURE_SDCC_USES_DAL_DM",
+   "FEATURE_SDCC_DISABLE_DMA",
+   "BOOT_LOADER",
+   "EMMC_BOOT_DRIVER",
+   "UTILS_BOOT_DRIVER",
+   "BOOT_WATCHDOG_DISABLED",
+   "SPBL_CLK_PAUSE_WORKAROUND",
+   "BOOT_PBL_H=\\\"boot_pbl_v4.h\\\"",
+   "BOOT_TARGET_H=\\\"sbl2_target.h\\\"",
+   "DAL_BOOT_IMAGE_SBL2",
+   "STACK_PTR_ADDR=\\\"SCL_SBL2_STACK_BASE-SCL_SBL2_STACK_SIZE\\\"",
+   "SCORPION_VECTOR_BASE=SCL_SBL2_CODE_BASE",
+   "BOOT_MMU_ASM_H=\\\"boot_krait_mmu.h\\\"",  
+   "FEATURE_BOOT_ROLLBACK_VERSION", 
+   "DAL_CONFIG_IMAGE_BOOT",
+   "DAL_CONFIG_TARGET_ID=0x${MSM_ID}",
+   "FEATURE_PCDDR3_SUPPORTED"
+])
+
+#***Change USES_BOOT_NAND_BOOT to USES_NAND_BOOT to use common .builds flag
+if 'USES_BOOT_NAND_BOOT' in env:
+   env.Append(CPPDEFINES = [
+       "FEATURE_BOOT_NAND_BOOT",
+   ])
+
+if 'USES_SDCC_BOOT' in env:
+   env.Append(CPPDEFINES = [
+       "FEATURE_BOOT_SDCC_BOOT",
+   ])
+
+if 'USES_DCACHE_IN_BOOT' in env:
+   env.Append(CPPDEFINES = [
+          "BOOT_USES_DCACHE",
+   ])
+
+if 'USES_PRE_SILICON_STUB_CLK_REGIME' in env:
+   env.Append(CPPDEFINES = [
+       "FEATURE_STUB_CLK_REGIME",
+   ])
+
+if 'USES_PRE_SILICON_NEW_8064_REGS' in env:
+   env.Append(CPPDEFINES = [
+       "FEATURE_STUB_OBSOLETE_REGS",
+       "FEATURE_NEW_8064_REGS",
+   ])
+
+# SYSINI_STUBS Flag defined assembly time, to have kr_sysini_stubs.s included
+# in boot. RTP cpu team does not define it. Now stubs file is included in 
+# origninal RTP src file.
+env.Append(ASFLAGS = ' --predefine "SYSINI_STUBS SETL {TRUE}"') 
+env.Append(ASFLAGS = ' --predefine "BOOT_KRAIT_ERRATA SETL {TRUE}"')
+
+# The flag must override after env.Tool('rvct', toolpath = 
+# ['${BUILD_ROOT}/core/bsp/build/scripts']).
+env.Replace(ARM_CPU_SCORPION = 'QSP')
+env.Append(CCFLAGS = " --fpu SoftVFP ")
+env.Append(ASFLAGS = " --fpu SoftVFP ")
+ 
+#------------------------------------------------------------------------------
+# Decide build steps
+#------------------------------------------------------------------------------
+# regular build steps (no filter) is build everything, once a user start 
+# using filters we have to make decisions depending on user input.
+# The LoadAUSoftwareUnits function will take care of filtering subsystem, units, 
+# etc. This is to take care of what steps to enable disable from the top level
+# script, such as building files specify in this script i.e. quatz, stubs, etc.
+do_local_files = True
+do_link = True
+do_post_link = True
+
+# get user input from command line
+filter_opt = env.get('FILTER_OPT')
+
+# make decisions
+if filter_opt is not None:
+   do_link = False
+   do_post_link = False
+   
+   if not env.FilterMatch(os.getcwd()):
+      do_local_files = False
+
+
+#-------------------------------------------------------------------------------
+# Libraries Section
+#-------------------------------------------------------------------------------
+
+core_libs, core_objs = env.LoadAUSoftwareUnits('core')
+modem_libs, modem_objs = env.LoadAUSoftwareUnits('modem')
+
+sbl2_units = [core_objs, core_libs, modem_objs, modem_libs]
+
+
+if do_local_files:
+   #============================================================================
+   # SBL2 Environment
+   #============================================================================
+
+   #----------------------------------------------------------------------------
+   # Begin building SBL2
+   #----------------------------------------------------------------------------   
+   env.Replace(TARGET_NAME = 'SBL2_${BUILD_ID}')
+   env.Replace(SBL2_ROOT = "${COREBSP_ROOT}/boot/secboot3/hw/${CHIPSET}/sbl2")
+   
+   # Add boot API for scl builder
+   env.RequireRestrictedApi(['BOOT'])
+   
+   #----------------------------------------------------------------------------
+   # Generate scatter load file
+   #----------------------------------------------------------------------------
+   target_scl = env.SclBuilder('${SHORT_BUILDPATH}/${TARGET_NAME}', 
+      '${SBL2_ROOT}/sbl2.scl')
+	  
+   sbl2_units.extend(target_scl)
+   
+if do_link:
+   #----------------------------------------------------------------------------
+   # Generate sbl2 elf
+   #----------------------------------------------------------------------------
+   libs_path = env['INSTALL_LIBPATH']
+   
+   SBL2_elf = env.Program('${SHORT_BUILDPATH}/${TARGET_NAME}', source=[core_objs, modem_objs], LIBS=[core_libs, modem_libs], LIBPATH=libs_path)
+   env.Depends(SBL2_elf, target_scl)
+   
+   SBL2_map = env.SideEffect(env.subst('${SHORT_BUILDPATH}/${TARGET_NAME}.map'), SBL2_elf)
+   SBL2_sym = env.SideEffect(env.subst('${SHORT_BUILDPATH}/${TARGET_NAME}.sym'), SBL2_elf)
+
+if do_post_link:   
+   #----------------------------------------------------------------------------
+   # Generate sbl2 bin
+   #----------------------------------------------------------------------------
+   SBL2_bin = env.BinBuilder('${SHORT_BUILDPATH}/${TARGET_NAME}', SBL2_elf)
+
+   #----------------------------------------------------------------------------
+   # Generate sbl2 mbn
+   #----------------------------------------------------------------------------
+   SBL2_mbn = env.MbnBuilder('${SHORT_BUILDPATH}/${TARGET_NAME}', SBL2_bin, 
+      IMAGE_TYPE="sbl2", FLASH_TYPE="sdcc", ENABLE_ENCRYPT=True)
+
+   SBL2_product= env.BuildProductsFile('${SHORT_BUILDPATH}/${TARGET_NAME}',SBL2_mbn)
+   
+   #----------------------------------------------------------------------------
+   # Install generated files for debugging
+   #----------------------------------------------------------------------------
+   
+   install_dbg_files = Install(env.subst("${SBL2_ROOT}"),
+      [SBL2_elf, SBL2_map, SBL2_sym, SBL2_bin])
+   
+
+   #============================================================================
+   # Define units that will be build
+   #============================================================================
+   sbl2_units = env.Alias ('arm11_sbl2_units', [
+      SBL2_elf,
+      SBL2_bin,
+      SBL2_product,
+      install_dbg_files,
+   ])
+
+# add aliases
+for alias in aliases:
+   env.Alias(alias, sbl2_units)

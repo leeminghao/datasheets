@@ -1,0 +1,46 @@
+TZ_CODE_LR 0x2A000000 0x003F000
+{
+  TZBSP_VEC_TBL 0x2A000000
+  {
+    tzbsp_entry.o (TZBSP_VECTOR_TABLE, +FIRST)
+  }
+  TZBSP_CODE +0x0
+  {
+    .ANY (+RO-CODE)
+  }
+  TZBSP_RO_DATA +0x0 ALIGN 4096
+  {
+    .ANY (+RO-DATA, LAST)
+  } 
+  TZBSP_RAM_RW +0x0 ALIGN 4096
+  {
+    .ANY (+RW)
+    .ANY (_tz_syscall)
+  }
+  TZBSP_RAM_ZI +0x0
+  {
+    .ANY (+ZI)
+  }
+  TZBSP_MMU_L2_PT ((((((0x2A000000 + 0x003F000) - (0x1000 + 0x1000)) - 0x1000) - (4 * 0x00001000)) - 0x3000) - (4 * (0x00100000 / 0x00001000) * 12))
+  {
+    .ANY (L2_PAGE_TABLE_BASE)
+  }
+  TZBSP_DAL_HEAP (((((0x2A000000 + 0x003F000) - (0x1000 + 0x1000)) - 0x1000) - (4 * 0x00001000)) - 0x3000)
+  {
+    .ANY (TZBSP_HEAP_AREA)
+  }
+  TZBSP_MMU_L1_PT ((((0x2A000000 + 0x003F000) - (0x1000 + 0x1000)) - 0x1000) - (4 * 0x00001000))
+  {
+    .ANY (L1_PAGE_TABLE_BASE)
+  }
+  TZBSP_UNCACHED_ZI (((0x2A000000 + 0x003F000) - (0x1000 + 0x1000)) - 0x1000)
+  {
+    .ANY (TZBSP_UNCACHED_ZI*)
+  }
+  TZBSP_DIAG ((0x2A000000 + 0x003F000) - (0x1000 + 0x1000)) EMPTY 0x1000
+  {
+  }
+  TZBSP_STACK (0x2A000000 + 0x003F000) EMPTY -0x1000
+  {
+  }
+}

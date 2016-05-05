@@ -1,0 +1,420 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         ;*====*====*====*====*====*====*====*====*====*====*====
+                       *====*====*====*====*
+    2 00000000         ;
+    3 00000000         ;                      RPM
+    4 00000000         ;
+    5 00000000         ; GENERAL DESCRIPTION
+    6 00000000         ;   This file contains the initialization for the RPM im
+                       age 
+    7 00000000         ;
+    8 00000000         ; EXTERNALIZED SYMBOLS
+    9 00000000         ;   _main
+   10 00000000         ;   __main
+   11 00000000         ;   rpm_clr_regs_and_loop
+   12 00000000         ;   rpm_loophere
+   13 00000000         ;
+   14 00000000         ; INITIALIZATION AND SEQUENCING REQUIREMENTS
+   15 00000000         ;   None
+   16 00000000         ;
+   17 00000000         ; Copyright (c) 2009 by QUALCOMM Technologies, Incorpora
+                       ted.All Rights Reserved.
+   18 00000000         ;*====*====*====*====*====*====*====*====*====*====*====
+                       *====*====*====*====*
+   19 00000000         ;=======================================================
+                       =====================
+   20 00000000         ;
+   21 00000000         ;                            MODULE INCLUDES
+   22 00000000         ;
+   23 00000000         ;=======================================================
+                       =====================
+   24 00000000         ;=======================================================
+                       =====================
+   25 00000000         ;
+   26 00000000         ;                             MODULE DEFINES
+   27 00000000         ;
+   28 00000000         ;=======================================================
+                       =====================
+   29 00000000         ; CPSR mode and bit definitions
+   30 00000000 00000013 
+                       Mode_SVC
+                               EQU              0x13
+   31 00000000 00000017 
+                       Mode_ABT
+                               EQU              0x17
+   32 00000000 0000001B 
+                       Mode_UND
+                               EQU              0x1b
+   33 00000000 0000001F 
+                       Mode_SYS
+                               EQU              0x1f
+   34 00000000 00000011 
+                       Mode_FIQ
+                               EQU              0x11
+   35 00000000 00000012 
+                       Mode_IRQ
+                               EQU              0x12
+   36 00000000 00000080 
+                       I_Bit   EQU              0x80
+   37 00000000 00000040 
+                       F_Bit   EQU              0x40
+
+
+
+ARM Macro Assembler    Page 2 
+
+
+   38 00000000         ;=======================================================
+                       =====================
+   39 00000000         ;
+   40 00000000         ;                             MODULE IMPORTS
+   41 00000000         ;
+   42 00000000         ;=======================================================
+                       =====================
+   43 00000000         ; Import the external symbols that are referenced in thi
+                       s module.
+   44 00000000                 IMPORT           rpm_main_ctl
+   45 00000000                 IMPORT           rpm_undefined_instruction_c_han
+dler
+   46 00000000                 IMPORT           rpm_swi_c_handler
+   47 00000000                 IMPORT           rpm_prefetch_abort_c_handler
+   48 00000000                 IMPORT           rpm_data_abort_c_handler
+   49 00000000                 IMPORT           rpm_reserved_c_handler
+   50 00000000                 IMPORT           IRQ_Handler
+   51 00000000                 IMPORT           FIQ_Handler
+   52 00000000         ;=======================================================
+                       =====================
+   53 00000000         ;
+   54 00000000         ;                             MODULE EXPORTS
+   55 00000000         ;
+   56 00000000         ;=======================================================
+                       =====================
+   57 00000000         ; Export the symbols __main and _main to prevent the lin
+                       ker from
+   58 00000000         ; including the standard runtime library and startup rou
+                       tine.
+   59 00000000                 EXPORT           __main
+   60 00000000                 EXPORT           _main
+   61 00000000         ;=======================================================
+                       =====================
+   62 00000000         ; BOOT LOADER ENTRY POINT
+   63 00000000         ;
+   64 00000000         ; Execution of boot rom begins here.
+   65 00000000         ;=======================================================
+                       =====================
+   66 00000000                 AREA             RPM_ENTRY, CODE, READONLY
+   67 00000000                 CODE32
+   68 00000000                 PRESERVE8
+   69 00000000                 ENTRY
+   70 00000000         __main
+   71 00000000         _main
+   72 00000000         ;=======================================================
+                       =====================
+   73 00000000         ; The mARM exception vector table located in boot ROM co
+                       ntains four bytes
+   74 00000000         ; for each vector.  The boot ROM vector table will conta
+                       in long branches that
+   75 00000000         ; allow branching anywhere within the 32 bit address spa
+                       ce.  Long branches
+   76 00000000         ; will be used for all vectors except the reset vector. 
+                        Each long branch
+   77 00000000         ; consists of a 32 bit LDR instruction using the PC rela
+                       tive 12 bit immediate
+   78 00000000         ; offset address mode (ARM address mode 2).
+   79 00000000         ;=======================================================
+                       =====================
+
+
+
+ARM Macro Assembler    Page 3 
+
+
+   80 00000000 EA000006        b                rpm_reset_handler 
+                                                            ; reset vector
+   81 00000004 EA00001E        b                rpm_undefined_instruction_handl
+er 
+                                                            ; undef_instr_vect 
+                                                                vector
+   82 00000008 EA00002C        b                rpm_swi_handler ; swi_vector
+   83 0000000C EA000039        b                rpm_prefetch_abort_handler ; pr
+                                                            efetch_abort_vector
+                                                            
+   84 00000010 EA000046        b                rpm_data_abort_handler 
+                                                            ; data_abort_vector
+                                                            
+   85 00000014 EA000053        b                rpm_reserved ; reserved_vector
+   86 00000018 EA000057        b                rpm_irq_handler ; irq_vector
+   87 0000001C EA000058        b                rpm_fiq_handler ; fiq_vector
+   88 00000020         ;=======================================================
+                       =====================
+   89 00000020         ; The following initializes the relevant MSM circuits fo
+                       r IMEM operation
+   90 00000020         ; then transfers control to the main control code in "C"
+                        which continues the
+   91 00000020         ; boot strap process.
+   92 00000020         ;=======================================================
+                       =====================
+   93 00000020         rpm_reset_handler
+   94 00000020         ;Change to Supervisor Mode
+   95 00000020 E321F0D3        msr              CPSR_c, #Mode_SVC:OR:I_Bit:OR:F
+_Bit
+   96 00000024         ; Fill the stack region with well known values
+   97 00000024 E59F0160        ldr              r0, =(0x47E50-(0x80+0x80+0x400)
+)
+   98 00000028 E59F1160        ldr              r1, =0x47E50
+   99 0000002C E59F2160        ldr              r2, =0xCCCCCCCC
+  100 00000030         stack_fill_loop
+  101 00000030 E8A00004        stmia            r0!, {r2}
+  102 00000034 E1500001        cmp              r0, r1
+  103 00000038 3AFFFFFC        bcc              stack_fill_loop
+  104 0000003C         ; Setup the supervisor mode stack
+  105 0000003C E59F014C        ldr              r0, =0x47E50
+  106 00000040 E1A0D000        mov              r13, r0
+  107 00000044         ; Switch to undefined mode and setup the undefined mode 
+                       stack
+  108 00000044 E321F0DB        msr              CPSR_c, #Mode_UND:OR:I_Bit:OR:F
+_Bit
+  109 00000048 E1A0D000        mov              r13, r0
+  110 0000004C         ; Switch to abort mode and setup the abort mode stack
+  111 0000004C E321F0D7        msr              CPSR_c, #Mode_ABT:OR:I_Bit:OR:F
+_Bit
+  112 00000050 E1A0D000        mov              r13, r0
+  113 00000054         ; Switch to FIQ mode and setup the FIQ mode stack
+  114 00000054 E321F0D1        msr              CPSR_c, #Mode_FIQ:OR:I_Bit:OR:F
+_Bit
+  115 00000058 E1A0D000        mov              r13, r0
+  116 0000005C         ; Move down by 0x80 to set up the IRQ mode stack
+  117 0000005C E3A01080        ldr              r1, =0x80
+  118 00000060 E0400001        sub              r0, r0, r1
+  119 00000064         ; Switch to IRQ mode and setup the IRQ mode stack
+  120 00000064 E321F0D2        msr              CPSR_c, #Mode_IRQ:OR:I_Bit:OR:F
+
+
+
+ARM Macro Assembler    Page 4 
+
+
+_Bit
+  121 00000068 E1A0D000        mov              r13, r0
+  122 0000006C         ; Move down by 0x80 to set up the SYS mode stack
+  123 0000006C E3A01080        ldr              r1, =0x80
+  124 00000070 E0400001        sub              r0, r0, r1
+  125 00000074         ; Switch to system mode and setup the stack
+  126 00000074 E321F0DF        msr              CPSR_c, #Mode_SYS:OR:I_Bit:OR:F
+_Bit
+  127 00000078 E1A0D000        mov              r13, r0
+  128 0000007C         ; Return to supervisor mode
+  129 0000007C E321F0D3        msr              CPSR_c, #Mode_SVC:OR:I_Bit:OR:F
+_Bit
+  130 00000080         ; ------------------------------------------------------
+                       ------------
+  131 00000080         ; Call rpm main controller to perform RPM functions. Thi
+                       s function
+  132 00000080         ; never returns.
+  133 00000080         ; rpm_main_ctl();
+  134 00000080         ; ------------------------------------------------------
+                       ------------
+  135 00000080 EAFFFFFE        b                rpm_main_ctl
+  136 00000084         ;=======================================================
+                       =====================
+  137 00000084         ; The exception handlers will get the real exception han
+                       dler function pointers
+  138 00000084         ; from exception vector table in IMEM, then branch to th
+                       e real exception
+  139 00000084         ; handler functions.
+  140 00000084         ;=======================================================
+                       =====================
+  141 00000084         rpm_undefined_instruction_handler
+  142 00000084 E51D4004        ldr              r4, [r13,#-0x4] ; undo r4 trash
+                                                            ing from the PBL
+  143 00000088 E92D4011        push             {r0,r4,r14}
+  144 0000008C E14F0000        mrs              r0, SPSR
+  145 00000090 E52D0004        push             {r0}
+  146 00000094 E24E0004        sub              r0, lr, #4  ; pass address of i
+                                                            nstruction as argum
+                                                            ent
+  147 00000098 E321F0DF        msr              CPSR_c,  #Mode_SYS:OR:I_Bit:OR:
+F_Bit 
+                                                            ; Switch to system 
+                                                            mode
+  148 0000009C E52DE004        push             {r14}
+  149 000000A0 E59F40F0        ldr              r4, =rpm_undefined_instruction_
+c_handler
+  150 000000A4 E59FE0F0        ldr              r14, =%1
+  151 000000A8 E12FFF14        bx               r4
+  152 000000AC E49DE004 
+                       1       pop              {r14}
+  153 000000B0 E321F0D1        msr              CPSR_c,  #Mode_FIQ:OR:I_Bit:OR:
+F_Bit
+  154 000000B4 E49D0004        pop              {r0}
+  155 000000B8 E16FF000        msr              SPSR_cxsf, r0
+  156 000000BC E8FD8011        pop              {r0, r4, pc}^
+  157 000000C0         rpm_swi_handler
+  158 000000C0 E51D4004        ldr              r4, [r13,#-0x4] ; undo r4 trash
+                                                            ing from the PBL
+  159 000000C4         ;push {r0-r12, lr}       ; but save everything for later
+
+
+
+ARM Macro Assembler    Page 5 
+
+
+                        anyway
+  160 000000C4 E14F0000        mrs              r0, SPSR
+  161 000000C8 E52D0004        push             {r0}
+  162 000000CC E24E0004        sub              r0, lr, #4  ; pass address of i
+                                                            nstruction as argum
+                                                            ent
+  163 000000D0 E321F0DF        msr              CPSR_c,  #Mode_SYS:OR:I_Bit:OR:
+F_Bit 
+                                                            ; Switch to system 
+                                                            mode
+  164 000000D4 E52DE004        push             {r14}
+  165 000000D8 E59F40C0        ldr              r4, =rpm_swi_c_handler
+  166 000000DC E59FE0C0        ldr              r14, =%2
+  167 000000E0 E12FFF14        bx               r4
+  168 000000E4 E49DE004 
+                       2       pop              {r14}
+  169 000000E8 E321F0D3        msr              CPSR_c,  #Mode_SVC:OR:I_Bit:OR:
+F_Bit
+  170 000000EC E49D0004        pop              {r0}
+  171 000000F0 E16FF000        msr              SPSR_cxsf, r0
+  172 000000F4 E8FD8011        pop              {r0, r4, pc}^
+  173 000000F8         rpm_prefetch_abort_handler
+  174 000000F8 E51D4004        ldr              r4, [r13,#-0x4] ; undo r4 trash
+                                                            ing from the PBL
+  175 000000FC         ;push {r0-r12, lr}       ; but save everything for later
+                        anyway
+  176 000000FC E14F0000        mrs              r0, SPSR
+  177 00000100 E52D0004        push             {r0}
+  178 00000104 E24E0004        sub              r0, lr, #4  ; pass address of i
+                                                            nstruction as argum
+                                                            ent
+  179 00000108 E321F0DF        msr              CPSR_c,  #Mode_SYS:OR:I_Bit:OR:
+F_Bit 
+                                                            ; Switch to system 
+                                                            mode
+  180 0000010C E52DE004        push             {r14}
+  181 00000110 E59F4090        ldr              r4, =rpm_prefetch_abort_c_handl
+er
+  182 00000114 E59FE090        ldr              r14, =%3
+  183 00000118 E12FFF14        bx               r4
+  184 0000011C E49DE004 
+                       3       pop              {r14}
+  185 00000120 E321F0D7        msr              CPSR_c,  #Mode_ABT:OR:I_Bit:OR:
+F_Bit
+  186 00000124 E49D0004        pop              {r0}
+  187 00000128 E16FF000        msr              SPSR_cxsf, r0
+  188 0000012C E8FD8011        pop              {r0, r4, pc}^
+  189 00000130         rpm_data_abort_handler
+  190 00000130 E51D4004        ldr              r4, [r13,#-0x4] ; undo r4 trash
+                                                            ing from the PBL
+  191 00000134         ;push {r0-r12, lr}       ; but save everything for later
+                        anyway
+  192 00000134 E14F0000        mrs              r0, SPSR
+  193 00000138 E52D0004        push             {r0}
+  194 0000013C E24E0008        sub              r0, lr, #8  ; pass address of i
+                                                            nstruction as argum
+                                                            ent
+  195 00000140 E321F0DF        msr              CPSR_c,  #Mode_SYS:OR:I_Bit:OR:
+F_Bit 
+
+
+
+ARM Macro Assembler    Page 6 
+
+
+                                                            ; Switch to system 
+                                                            mode
+  196 00000144 E52DE004        push             {r14}
+  197 00000148 E59F4060        ldr              r4, =rpm_data_abort_c_handler
+  198 0000014C E59FE060        ldr              r14, =%4
+  199 00000150 E12FFF14        bx               r4
+  200 00000154 E49DE004 
+                       4       pop              {r14}
+  201 00000158 E321F0D7        msr              CPSR_c,  #Mode_ABT:OR:I_Bit:OR:
+F_Bit
+  202 0000015C E49D0004        pop              {r0}
+  203 00000160 E16FF000        msr              SPSR_cxsf, r0
+  204 00000164 E8FD8011        pop              {r0, r4, pc}^
+  205 00000168         rpm_reserved
+  206 00000168 E51D4004        ldr              r4, [r13,#-0x4] ; undo r4 trash
+                                                            ing from the PBL
+  207 0000016C E92D5FFF        push             {r0-r12, lr} ; but save everyth
+                                                            ing for later anywa
+                                                            y
+  208 00000170 E59F4040        ldr              r4, =rpm_reserved_c_handler
+  209 00000174 E59FE040        ldr              r14, =%5
+  210 00000178 E12FFF14 
+                       5       bx               r4
+  211 0000017C         rpm_irq_handler
+  212 0000017C E51D4004        ldr              r4, [r13,#-0x4] ; undo r4 trash
+                                                            ing from the PBL
+  213 00000180 EAFFFFFE        b                IRQ_Handler ; dispatch to rex's
+                                                             irq handler
+  214 00000184         rpm_fiq_handler
+  215 00000184 E51D4004        ldr              r4, [r13,#-0x4] ; undo r4 trash
+                                                            ing from the PBL
+  216 00000188 EAFFFFFE        b                FIQ_Handler ; dispatch to rex's
+                                                             fiq handler
+  217 0000018C                 END
+              00047950 
+              00047E50 
+              CCCCCCCC 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+Command Line: --16 --debug --dwarf2 --cpu=ARM7TDMI-S --apcs=/noswst/interwork -
+orpm/8064/build/rpm.o -Irpm/8064/build -Irpm/8064/src -Icust -Ims -I/home/limin
+ghao/aries-l/vendor/qcom/fusion/8064/rpm_proc/core/power/rpm/inc -I/home/liming
+hao/aries-l/vendor/qcom/fusion/8064/rpm_proc/core/hal/common/include -I/home/li
+minghao/aries-l/vendor/qcom/fusion/8064/rpm_proc/core/dal/framework/sys/src/rex
+ -I/home/liminghao/aries-l/vendor/qcom/fusion/8064/rpm_proc/core/api/boot -I/ho
+me/liminghao/aries-l/vendor/qcom/fusion/8064/rpm_proc/core/api/buses -I/home/li
+minghao/aries-l/vendor/qcom/fusion/8064/rpm_proc/core/api/buses/private -I/home
+/liminghao/aries-l/vendor/qcom/fusion/8064/rpm_proc/core/api/dal -I/home/liming
+hao/aries-l/vendor/qcom/fusion/8064/rpm_proc/core/api/power -I/home/liminghao/a
+ries-l/vendor/qcom/fusion/8064/rpm_proc/core/api/systemdrivers -I/home/limingha
+o/aries-l/vendor/qcom/fusion/8064/rpm_proc/core/api/systemdrivers/hwio/apq8064/
+
+
+
+ARM Macro Assembler    Page 7 
+
+
+inc -I/home/liminghao/aries-l/vendor/qcom/fusion/8064/rpm_proc/core/api/systemd
+rivers/hwio/apq8064/inc/hal -I/home/liminghao/aries-l/vendor/qcom/fusion/8064/r
+pm_proc/core/boot/ddr/common -I/home/liminghao/aries-l/vendor/qcom/fusion/8064/
+rpm_proc/core/buses/api/icb -I/home/liminghao/aries-l/vendor/qcom/fusion/8064/r
+pm_proc/core/dal/framework/sys/inc -I/home/liminghao/aries-l/vendor/qcom/fusion
+/8064/rpm_proc/core/dal/config -I/home/liminghao/aries-l/vendor/qcom/fusion/806
+4/rpm_proc/core/dal/remote/inc -I/home/liminghao/aries-l/vendor/qcom/fusion/806
+4/rpm_proc/core/power/mpm/inc -I/home/liminghao/aries-l/vendor/qcom/fusion/8064
+/rpm_proc/core/power/mpm/hal/include -I/home/liminghao/aries-l/vendor/qcom/fusi
+on/8064/rpm_proc/core/power/mpm/hal/bsp/include -I/home/liminghao/aries-l/vendo
+r/qcom/fusion/8064/rpm_proc/core/power/sleep/inc -I/home/liminghao/aries-l/vend
+or/qcom/fusion/8064/rpm_proc/core/power/sleep/src/common -I/home/liminghao/arie
+s-l/vendor/qcom/fusion/8064/rpm_proc/core/power/utils/inc -I/home/liminghao/ari
+es-l/vendor/qcom/fusion/8064/rpm_proc/core/systemdrivers/hal/qgic/inc -I/home/l
+iminghao/aries-l/vendor/qcom/fusion/8064/rpm_proc/core/systemdrivers/hal/qgic/s
+rc -I/home/liminghao/aries-l/vendor/qcom/fusion/8064/rpm_proc/core/systemdriver
+s/busywait/inc -I/home/liminghao/aries-l/vendor/qcom/fusion/8064/rpm_proc/core/
+systemdrivers/clk/inc -I/home/liminghao/aries-l/vendor/qcom/fusion/8064/rpm_pro
+c/core/systemdrivers/tramp/src -I/home/liminghao/aries-l/vendor/qcom/fusion/806
+4/rpm_proc/core/systemdrivers/tramp/src/platform/qgic -I/home/liminghao/aries-l
+/vendor/qcom/fusion/8064/rpm_proc/pmic/api -I/home/liminghao/aries-l/vendor/qco
+m/fusion/8064/rpm_proc/core/buses/xpu/hal/inc -I/home/liminghao/aries-l/vendor/
+qcom/fusion/8064/rpm_proc/core/buses/m2vmt/hal/inc --list=rpm/8064/build/rpm.o.
+lst rpm/8064/build/rpm.o.i

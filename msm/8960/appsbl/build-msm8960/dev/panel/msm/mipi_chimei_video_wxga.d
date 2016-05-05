@@ -1,0 +1,14 @@
+../../../out/target/product/aries/obj/EMMC_BOOTLOADER_OBJ/build-msm8960/dev/panel/msm/mipi_chimei_video_wxga.o: \
+ dev/panel/msm/mipi_chimei_video_wxga.c \
+ ../../../out/target/product/aries/obj/EMMC_BOOTLOADER_OBJ/build-msm8960/config.h \
+ include/stdint.h platform/msm_shared/include/msm_panel.h \
+ include/dev/fbcon.h platform/msm_shared/include/mipi_dsi.h \
+ include/sys/types.h \
+ /home/liminghao/sda4/aries/prebuilts/gcc/linux-x86/arm/arm-eabi-4.8/lib/gcc/arm-eabi/4.8/include/stddef.h \
+ include/limits.h include/err.h include/reg.h include/debug.h \
+ include/assert.h include/compiler.h \
+ /home/liminghao/sda4/aries/prebuilts/gcc/linux-x86/arm/arm-eabi-4.8/lib/gcc/arm-eabi/4.8/include/stdarg.h \
+ include/platform/debug.h include/printf.h \
+ platform/msm8960/include/platform/iomap.h \
+ platform/msm_shared/include/mdp4.h platform/msm_shared/include/clock.h \
+ dev/panel/msm/mipi_tc358764_dsi2lvds.h

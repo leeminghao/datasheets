@@ -1,0 +1,2117 @@
+
+../../../out/target/product/aries/obj/EMMC_BOOTLOADER_OBJ/build-msm8960/lk:     file format elf32-littlearm
+
+SYMBOL TABLE:
+88f00000 l    d  .text.boot	00000000 .text.boot
+88f00140 l    d  .text	00000000 .text
+88f31a28 l    d  .rodata	00000000 .rodata
+88f45e84 l    d  .ARM.exidx	00000000 .ARM.exidx
+88f45ea8 l    d  .data	00000000 .data
+89014000 l    d  .bss	00000000 .bss
+00000000 l    d  .ARM.attributes	00000000 .ARM.attributes
+00000000 l    d  .debug_line	00000000 .debug_line
+00000000 l    d  .debug_info	00000000 .debug_info
+00000000 l    d  .debug_abbrev	00000000 .debug_abbrev
+00000000 l    d  .debug_aranges	00000000 .debug_aranges
+00000000 l    d  .debug_loc	00000000 .debug_loc
+00000000 l    d  .debug_ranges	00000000 .debug_ranges
+00000000 l    d  .debug_str	00000000 .debug_str
+00000000 l    d  .debug_frame	00000000 .debug_frame
+00000000 l    df *ABS*	00000000 ../../../out/target/product/aries/obj/EMMC_BOOTLOADER_OBJ/build-msm8960/arch/arm/crt0.o
+88f00020 l       .text.boot	00000000 reset
+89014400 l       .bss	00000000 abort_stack_top
+89014000 l       .bss	00000000 abort_stack
+89014400 l       .bss	00000000 .rodata
+00000000 l    df *ABS*	00000000 init.c
+88f45ea8 l       .data	00000000 .LANCHOR0
+89014404 l       .bss	00000000 .LANCHOR1
+89014404 l     O .bss	0000000c pmic
+88f45ea8 l     O .data	00000001 platform_ce_type
+00000000 l    df *ABS*	00000000 atags.c
+88f45ed4 l       .data	00000000 .LANCHOR3
+88f45eac l       .data	00000000 .LANCHOR1
+88f45ef4 l       .data	00000000 .LANCHOR2
+88f45ecc l       .data	00000000 .LANCHOR4
+88f45f0c l       .data	00000000 .LANCHOR0
+00000000 l    df *ABS*	00000000 keypad.c
+88f45f3c l       .data	00000000 .LANCHOR0
+88f45f74 l       .data	00000000 .LANCHOR2
+88f4600c l       .data	00000000 .LANCHOR1
+88f45fb4 l       .data	00000000 .LANCHOR4
+88f46044 l       .data	00000000 .LANCHOR3
+00000000 l    df *ABS*	00000000 target_display.c
+88f01250 l     F .text	00000018 mpq8064_hdmi_panel_power
+88f01268 l     F .text	00000018 apq8064_lvds_clock
+88f01280 l     F .text	00000020 mpq8064_hdmi_panel_clock
+88f012a0 l     F .text	0000008c msm8960_mipi_panel_power
+88f31d60 l       .rodata	00000000 .LANCHOR0
+88f0132c l     F .text	0000003c msm8960_mipi_panel_clock
+88f01368 l     F .text	0000003c fusion3_mtp_clock
+88f013a4 l     F .text	000000f8 fusion3_mtp_panel_power
+88f0149c l     F .text	0000014c msm8960_liquid_mipi_panel_power
+89014418 l       .bss	00000000 .LANCHOR1
+89014410 l       .bss	00000000 .LANCHOR2
+89014414 l       .bss	00000000 .LANCHOR3
+88f015e8 l     F .text	00000038 apq8064_lvds_panel_power
+88f01620 l     F .text	0000003c msm8960_liquid_mipi_panel_clock
+89014520 l       .bss	00000000 .LANCHOR4
+8901451c l       .bss	00000000 .LANCHOR5
+8901441c l       .bss	00000000 .LANCHOR6
+89014518 l       .bss	00000000 .LANCHOR7
+89014410 l     O .bss	00000004 gpio21.4291
+89014414 l     O .bss	00000004 gpio43.4292
+89014418 l     O .bss	00000004 gpio17.4290
+8901441c l     O .bss	000000fc panel
+89014518 l     O .bss	00000001 display_enable
+8901451c l     O .bss	00000004 lm3530_dev.4250
+89014520 l     O .bss	00000004 lm3530_dev.4243
+00000000 l    df *ABS*	00000000 platform.c
+89014524 l       .bss	00000000 .LANCHOR0
+89014524 l     O .bss	00000004 ticks_per_sec
+00000000 l    df *ABS*	00000000 acpuclock.c
+00000000 l    df *ABS*	00000000 gpio.c
+88f020c8 l     F .text	00000080 find_gpio
+88f4626c l       .data	00000000 .LANCHOR0
+88f46308 l       .data	00000000 .LANCHOR3
+88f463a8 l       .data	00000000 .LANCHOR2
+88f46448 l       .data	00000000 .LANCHOR5
+88f46290 l       .data	00000000 .LANCHOR4
+88f460dc l     O .data	00000078 pm8921_display_gpios_apq
+88f46154 l     O .data	000000a0 pm8921_keypad_gpios
+88f461f4 l     O .data	00000078 mi_display_gpios_apq
+88f4626c l     O .data	00000024 GPIO_REGS
+88f46290 l     O .data	00000078 pm8917_keypad_gpios_apq
+88f46308 l     O .data	000000a0 pm8038_keypad_gpios
+88f463a8 l     O .data	000000a0 pm8917_keypad_gpios
+88f46448 l     O .data	000000a0 pm8921_keypad_gpios_apq
+00000000 l    df *ABS*	00000000 clock.c
+88f02610 l     F .text	00000008 fixed_clk_get_rate
+88f02618 l     F .text	00000008 xo_clk_enable
+88f02620 l     F .text	00000004 xo_clk_disable
+88f02624 l     F .text	00000008 measure_clk_set_parent
+88f0262c l     F .text	00000008 measure_clk_get_rate
+88f02634 l     F .text	00000050 sr_pll_clk_enable
+88f46f6c l       .data	00000000 .LANCHOR0
+88f478f4 l       .data	00000000 .LANCHOR1
+88f464e8 l     O .data	000001a4 clk_tbl_mdp
+88f46bb4 l     O .data	0000002c pll8_clk
+88f46908 l     O .data	00000018 pxo_clk
+88f46718 l     O .data	00000020 pll2_clk
+88f4668c l     O .data	00000034 gsbi8_p_clk
+88f46b44 l     O .data	0000003c clk_ops_branch
+88f466c0 l     O .data	00000058 gsbi8_qup_clk
+88f46c38 l     O .data	00000118 clk_tbl_gsbi_qup
+88f46790 l     O .data	0000003c soc_clk_ops_8960
+88f46738 l     O .data	00000058 gsbi7_qup_clk
+88f467cc l     O .data	00000058 gsbi9_uart_clk
+88f47750 l     O .data	000001a4 clk_tbl_gsbi_uart
+88f46824 l     O .data	00000034 ce3_core_clk
+88f47578 l     O .data	00000058 ce3_src_clk
+88f46858 l     O .data	00000058 gsbi2_qup_clk
+88f468b0 l     O .data	00000058 gsbi1_uart_clk
+88f476bc l     O .data	0000003c clk_ops_xo
+88f46920 l     O .data	00000034 mdp_axi_clk
+88f46954 l     O .data	00000058 sdc3_clk
+88f47bc8 l     O .data	00000134 clk_tbl_sdc
+88f469ac l     O .data	00000034 lut_mdp_clk
+88f472b4 l     O .data	00000058 mdp_clk
+88f469e0 l     O .data	00000058 gsbi8_uart_clk
+88f46a38 l     O .data	00000058 gsbi5_qup_clk
+88f46a90 l     O .data	00000028 measure_clk
+88f474a0 l     O .data	0000003c measure_clk_ops
+88f46ab8 l     O .data	00000058 gsbi12_qup_clk
+88f46b10 l     O .data	00000034 ce1_core_clk
+88f46b80 l     O .data	00000034 gsbi1_p_clk
+88f46be0 l     O .data	00000058 gsbi7_uart_clk
+88f46d50 l     O .data	00000058 gsbi6_uart_clk
+88f46da8 l     O .data	00000034 gsbi3_p_clk
+88f46ddc l     O .data	00000058 sdc4_clk
+88f46e34 l     O .data	00000058 gsbi12_uart_clk
+88f46e8c l     O .data	00000034 gsbi2_p_clk
+88f46ec0 l     O .data	00000058 gsbi11_uart_clk
+88f46f18 l     O .data	00000020 pll3_clk
+88f46f38 l     O .data	00000034 gsbi11_p_clk
+88f46fa8 l     O .data	00000058 gsbi3_qup_clk
+88f47000 l     O .data	00000034 gsbi10_p_clk
+88f47034 l     O .data	00000058 gsbi10_qup_clk
+88f4708c l     O .data	00000034 ce1_p_clk
+88f470c0 l     O .data	00000034 gsbi6_p_clk
+88f470f4 l     O .data	00000038 clk_tbl_usb
+88f4712c l     O .data	00000054 clk_tbl_ce3
+88f47180 l     O .data	00000058 gsbi5_uart_clk
+88f471d8 l     O .data	0000002c bmnd_info_mdp
+88f47204 l     O .data	00000058 gsbi10_uart_clk
+88f4725c l     O .data	00000058 usb_hs1_xcvr_clk
+88f4730c l     O .data	00000034 gsbi4_p_clk
+88f47340 l     O .data	00000058 gsbi6_qup_clk
+88f47398 l     O .data	00000058 sdc5_clk
+88f473f0 l     O .data	00000058 gsbi4_uart_clk
+88f47448 l     O .data	00000058 sdc1_clk
+88f474dc l     O .data	00000034 gsbi12_p_clk
+88f47510 l     O .data	00000034 gsbi5_p_clk
+88f47544 l     O .data	00000034 ce3_p_clk
+88f475d0 l     O .data	00000058 gsbi9_qup_clk
+88f47664 l     O .data	00000058 gsbi3_uart_clk
+88f476f8 l     O .data	00000058 gsbi4_qup_clk
+88f478f4 l     O .data	00000198 msm_clocks_8960
+88f47d30 l     O .data	00000058 gsbi2_uart_clk
+88f47b70 l     O .data	00000058 gsbi1_qup_clk
+88f47ac0 l     O .data	00000058 gsbi11_qup_clk
+88f47a8c l     O .data	00000034 gsbi7_p_clk
+88f47cfc l     O .data	00000034 gsbi9_p_clk
+88f47b18 l     O .data	00000058 sdc2_clk
+00000000 l    df *ABS*	00000000 hdmi_core.c
+89014528 l       .bss	00000000 .LANCHOR0
+88f322f0 l       .rodata	00000000 .LANCHOR1
+89014528 l     O .bss	00000004 hdmi_pll_on
+88f322f0 l     O .rodata	00000010 __func__.4065
+00000000 l    df *ABS*	00000000 debug.c
+00000000 l    df *ABS*	00000000 smem.c
+00000000 l    df *ABS*	00000000 smem_ptable.c
+00000000 l    df *ABS*	00000000 hsusb.c
+88f02d2c l     F .text	00000074 endpoint_enable
+89014550 l       .bss	00000000 .LANCHOR0
+88f02da0 l     F .text	00000108 handle_ept_complete
+88f02ea8 l     F .text	00000078 ep0_setup_ack_complete
+89014530 l       .bss	00000000 .LANCHOR1
+89014554 l       .bss	00000000 .LANCHOR2
+88f47d88 l       .data	00000000 .LANCHOR3
+8901453c l       .bss	00000000 .LANCHOR4
+89014540 l       .bss	00000000 .LANCHOR5
+88f47d8c l       .data	00000000 .LANCHOR6
+88f03410 l     F .text	00000060 setup_tx
+8901454c l       .bss	00000000 .LANCHOR7
+89014544 l       .bss	00000000 .LANCHOR8
+88f03470 l     F .text	00000024 ep0in_complete
+8901452c l       .bss	00000000 .LANCHOR9
+88f03494 l     F .text	00000034 setup_ack
+89014538 l       .bss	00000000 .LANCHOR12
+89014534 l       .bss	00000000 .LANCHOR11
+89014548 l       .bss	00000000 .LANCHOR10
+88f3259c l       .rodata	00000000 .LANCHOR13
+89014558 l       .bss	00000000 .LANCHOR14
+88f47d88 l     O .data	00000004 next_string_id
+8901452c l     O .bss	00000004 ep0out
+89014530 l     O .bss	00000004 test_mode
+89014534 l     O .bss	00000001 usb_config_value
+89014538 l     O .bss	00000004 the_gadget
+88f47d8c l     O .data	00000004 ept_alloc_table
+89014544 l     O .bss	00000004 ep0in
+89014548 l     O .bss	00000004 usb_online
+88f3259c l     O .rodata	00000030 CSWTCH.51
+8901454c l     O .bss	00000004 ep0req
+89014550 l     O .bss	00000004 usb_highspeed
+89014554 l     O .bss	00000004 desc_list
+89014558 l     O .bss	00000004 the_device
+00000000 l    df *ABS*	00000000 nand.c
+88f03ed0 l     F .text	000000d4 dmov_exec_cmdptr.constprop.4
+88f03fa4 l     F .text	000007f4 _flash_onenand_write_page
+890145c0 l       .bss	00000000 .LANCHOR1
+89014560 l       .bss	00000000 .LANCHOR0
+88f325cc l       .rodata	00000000 .LANCHOR2
+88f32628 l       .rodata	00000000 .LANCHOR3
+88f04798 l     F .text	00000774 _flash_onenand_read_page.isra.1
+88f04f0c l     F .text	000000ac flash_onenand_block_isbad
+88f3260c l       .rodata	00000000 .LANCHOR4
+89014570 l       .bss	00000000 .LANCHOR5
+88f04fb8 l     F .text	00000484 _flash_nand_write_page
+890145bc l       .bss	00000000 .LANCHOR6
+8901456c l       .bss	00000000 .LANCHOR7
+89014568 l       .bss	00000000 .LANCHOR9
+89014584 l       .bss	00000000 .LANCHOR8
+89014564 l       .bss	00000000 .LANCHOR11
+89014578 l       .bss	00000000 .LANCHOR12
+89014574 l       .bss	00000000 .LANCHOR10
+88f0543c l     F .text	000005b8 _flash_write_page
+89014588 l       .bss	00000000 .LANCHOR13
+8901455c l       .bss	00000000 .LANCHOR14
+88f059f4 l     F .text	000002e4 flash_nand_block_isbad
+88f05cd8 l     F .text	000005a0 flash_erase_block
+88f32a24 l       .rodata	00000000 .LANCHOR15
+890145b0 l       .bss	00000000 .LANCHOR16
+8901457c l       .bss	00000000 .LANCHOR17
+89014580 l       .bss	00000000 .LANCHOR18
+890145b8 l       .bss	00000000 .LANCHOR20
+890145b4 l       .bss	00000000 .LANCHOR27
+890145a8 l       .bss	00000000 .LANCHOR25
+890145c4 l       .bss	00000000 .LANCHOR24
+890145ac l       .bss	00000000 .LANCHOR26
+88f3260c l     O .rodata	00000019 __func__.4282
+8901455c l     O .bss	00000004 interleaved_mode
+89014560 l     O .bss	00000004 flash_pagesize
+89014564 l     O .bss	00000004 NAND_CFG0_RAW
+89014568 l     O .bss	00000004 enable_bch_ecc
+8901456c l     O .bss	00000004 CFG0_M
+89014570 l     O .bss	00000004 num_pages_per_blk_mask
+88f32628 l     O .rodata	0000001a __func__.4345
+89014574 l     O .bss	00000004 ECC_BCH_CFG
+89014578 l     O .bss	00000004 NAND_CFG1_RAW
+8901457c l     O .bss	00000004 flash_ptrlist
+88f32a24 l     O .rodata	0000001a __func__.4233
+89014580 l     O .bss	00000004 flash_cmdlist
+89014584 l     O .bss	00000004 CFG1
+89014588 l     O .bss	00000020 flash_info
+890145a8 l     O .bss	00000004 CFG1_A
+890145ac l     O .bss	00000004 CFG1_M
+890145b0 l     O .bss	00000004 flash_ptable
+890145b4 l     O .bss	00000004 bbtbl
+890145b8 l     O .bss	00000004 flash_spare
+890145bc l     O .bss	00000004 CFG0
+890145c0 l     O .bss	00000004 num_pages_per_blk
+890145c4 l     O .bss	00000004 CFG0_A
+00000000 l    df *ABS*	00000000 mmc.c
+88f07438 l     F .text	0000003c mmc_boot_status_error
+88f07474 l     F .text	000000a4 mmc_boot_fifo_read
+890145cc l       .bss	00000000 .LANCHOR0
+88f07518 l     F .text	000000b4 mmc_boot_fifo_write
+88f0762c l     F .text	00000164 mmc_boot_send_command
+88f07790 l     F .text	0000005c mmc_boot_set_block_len.part.2
+88f077ec l     F .text	00000050 mmc_boot_send_stop_transmission.part.3
+88f0783c l     F .text	00000070 mmc_boot_get_card_status.part.4
+88f078ac l     F .text	0000004c mmc_boot_send_app_cmd
+88f078f8 l     F .text	00000118 mmc_boot_switch_cmd.constprop.29
+88f07a10 l     F .text	000000b4 mmc_boot_set_sd_bus_width.isra.12
+88f07ac4 l     F .text	000000d8 mmc_boot_read_reg.isra.9.constprop.23
+88f07b9c l     F .text	00000118 mmc_boot_send_ext_cmd.constprop.31
+890145d0 l       .bss	00000000 .LANCHOR1
+890145c8 l       .bss	00000000 .LANCHOR2
+88f32a80 l       .rodata	00000000 .LANCHOR3
+88f32a40 l       .rodata	00000000 .LANCHOR4
+88f32ac0 l       .rodata	00000000 .LANCHOR5
+88f32aa0 l       .rodata	00000000 .LANCHOR6
+88f32a40 l     O .rodata	00000040 taac_value
+88f32a80 l     O .rodata	00000020 taac_unit
+88f32aa0 l     O .rodata	00000020 xfer_rate_unit
+88f32ac0 l     O .rodata	00000040 xfer_rate_value
+890145d0 l     O .bss	00000200 ext_csd_buf
+00000000 l    df *ABS*	00000000 partition_parser.c
+88f09330 l     F .text	000003d8 mbr_fill_name
+890147d8 l       .bss	00000000 .LANCHOR2
+88f47d9c l       .data	00000000 .LANCHOR3
+890147dc l       .bss	00000000 .LANCHOR1
+88f47d90 l       .data	00000000 .LANCHOR0
+88f09708 l     F .text	00000110 write_gpt_partition_array
+88f09818 l     F .text	00000038 partition_verify_mbr_signature.part.1
+88f09850 l     F .text	00000130 partition_parse_gpt_header.part.2
+890147d0 l       .bss	00000000 .LANCHOR4
+890147d4 l       .bss	00000000 .LANCHOR5
+00000000 l    df *ABS*	00000000 hdmi.c
+88f47db0 l       .data	00000000 .LANCHOR0
+00000000 l    df *ABS*	00000000 mipi_dsi.c
+88f482d0 l       .data	00000000 .LANCHOR0
+88f33920 l       .rodata	00000000 .LANCHOR4
+88f338b0 l       .rodata	00000000 .LANCHOR3
+88f339ac l       .rodata	00000000 .LANCHOR2
+88f3394c l       .rodata	00000000 .LANCHOR1
+88f33a30 l       .rodata	00000000 .LANCHOR5
+88f33948 l       .rodata	00000000 .LANCHOR7
+88f482e0 l       .data	00000000 .LANCHOR8
+890147e0 l       .bss	00000000 .LANCHOR9
+88f47e10 l       .data	00000000 .LANCHOR10
+88f47e18 l       .data	00000000 .LANCHOR11
+890147e4 l       .bss	00000000 .LANCHOR12
+88f48140 l       .data	00000000 .LANCHOR13
+890147e8 l       .bss	00000000 .LANCHOR14
+88f47eec l       .data	00000000 .LANCHOR19
+88f48190 l       .data	00000000 .LANCHOR17
+88f48300 l       .data	00000000 .LANCHOR15
+88f47e34 l       .data	00000000 .LANCHOR18
+88f48204 l       .data	00000000 .LANCHOR16
+88f47ddc l     O .data	00000004 set_address_mode
+890147e0 l     O .bss	00000004 cmd_mode_status
+88f47de0 l     O .data	00000004 novatek_panel_manufacture_id0
+88f47de4 l     O .data	0000002c lgd_dispset1common
+88f47e10 l     O .data	00000008 novatek_panel_max_packet_cmd
+88f48280 l     O .data	00000004 novatek_panel_max_packet
+88f47e18 l     O .data	00000008 novatek_panel_manufacture_id_cmd
+88f4806c l     O .data	00000004 novatek_panel_manufacture_id
+88f338ac l     O .rodata	00000004 mcap_start
+88f47e20 l     O .data	0000000c lgd_pageaddr
+88f47e2c l     O .data	00000008 lgd_fmis2
+88f338b0 l     O .rodata	00000070 cmd_delay_auo
+88f47e34 l     O .data	000000b8 lgd_panel_cmd_mode_cmds
+88f47fcc l     O .data	00000008 lgd_mca
+88f483a4 l     O .data	00000008 lgd_seqctrl
+88f4828c l     O .data	0000000c lgd_fmis1
+88f483b8 l     O .data	00000008 lgd_fmis3
+88f48150 l     O .data	00000008 lgd_gip
+88f48274 l     O .data	0000000c lgd_dispset2
+88f48074 l     O .data	00000014 lgd_srctimming
+88f48008 l     O .data	0000000c lgd_giptimming
+88f48168 l     O .data	0000000c lgd_pwmfreq
+88f48384 l     O .data	00000018 lgd_pwrsetchargepump
+88f482a0 l     O .data	00000020 lgd_pwrsetinternal
+88f4839c l     O .data	00000004 lgd_sleepout
+88f47fe0 l     O .data	0000000c lgd_coladdr
+88f48264 l     O .data	00000008 lgd_teon
+88f48148 l     O .data	00000008 lgd_setaddr
+88f482c0 l     O .data	00000008 lgd_setpixfmt
+88f483a0 l     O .data	00000004 lgd_dispon
+88f48180 l     O .data	00000008 lgd_wdispbrightness
+88f483b0 l     O .data	00000008 lgd_wctrldisp
+88f48000 l     O .data	00000008 lgd_wcabcctrl
+88f47eec l     O .data	000000e0 auo_panel_cmd_mode_cmds
+88f48370 l     O .data	00000004 lgd_sleepout1
+88f48374 l     O .data	00000004 lgd_sleepout2
+88f48178 l     O .data	00000004 lgd_sleepout21
+88f48158 l     O .data	00000004 lgd_sleepout22
+88f48164 l     O .data	00000004 lgd_sleepout23
+88f48188 l     O .data	00000004 lgd_sleepout231
+88f4818c l     O .data	00000004 lgd_sleepout232
+88f483ac l     O .data	00000004 lgd_sleepout233
+88f481f0 l     O .data	00000004 lgd_sleepout234
+88f481f4 l     O .data	00000004 lgd_sleepout235
+88f48200 l     O .data	00000004 lgd_sleepout24
+88f4817c l     O .data	00000004 lgd_sleepout25
+88f48254 l     O .data	00000004 lgd_sleepout26
+88f48258 l     O .data	00000004 lgd_sleepout27
+88f48174 l     O .data	00000004 lgd_sleepout28
+88f48378 l     O .data	00000004 lgd_sleepout3
+88f4837c l     O .data	00000004 lgd_sleepout4
+88f4825c l     O .data	00000004 lgd_sleepout41
+88f48260 l     O .data	00000004 lgd_sleepout42
+88f4826c l     O .data	00000004 lgd_sleepout43
+88f482c8 l     O .data	00000008 auo_wdispbrightness
+88f4815c l     O .data	00000008 auo_wctrldisp
+88f481f8 l     O .data	00000008 auo_wcabcctrl
+88f47fd4 l     O .data	0000000c set_page1_address
+88f47fec l     O .data	0000000c set_column_address
+88f47ff8 l     O .data	00000008 set_tear_scanline
+88f33920 l     O .rodata	00000028 cmd_delay_jdi
+88f48014 l     O .data	00000058 renesas_panel_cmd_mode_cmds
+88f3397c l     O .rodata	00000004 exit_sleep_mode
+88f48298 l     O .data	00000004 set_tear_on
+88f48284 l     O .data	00000008 write_display_brightness
+88f48270 l     O .data	00000004 write_control_display
+88f48380 l     O .data	00000004 write_cabc
+88f4829c l     O .data	00000004 set_pixel_format
+88f48070 l     O .data	00000004 set_display_on
+890147e4 l     O .bss	00000004 manu_id
+88f33948 l     O .rodata	00000003 CSWTCH.23
+88f3394c l     O .rodata	00000030 cmd_delay
+88f48088 l     O .data	000000b8 mipi_dsi_renesas_panel_phy_ctrl
+88f48140 l     O .data	00000008 novatek_panel_manufacture_id0_cmd
+88f33980 l     O .rodata	00000028 sharp_ce_on
+88f339a8 l     O .rodata	00000004 mcap_end
+88f339ac l     O .rodata	0000005c cmd_delay_lgd
+88f48190 l     O .data	00000060 sharp_panel_cmd_mode_cmds
+890147e8 l     O .bss	00000004 manu_id0
+88f48204 l     O .data	00000050 jdi_panel_cmd_mode_cmds
+88f33a08 l     O .rodata	00000028 jdi_ce_on
+88f33a30 l     O .rodata	00000003 CSWTCH.16
+88f482e0 l     O .data	00000020 mipi_fb_cfg
+88f48300 l     O .data	00000070 hitachi_panel_cmd_mode_cmds
+00000000 l    df *ABS*	00000000 i2c_qup.c
+88f0c104 l     F .text	00000078 qup_set_read_mode
+88f0c17c l     F .text	00000108 qup_i2c_interrupt
+890147ec l       .bss	00000000 .LANCHOR0
+88f0c284 l     F .text	0000007c qup_i2c_poll_state.isra.3
+88f0c300 l     F .text	0000004c qup_update_state
+890147ec l     O .bss	00000004 dev_addr
+00000000 l    df *ABS*	00000000 uart_dm.c
+88f0cec4 l     F .text	0000016c msm_boot_uart_dm_write
+890147f4 l       .bss	00000000 .LANCHOR0
+890147f8 l       .bss	00000000 .LANCHOR1
+890147f0 l       .bss	00000000 .LANCHOR2
+890147f0 l     O .bss	00000004 uart_init_flag
+890147f4 l     O .bss	00000001 port.4007
+890147f8 l     O .bss	00000010 port_lookup
+00000000 l    df *ABS*	00000000 qgic.c
+89014808 l       .bss	00000000 .LANCHOR0
+88f33de8 l       .rodata	00000000 .LANCHOR1
+88f33de8 l     O .rodata	00000011 __PRETTY_FUNCTION__.4040
+89014808 l     O .bss	00000d68 handler
+00000000 l    df *ABS*	00000000 mdp4.c
+89015570 l       .bss	00000000 .LANCHOR0
+89015570 l     O .bss	00000004 mdp_rev
+00000000 l    df *ABS*	00000000 crypto4_eng.c
+00000000 l    df *ABS*	00000000 crypto_hash.c
+88f0dccc l     F .text	00000030 crypto_init
+89015574 l       .bss	00000000 .LANCHOR0
+88f0dcfc l     F .text	00000074 crypto_sha1_init.constprop.0
+88f33f00 l       .rodata	00000000 .LANCHOR1
+89015578 l       .bss	00000000 .LANCHOR2
+88f0dd70 l     F .text	00000074 crypto_sha256_init.constprop.1
+890155dc l       .bss	00000000 .LANCHOR3
+88f0dde4 l     F .text	00000168 do_sha_update.constprop.2
+89015574 l     O .bss	00000001 crypto_init_done
+89015578 l     O .bss	00000064 g_sha1_ctx
+890155dc l     O .bss	00000070 g_sha256_ctx
+00000000 l    df *ABS*	00000000 image_verify.c
+00000000 l    df *ABS*	00000000 scm.c
+88f0e23c l     F .text	00000030 scm_command_to_response
+88f0e26c l     F .text	00000028 scm_get_command_buffer
+88f0e294 l     F .text	00000030 scm_get_response_buffer
+88f0e2c4 l     F .text	00000020 free_scm_command
+88f0e2e4 l     F .text	00000094 alloc_scm_command
+88f0e378 l     F .text	00000040 smc
+00000000 l    df *ABS*	00000000 interrupts.c
+00000000 l    df *ABS*	00000000 clock-local.c
+88f0e724 l     F .text	000000a4 __branch_clk_enable_reg.isra.1
+88f0e7c8 l     F .text	00000090 __local_clk_enable_reg
+88f483c0 l       .data	00000000 .LANCHOR0
+00000000 l    df *ABS*	00000000 clock.c
+8901564c l       .bss	00000000 .LANCHOR0
+8901564c l     O .bss	00000008 msm_clk_list
+00000000 l    df *ABS*	00000000 clock_pll.c
+00000000 l    df *ABS*	00000000 board.c
+88f483dc l       .data	00000000 .LANCHOR0
+88f483dc l     O .data	00000028 board
+00000000 l    df *ABS*	00000000 display.c
+89015654 l       .bss	00000000 .LANCHOR0
+89015654 l     O .bss	00000004 panel
+00000000 l    df *ABS*	00000000 lvds.c
+00000000 l    df *ABS*	00000000 mipi_dsi_phy.c
+00000000 l    df *ABS*	00000000 timer.c
+88f0fab0 l     F .text	00000048 timer_irq
+8901565c l       .bss	00000000 .LANCHOR1
+89015664 l       .bss	00000000 .LANCHOR0
+89015658 l       .bss	00000000 .LANCHOR2
+89015660 l       .bss	00000000 .LANCHOR3
+89015658 l     O .bss	00000004 timer_callback
+8901565c l     O .bss	00000004 timer_interval
+89015660 l     O .bss	00000004 timer_arg
+89015664 l     O .bss	00000004 ticks
+00000000 l    df *ABS*	00000000 mdp_lcdc.c
+00000000 l    df *ABS*	00000000 arch.c
+00000000 l    df *ABS*	00000000 ../../../out/target/product/aries/obj/EMMC_BOOTLOADER_OBJ/build-msm8960/arch/arm/asm.o
+00000000 l    df *ABS*	00000000 ../../../out/target/product/aries/obj/EMMC_BOOTLOADER_OBJ/build-msm8960/arch/arm/cache-ops.o
+88f10180 l       .text	00000000 flush_invalidate_cache_v7
+88f1020c l       .text	00000000 invalidate_cache_v7
+00000000 l    df *ABS*	00000000 ../../../out/target/product/aries/obj/EMMC_BOOTLOADER_OBJ/build-msm8960/arch/arm/ops.o
+00000000 l    df *ABS*	00000000 ../../../out/target/product/aries/obj/EMMC_BOOTLOADER_OBJ/build-msm8960/arch/arm/exceptions.o
+00000000 l    df *ABS*	00000000 faults.c
+88f104f0 l     F .text	00000274 exception_die
+00000000 l    df *ABS*	00000000 mmu.c
+89018000 l       .bss	00000000 .LANCHOR0
+89018000 l     O .bss	00004000 tt
+00000000 l    df *ABS*	00000000 thread.c
+88f1085c l     F .text	00000044 initial_thread_func
+00000000 l    df *ABS*	00000000 init.c
+00000000 l    df *ABS*	00000000 init.c
+00000000 l    df *ABS*	00000000 dpc.c
+88f109b8 l     F .text	000000bc dpc_thread_routine
+88f48404 l       .data	00000000 .LANCHOR1
+8901c000 l       .bss	00000000 .LANCHOR0
+88f48404 l     O .data	00000008 dpc_list
+8901c000 l     O .bss	0000001c dpc_event
+00000000 l    df *ABS*	00000000 event.c
+00000000 l    df *ABS*	00000000 main.c
+88f10d0c l     F .text	0000001c bootstrap2
+00000000 l    df *ABS*	00000000 thread.c
+88f10dd4 l     F .text	00000058 thread_sleep_handler
+8901c020 l       .bss	00000000 .LANCHOR0
+8901c01c l       .bss	00000000 .LANCHOR1
+88f10e2c l     F .text	00000084 thread_cleanup_dpc
+88f4840c l       .data	00000000 .LANCHOR2
+88f10eb0 l     F .text	000000e0 thread_resched
+8901c120 l       .bss	00000000 .LANCHOR3
+8901c128 l       .bss	00000000 .LANCHOR4
+88f11a34 l     F .text	00000020 wait_queue_timeout_handler
+8901c01c l     O .bss	00000004 run_queue_bitmap
+8901c020 l     O .bss	00000100 run_queue
+8901c120 l     O .bss	00000008 thread_list
+8901c128 l     O .bss	00000064 bootstrap_thread
+00000000 l    df *ABS*	00000000 timer.c
+88f11a54 l     F .text	00000098 insert_timer_in_queue
+8901c18c l       .bss	00000000 .LANCHOR0
+88f11aec l     F .text	000000a8 timer_set
+88f11b94 l     F .text	000000c0 timer_tick
+8901c18c l     O .bss	00000008 timer_queue
+00000000 l    df *ABS*	00000000 app.c
+88f11d64 l     F .text	00000018 app_thread_entry
+00000000 l    df *ABS*	00000000 aboot.c
+88f11e48 l     F .text	00000114 check_boot_image
+8901c194 l       .bss	00000000 .LANCHOR0
+8901c1d0 l       .bss	00000000 .LANCHOR1
+8901c1c8 l       .bss	00000000 .LANCHOR2
+8901c198 l       .bss	00000000 .LANCHOR3
+88f48c8c l       .data	00000000 .LANCHOR4
+8901d1d0 l       .bss	00000000 .LANCHOR5
+8901c1c4 l       .bss	00000000 .LANCHOR6
+88f34990 l       .rodata	00000000 .LANCHOR7
+88f1301c l     F .text	000000b8 verify_signed_bootimg
+8901c1cc l       .bss	00000000 .LANCHOR8
+88f48c68 l       .data	00000000 .LANCHOR9
+8901d3ec l       .bss	00000000 .LANCHOR10
+8901c1a0 l       .bss	00000000 .LANCHOR11
+8901c1b0 l       .bss	00000000 .LANCHOR12
+8901c1c0 l       .bss	00000000 .LANCHOR16
+8901c19c l       .bss	00000000 .LANCHOR15
+88f48ca4 l       .data	00000000 .LANCHOR13
+88f48c7c l       .data	00000000 .LANCHOR14
+8901c194 l     O .bss	00000004 dual_boot_sign
+88f48c68 l     O .data	00000014 surf_udc_device
+8901c1a0 l     O .bss	00000010 soc_id_buf
+8901c1b0 l     O .bss	00000010 soc_version_buf
+88f34990 l     O .rodata	00000400 crc32_little_endian_table
+8901c1c4 l     O .bss	00000004 crc_loaded
+88f48c7c l     O .data	00000010 pmic_ver_buf
+88f48c8c l     O .data	00000018 device
+8901c1d0 l     O .bss	00001000 buf
+88f48ca4 l     O .data	00000010 pmic_type_buf
+8901d1d0 l     O .bss	0000021c crc_list
+8901d3ec l     O .bss	00000010 machtype_buf
+00000000 l    df *ABS*	00000000 fastboot.c
+88f14dc0 l     F .text	000000b4 usb_write
+8901e420 l       .bss	00000000 .LANCHOR0
+8901e41c l       .bss	00000000 .LANCHOR1
+8901d418 l       .bss	00000000 .LANCHOR2
+88f14e74 l     F .text	00000020 req_complete
+8901e444 l       .bss	00000000 .LANCHOR3
+88f14e94 l     F .text	0000014c usb_read
+8901d414 l       .bss	00000000 .LANCHOR4
+88f14fe0 l     F .text	00000018 fastboot_notify
+8901e428 l       .bss	00000000 .LANCHOR5
+88f14ff8 l     F .text	00000060 fastboot_ack.part.1
+88f15058 l     F .text	00000158 fastboot_handler
+8901d404 l       .bss	00000000 .LANCHOR7
+8901e424 l       .bss	00000000 .LANCHOR8
+8901d3fc l       .bss	00000000 .LANCHOR9
+8901d41c l       .bss	00000000 .LANCHOR6
+88f151b0 l     F .text	00000224 cmd_download
+8901d408 l       .bss	00000000 .LANCHOR10
+88f153d4 l     F .text	00000094 cmd_getvar
+8901d400 l       .bss	00000000 .LANCHOR11
+8901d40c l       .bss	00000000 .LANCHOR12
+88f48cb4 l       .data	00000000 .LANCHOR13
+8901d3fc l     O .bss	00000004 download_size
+8901d400 l     O .bss	00000004 varlist
+8901d404 l     O .bss	00000004 cmdlist
+8901d408 l     O .bss	00000004 download_max
+8901d40c l     O .bss	00000008 fastboot_endpoints
+8901d414 l     O .bss	00000004 out
+8901d418 l     O .bss	00000004 in
+8901d41c l     O .bss	00001000 buffer
+8901e41c l     O .bss	00000004 req
+8901e420 l     O .bss	00000004 fastboot_state
+8901e424 l     O .bss	00000004 download_base
+8901e428 l     O .bss	0000001c usb_online
+88f48cb4 l     O .data	00000018 fastboot_gadget
+8901e444 l     O .bss	0000001c txn_done
+00000000 l    df *ABS*	00000000 recovery.c
+8901e460 l       .bss	00000000 .LANCHOR0
+8901f460 l       .bss	00000000 .LANCHOR1
+88f35df8 l       .rodata	00000000 .LANCHOR2
+8901e460 l     O .bss	00001000 buf
+00000000 l    df *ABS*	00000000 fbcon.c
+88f15bd8 l     F .text	00000048 fbcon_flush
+8901f470 l       .bss	00000000 .LANCHOR0
+8901f46c l       .bss	00000000 .LANCHOR1
+8901f464 l       .bss	00000000 .LANCHOR2
+8901f46e l       .bss	00000000 .LANCHOR3
+8901f474 l       .bss	00000000 .LANCHOR5
+88f48ccc l       .data	00000000 .LANCHOR6
+88f4e984 l       .data	00000000 .LANCHOR7
+8901f464 l     O .bss	00000008 cur_pos
+8901f46c l     O .bss	00000002 BGCOLOR
+88f48ccc l     O .data	00005cb8 imageBuffer_rgb888
+8901f46e l     O .bss	00000002 FGCOLOR
+8901f470 l     O .bss	00000004 config
+8901f474 l     O .bss	00000008 max_pos
+88f4e984 l     O .data	000c3015 imageBuffer_fastboot_rgb888
+00000000 l    df *ABS*	00000000 keys.c
+8901f47c l       .bss	00000000 .LANCHOR0
+8901f47c l     O .bss	00000040 key_bitmap
+00000000 l    df *ABS*	00000000 gpio_keypad.c
+88f16000 l     F .text	000000a8 scan_qwerty_gpio_keypad
+8901f4bc l       .bss	00000000 .LANCHOR0
+8901f4bc l     O .bss	00000004 qwerty_keypad
+00000000 l    df *ABS*	00000000 lvds_chimei_wxga.c
+00000000 l    df *ABS*	00000000 mipi_tc358764_dsi2lvds.c
+88f16214 l     F .text	00000058 mipi_d2l_write_reg
+00000000 l    df *ABS*	00000000 mipi_chimei_video_wxga.c
+8901199c l       .data	00000000 .LANCHOR0
+8901199c l     O .data	000000b8 dsi_video_mode_phy_db
+00000000 l    df *ABS*	00000000 mipi_toshiba_video_wsvga.c
+89011a54 l       .data	00000000 .LANCHOR0
+89011b0c l       .data	00000000 .LANCHOR1
+88f36364 l     O .rodata	00000008 toshiba_mdt61_testMode_fa
+88f3636c l     O .rodata	0000000c toshiba_mdt61_testMode_d1
+88f36378 l     O .rodata	0000000c toshiba_mdt61_white_balance
+88f36384 l     O .rodata	0000000c toshiba_mdt61_testMode_fd
+88f36390 l     O .rodata	0000000c toshiba_mdt61_testMode_fe
+88f3639c l     O .rodata	00000004 toshiba_mdt61_vcom_dc_settings
+88f363a0 l     O .rodata	00000004 toshiba_mdt61_mcap_end
+88f363a4 l     O .rodata	00000008 toshiba_mdt61_powerSet_SrcAmp
+88f363ac l     O .rodata	00000004 toshiba_mdt61_set_pixel_format
+88f363b0 l     O .rodata	0000000c toshiba_mdt61_testMode_e3
+88f363bc l     O .rodata	0000000c toshiba_mdt61_testMode_e4
+88f363c8 l     O .rodata	00000004 toshiba_mdt61_testMode_e5
+88f363cc l     O .rodata	00000008 toshiba_mdt61_num_out_pixelform
+88f363d4 l     O .rodata	0000000c toshiba_mdt61_panel_driving
+88f363e0 l     O .rodata	00000010 toshiba_mdt61_timingCtrl_d7
+88f363f0 l     O .rodata	0000000c toshiba_mdt61_timingCtrl_d8
+88f363fc l     O .rodata	00000008 toshiba_mdt61_timingCtrl_d9
+88f36404 l     O .rodata	00000004 toshiba_mdt61_set_add_mode
+88f36408 l     O .rodata	00000008 toshiba_mdt61_dsi_ctrl
+88f36410 l     O .rodata	0000000c toshiba_mdt61_powerSet_ChrgPmp
+88f3641c l     O .rodata	00000004 toshiba_mdt61_vreg
+88f36420 l     O .rodata	00000004 dsi_display_display_on
+88f36424 l     O .rodata	00000004 toshiba_mdt61_vcs_settings
+88f36428 l     O .rodata	00000004 toshiba_mdt61_test_mode_c4
+88f3642c l     O .rodata	00000004 toshiba_mdt61_test_mode_c6
+88f36430 l     O .rodata	00000004 dsi_display_exit_sleep
+88f36434 l     O .rodata	00000004 toshiba_mdt61_mcap_start
+88f36438 l     O .rodata	00000004 toshiba_mdt61_test_mode_d6
+89011a54 l     O .data	000000b8 dsi_video_mode_phy_db
+88f3643c l     O .rodata	00000014 toshiba_mdt61_dispH_timing
+88f36450 l     O .rodata	00000014 toshiba_mdt61_gamma_setA
+88f36464 l     O .rodata	00000014 toshiba_mdt61_gamma_setB
+88f36478 l     O .rodata	00000014 toshiba_mdt61_gamma_setC
+89011b0c l     O .data	00000118 toshiba_mdt61_video_mode_cmds
+88f3648c l     O .rodata	0000000c toshiba_mdt61_dispV_timing
+88f364a0 l     O .rodata	00000008 toshiba_mdt61_dispCtrl
+88f36498 l     O .rodata	00000008 toshiba_mdt61_powerInt_PS
+00000000 l    df *ABS*	00000000 mipi_hitachi_cmd_hd720p.c
+89011cac l       .data	00000000 .LANCHOR0
+89011c24 l       .data	00000000 .LANCHOR1
+89011c24 l     O .data	00000070 hitachi_panel_cmd_mode_cmds
+88f364d4 l     O .rodata	00000004 exit_sleep_mode
+88f364d8 l     O .rodata	00000004 mcap_start
+88f364a8 l     O .rodata	00000028 jdi_ce_on
+88f364d0 l     O .rodata	00000004 mcap_end
+89011c94 l     O .data	00000008 set_tear_scanline
+89011d64 l     O .data	00000004 set_tear_on
+89011ca0 l     O .data	00000008 write_display_brightness
+89011d88 l     O .data	00000004 write_control_display
+89011ca8 l     O .data	00000004 write_cabc
+89011d6c l     O .data	0000000c set_column_address
+89011d7c l     O .data	0000000c set_page1_address
+89011d68 l     O .data	00000004 set_address_mode
+89011c9c l     O .data	00000004 set_pixel_format
+89011d78 l     O .data	00000004 set_display_on
+89011cac l     O .data	000000b8 dsi_cmd_mode_phy_db
+00000000 l    df *ABS*	00000000 mipi_lgd_cmd_hd720p.c
+89011dbc l       .data	00000000 .LANCHOR0
+89011e88 l       .data	00000000 .LANCHOR1
+89011d8c l     O .data	0000000c lgd_fmis1
+89011d98 l     O .data	00000008 lgd_fmis2
+89011da0 l     O .data	00000008 lgd_fmis3
+89011da8 l     O .data	00000014 lgd_srctimming
+89011dbc l     O .data	000000b8 dsi_cmd_mode_phy_db
+89011e74 l     O .data	00000008 lgd_mca
+89011e7c l     O .data	0000000c lgd_pwmfreq
+89011e88 l     O .data	000000b8 lgd_panel_cmd_mode_cmds
+89011f80 l     O .data	00000008 lgd_seqctrl
+89012014 l     O .data	00000008 lgd_gip
+89011f4c l     O .data	0000002c lgd_dispset1common
+89011f88 l     O .data	0000000c lgd_dispset2
+89011f40 l     O .data	0000000c lgd_giptimming
+89011ffc l     O .data	00000018 lgd_pwrsetchargepump
+89011fd8 l     O .data	00000020 lgd_pwrsetinternal
+89011fb0 l     O .data	00000004 lgd_sleepout
+89011f94 l     O .data	0000000c lgd_coladdr
+89011fcc l     O .data	0000000c lgd_pageaddr
+89011fc4 l     O .data	00000008 lgd_teon
+89011fa8 l     O .data	00000008 lgd_setaddr
+89011fbc l     O .data	00000008 lgd_setpixfmt
+89011ff8 l     O .data	00000004 lgd_dispon
+89011fb4 l     O .data	00000008 lgd_wdispbrightness
+89011f78 l     O .data	00000008 lgd_wctrldisp
+89011fa0 l     O .data	00000008 lgd_wcabcctrl
+00000000 l    df *ABS*	00000000 pm8921.c
+88f16bd0 l     F .text	00000070 pm8921_masked_write
+8901f4c0 l       .bss	00000000 .LANCHOR0
+88f36a7c l       .rodata	00000000 .LANCHOR1
+88f364dc l       .rodata	00000000 .LANCHOR2
+88f36a78 l       .rodata	00000000 .LANCHOR3
+8901f4c0 l     O .bss	00000004 dev
+88f364dc l     O .rodata	00000003 ldo_p_voltage_mult
+88f36a78 l     O .rodata	00000003 ldo_n_voltage_mult
+88f36a7c l     O .rodata	00000004 dir_map.4058
+00000000 l    df *ABS*	00000000 ssbi.c
+00000000 l    df *ABS*	00000000 debug.c
+00000000 l    df *ABS*	00000000 heap.c
+88f176e0 l     F .text	0000010c heap_insert_free_chunk
+8901f4c4 l       .bss	00000000 .LANCHOR0
+8901f4c4 l     O .bss	00000010 theheap
+00000000 l    df *ABS*	00000000 ctype.c
+00000000 l    df *ABS*	00000000 gcd_lcm.c
+00000000 l    df *ABS*	00000000 printf.c
+88f17b90 l     F .text	000000f0 longlong_to_string.constprop.0
+88f36bec l       .rodata	00000000 .LANCHOR1
+88f36bfc l       .rodata	00000000 .LANCHOR0
+88f36bec l     O .rodata	00000010 hextable.3870
+88f36bfc l     O .rodata	00000010 hextable_caps.3871
+00000000 l    df *ABS*	00000000 malloc.c
+00000000 l    df *ABS*	00000000 eabi.c
+00000000 l    df *ABS*	00000000 ../../../out/target/product/aries/obj/EMMC_BOOTLOADER_OBJ/build-msm8960/lib/libc/string/arch/arm/memcpy.o
+00000000 l    df *ABS*	00000000 ../../../out/target/product/aries/obj/EMMC_BOOTLOADER_OBJ/build-msm8960/lib/libc/string/arch/arm/memset.o
+00000000 l    df *ABS*	00000000 memchr.c
+00000000 l    df *ABS*	00000000 memcmp.c
+00000000 l    df *ABS*	00000000 strchr.c
+00000000 l    df *ABS*	00000000 strcmp.c
+00000000 l    df *ABS*	00000000 strcpy.c
+00000000 l    df *ABS*	00000000 strlcat.c
+00000000 l    df *ABS*	00000000 strlcpy.c
+00000000 l    df *ABS*	00000000 strlen.c
+00000000 l    df *ABS*	00000000 strncpy.c
+00000000 l    df *ABS*	00000000 strncmp.c
+00000000 l    df *ABS*	00000000 strnicmp.c
+00000000 l    df *ABS*	00000000 strnlen.c
+00000000 l    df *ABS*	00000000 strpbrk.c
+00000000 l    df *ABS*	00000000 strrchr.c
+00000000 l    df *ABS*	00000000 strspn.c
+00000000 l    df *ABS*	00000000 strtok.c
+8901f4d4 l       .bss	00000000 .LANCHOR0
+8901f4d4 l     O .bss	00000004 ___strtok
+00000000 l    df *ABS*	00000000 strtoul.c
+00000000 l    df *ABS*	00000000 ptable.c
+00000000 l    df *ABS*	00000000 ../../../out/target/product/aries/obj/EMMC_BOOTLOADER_OBJ/build-msm8960/lib/openssl/crypto/bn/asm/armv4-mont.o
+00000000 l    df *ABS*	00000000 b_print.c
+88f190e4 l     F .text	000001c4 doapr_outch
+88f192a8 l     F .text	00000380 fmtint
+88f19628 l     F .text	00000f30 _dopr
+00000000 l    df *ABS*	00000000 cryptlib.c
+8901f4dc l       .bss	00000000 .LANCHOR2
+8901f4d8 l       .bss	00000000 .LANCHOR3
+8901f4f0 l       .bss	00000000 .LANCHOR4
+8901f4e8 l       .bss	00000000 .LANCHOR5
+8901f4e4 l       .bss	00000000 .LANCHOR6
+8901f4e0 l       .bss	00000000 .LANCHOR7
+8901f4ec l       .bss	00000000 .LANCHOR9
+8901f4d8 l     O .bss	00000004 dynlock_destroy_callback
+8901f4dc l     O .bss	00000004 dynlock_lock_callback
+8901f4e0 l     O .bss	00000004 id_callback
+8901f4e4 l     O .bss	00000004 threadid_callback
+8901f4e8 l     O .bss	00000004 add_lock_callback
+8901f4ec l     O .bss	00000004 dyn_locks
+8901f4f0 l     O .bss	00000004 locking_callback
+00000000 l    df *ABS*	00000000 mem.c
+88f1a954 l     F .text	00000018 default_malloc_ex
+89012024 l       .data	00000000 .LANCHOR0
+88f1a96c l     F .text	00000018 default_realloc_ex
+89012030 l       .data	00000000 .LANCHOR1
+8901201c l       .data	00000000 .LANCHOR3
+89012034 l       .data	00000000 .LANCHOR4
+89012038 l       .data	00000000 .LANCHOR5
+8901202c l       .data	00000000 .LANCHOR6
+89012028 l       .data	00000000 .LANCHOR8
+89012020 l       .data	00000000 .LANCHOR9
+8901f4fc l       .bss	00000000 .LANCHOR10
+8901f4f4 l       .bss	00000000 .LANCHOR11
+8901f4f8 l       .bss	00000000 .LANCHOR12
+8901201c l     O .data	00000004 allow_customize
+89012020 l     O .data	00000004 allow_customize_debug
+89012024 l     O .data	00000004 malloc_func
+89012028 l     O .data	00000004 free_locked_func
+8901202c l     O .data	00000004 free_func
+89012030 l     O .data	00000004 realloc_func
+89012034 l     O .data	00000004 malloc_ex_func
+89012038 l     O .data	00000004 realloc_ex_func
+8901f4f4 l     O .bss	00000004 realloc_debug_func
+8901f4f8 l     O .bss	00000004 free_debug_func
+8901f4fc l     O .bss	00000004 malloc_debug_func
+00000000 l    df *ABS*	00000000 mem_clr.c
+8901f500 l       .bss	00000000 .LANCHOR0
+00000000 l    df *ABS*	00000000 mem_dbg.c
+88f1ad20 l     F .text	00000004 app_info_LHASH_COMP
+88f1ad24 l     F .text	0000002c app_info_LHASH_HASH
+88f1ad50 l     F .text	000000ac pop_info
+8901f510 l       .bss	00000000 .LANCHOR0
+88f1adfc l     F .text	00000080 CRYPTO_is_mem_check_on.part.3
+8901f50c l       .bss	00000000 .LANCHOR1
+8901f504 l       .bss	00000000 .LANCHOR2
+8901f514 l       .bss	00000000 .LANCHOR3
+8901f504 l     O .bss	00000008 disabling_threadid
+8901f50c l     O .bss	00000004 mh_mode
+8901f510 l     O .bss	00000004 amih
+8901f514 l     O .bss	00000004 num_disable
+00000000 l    df *ABS*	00000000 ex_data.c
+88f1b164 l     F .text	00000008 ex_class_item_LHASH_HASH
+88f1b16c l     F .text	00000010 ex_class_item_LHASH_COMP
+88f1b17c l     F .text	00000054 impl_check
+8901f51c l       .bss	00000000 .LANCHOR0
+8901203c l       .data	00000000 .LANCHOR1
+88f1b1d0 l     F .text	00000050 int_new_class
+89012054 l       .data	00000000 .LANCHOR2
+88f1b220 l     F .text	00000004 def_cleanup_util_cb
+88f1b224 l     F .text	00000078 ex_data_check
+8901f518 l       .bss	00000000 .LANCHOR3
+88f1b29c l     F .text	00000120 def_get_class
+88f1b3bc l     F .text	00000058 int_cleanup
+88f1b414 l     F .text	00000024 def_cleanup_cb
+88f1b438 l     F .text	00000138 int_get_new_index
+88f1b750 l     F .text	00000190 int_free_ex_data
+88f1b8e0 l     F .text	000001b4 int_dup_ex_data
+88f1ba94 l     F .text	00000180 int_new_ex_data
+8901203c l     O .data	00000018 impl_default
+89012054 l     O .data	00000004 ex_class
+8901f518 l     O .bss	00000004 ex_data
+8901f51c l     O .bss	00000004 impl
+00000000 l    df *ABS*	00000000 a_bitstr.c
+00000000 l    df *ABS*	00000000 a_int.c
+00000000 l    df *ABS*	00000000 a_mbstr.c
+88f1c418 l     F .text	00000014 in_utf8
+88f1c42c l     F .text	0000001c cpy_asc
+88f1c448 l     F .text	00000028 cpy_bmp
+88f1c470 l     F .text	00000040 cpy_univ
+88f1c4b0 l     F .text	0000002c cpy_utf8
+88f1c4dc l     F .text	0000002c out_utf8
+88f1c508 l     F .text	000000b0 type_str
+88f1c5b8 l     F .text	00000104 traverse_string
+00000000 l    df *ABS*	00000000 a_object.c
+00000000 l    df *ABS*	00000000 a_strex.c
+88f37000 l       .rodata	00000000 .LANCHOR2
+88f37000 l     O .rodata	0000001f tag2nbyte
+00000000 l    df *ABS*	00000000 a_type.c
+00000000 l    df *ABS*	00000000 a_utf8.c
+00000000 l    df *ABS*	00000000 ameth_lib.c
+88f1d3e4 l     F .text	00000018 ameth_cmp_BSEARCH_CMP_FN
+8901f520 l       .bss	00000000 .LANCHOR0
+89012058 l       .data	00000000 .LANCHOR1
+89012058 l     O .data	0000000c standard_methods
+8901f520 l     O .bss	00000004 app_methods
+00000000 l    df *ABS*	00000000 asn1_lib.c
+00000000 l    df *ABS*	00000000 p8_pkey.c
+00000000 l    df *ABS*	00000000 tasn_enc.c
+88f1ddf0 l     F .text	00000114 asn1_i2d_ex_primitive
+88f1e3a0 l     F .text	000004c8 asn1_template_ex_i2d
+88f1e2f0 l     F .text	000000a8 asn1_item_flags_i2d
+00000000 l    df *ABS*	00000000 tasn_dec.c
+88f1e868 l     F .text	0000023c asn1_check_tlen
+88f1eaa4 l     F .text	000002ac asn1_collect.constprop.0
+88f3717c l       .rodata	00000000 .LANCHOR0
+88f1f0bc l     F .text	00000514 asn1_d2i_ex_primitive
+88f202a0 l     F .text	00000208 asn1_template_ex_d2i
+88f1ff88 l     F .text	00000318 asn1_template_noexp_d2i
+88f3717c l     O .rodata	00000080 tag2bit
+00000000 l    df *ABS*	00000000 tasn_fre.c
+88f204a8 l     F .text	000000f4 ASN1_primitive_free.part.0
+88f205dc l     F .text	0000021c asn1_item_combine_free
+00000000 l    df *ABS*	00000000 tasn_new.c
+88f208a8 l     F .text	00000060 asn1_primitive_clear
+88f20908 l     F .text	0000008c asn1_item_clear
+88f20ad4 l     F .text	000002b8 asn1_item_ex_combine_new
+00000000 l    df *ABS*	00000000 tasn_typ.c
+88f372c8 l       .rodata	00000000 .LANCHOR0
+88f372e4 l       .rodata	00000000 .LANCHOR2
+88f374d0 l       .rodata	00000000 .LANCHOR3
+88f37274 l       .rodata	00000000 .LANCHOR5
+88f37508 l       .rodata	00000000 .LANCHOR8
+88f372ac l       .rodata	00000000 .LANCHOR15
+88f3723c l       .rodata	00000000 .LANCHOR16
+88f374ec l       .rodata	00000000 .LANCHOR17
+88f37524 l       .rodata	00000000 .LANCHOR18
+00000000 l    df *ABS*	00000000 tasn_utl.c
+00000000 l    df *ABS*	00000000 x_algor.c
+88f37594 l       .rodata	00000000 .LANCHOR0
+88f375b0 l     O .rodata	00000028 X509_ALGOR_seq_tt
+00000000 l    df *ABS*	00000000 x_attrib.c
+88f3765c l       .rodata	00000000 .LANCHOR0
+88f375d8 l     O .rodata	00000028 X509_ATTRIBUTE_SET_ch_tt
+88f37600 l     O .rodata	00000028 X509_ATTRIBUTE_seq_tt
+00000000 l    df *ABS*	00000000 x_bignum.c
+88f21304 l     F .text	00000070 bn_i2c
+88f21374 l     F .text	00000038 bn_free
+88f213ac l     F .text	0000001c bn_new
+88f213c8 l     F .text	00000074 bn_c2i
+89012064 l     O .data	00000020 bignum_pf
+00000000 l    df *ABS*	00000000 x_long.c
+88f2143c l     F .text	00000010 long_new
+88f2144c l     F .text	0000000c long_free
+88f21458 l     F .text	00000008 long_print
+88f21460 l     F .text	000000b4 long_i2c
+88f21514 l     F .text	000000b8 long_c2i
+89012084 l     O .data	00000020 long_pf
+00000000 l    df *ABS*	00000000 x_name.c
+88f215cc l     F .text	00000008 x509_name_ex_print
+88f378a0 l       .rodata	00000000 .LANCHOR0
+88f215e0 l     F .text	00000078 i2d_name_canon
+88f37884 l       .rodata	00000000 .LANCHOR1
+88f21658 l     F .text	0000000c local_sk_X509_NAME_ENTRY_pop_free
+88f21664 l     F .text	00000004 local_sk_X509_NAME_ENTRY_free
+88f21668 l     F .text	00000054 x509_name_ex_free
+88f216bc l     F .text	000000d8 x509_name_ex_new
+88f21794 l     F .text	00000360 x509_name_canon
+88f21af4 l     F .text	000001bc x509_name_ex_i2d
+88f377a0 l       .rodata	00000000 .LANCHOR2
+88f21cb0 l     F .text	00000194 x509_name_ex_d2i
+88f377bc l       .rodata	00000000 .LANCHOR3
+88f377d8 l     O .rodata	00000014 X509_NAME_INTERNAL_item_tt
+88f3785c l     O .rodata	00000028 X509_NAME_ENTRY_seq_tt
+88f378bc l     O .rodata	00000014 X509_NAME_ENTRIES_item_tt
+00000000 l    df *ABS*	00000000 x_pubkey.c
+88f21e50 l     F .text	00000028 pubkey_cb
+88f37914 l       .rodata	00000000 .LANCHOR0
+88f378ec l     O .rodata	00000028 X509_PUBKEY_seq_tt
+88f37974 l     O .rodata	00000018 X509_PUBKEY_aux
+00000000 l    df *ABS*	00000000 x_x509.c
+88f220b0 l     F .text	000000f8 x509_cb
+88f37a4c l       .rodata	00000000 .LANCHOR0
+88f379f4 l       .rodata	00000000 .LANCHOR1
+88f37a10 l     O .rodata	0000003c X509_seq_tt
+88f37bac l     O .rodata	00000018 X509_aux
+88f37a68 l     O .rodata	000000c8 X509_CINF_seq_tt
+00000000 l    df *ABS*	00000000 x_x509a.c
+88f37bc4 l       .rodata	00000000 .LANCHOR0
+88f37c38 l     O .rodata	00000064 X509_CERT_AUX_seq_tt
+00000000 l    df *ABS*	00000000 bn_add.c
+00000000 l    df *ABS*	00000000 bn_asm.c
+00000000 l    df *ABS*	00000000 bn_blind.c
+00000000 l    df *ABS*	00000000 bn_ctx.c
+00000000 l    df *ABS*	00000000 bn_div.c
+00000000 l    df *ABS*	00000000 bn_exp.c
+88f251d4 l     F .text	000000c4 MOD_EXP_CTIME_COPY_TO_PREBUF
+00000000 l    df *ABS*	00000000 bn_gcd.c
+00000000 l    df *ABS*	00000000 bn_lib.c
+88f26798 l     F .text	00000170 bn_expand_internal
+88f37d98 l       .rodata	00000000 .LANCHOR8
+88f37dd8 l       .rodata	00000000 .LANCHOR11
+88f37d98 l     O .rodata	00000014 const_one.5879
+88f37ed8 l     O .rodata	00000004 data_one.5878
+88f37dd8 l     O .rodata	00000100 bits.5888
+00000000 l    df *ABS*	00000000 bn_mod.c
+00000000 l    df *ABS*	00000000 bn_mont.c
+88f2722c l     F .text	000003cc BN_from_montgomery_word
+00000000 l    df *ABS*	00000000 bn_mul.c
+00000000 l    df *ABS*	00000000 bn_print.c
+00000000 l    df *ABS*	00000000 bn_shift.c
+00000000 l    df *ABS*	00000000 bn_sqr.c
+00000000 l    df *ABS*	00000000 bn_word.c
+00000000 l    df *ABS*	00000000 buffer.c
+00000000 l    df *ABS*	00000000 err.c
+88f29df8 l     F .text	00000044 err_string_data_LHASH_HASH
+88f29e3c l     F .text	00000010 err_string_data_LHASH_COMP
+8901f528 l       .bss	00000000 .LANCHOR0
+88f29e4c l     F .text	00000050 int_err_get_next_lib
+890120a4 l       .data	00000000 .LANCHOR1
+88f29e9c l     F .text	00000058 int_err_del
+8901f530 l       .bss	00000000 .LANCHOR2
+88f29ef4 l     F .text	00000054 int_thread_release
+8901f524 l       .bss	00000000 .LANCHOR3
+88f29f48 l     F .text	000000b4 int_thread_get
+8901f52c l       .bss	00000000 .LANCHOR4
+88f2a0a0 l     F .text	00000014 err_state_LHASH_HASH
+88f2a09c l     F .text	00000004 err_state_LHASH_COMP
+88f29ffc l     F .text	000000a0 int_err_get
+88f2a0b4 l     F .text	00000054 err_fns_check.part.2
+88f37f8c l       .rodata	00000000 .LANCHOR5
+88f2a108 l     F .text	0000008c int_err_del_item
+88f2a194 l     F .text	00000140 int_thread_del_item
+88f2a2d4 l     F .text	000000a4 int_thread_set_item
+88f2a378 l     F .text	0000008c int_err_set_item
+88f2a404 l     F .text	000000a4 int_thread_get_item
+88f2a4a8 l     F .text	0000008c int_err_get_item
+890120a4 l     O .data	00000004 int_err_library_number
+8901f524 l     O .bss	00000004 int_thread_hash_references
+8901f528 l     O .bss	00000004 err_fns
+8901f52c l     O .bss	00000004 int_thread_hash
+88f37f8c l     O .rodata	0000002c err_defaults
+8901f530 l     O .bss	00000004 int_error_hash
+00000000 l    df *ABS*	00000000 evp_pbe.c
+88f2a6c0 l     F .text	00000004 free_evp_pbe_ctl
+8901f534 l       .bss	00000000 .LANCHOR0
+8901f534 l     O .bss	00000004 pbe_algs
+00000000 l    df *ABS*	00000000 names.c
+00000000 l    df *ABS*	00000000 p_lib.c
+88f2a73c l     F .text	000000f8 pkey_set_type
+00000000 l    df *ABS*	00000000 lhash.c
+88f2a9cc l     F .text	000000b8 getrn
+00000000 l    df *ABS*	00000000 obj_dat.c
+88f2b090 l     F .text	0000001c cleanup1_LHASH_DOALL
+88f2b0ac l     F .text	00000014 cleanup2_LHASH_DOALL
+88f2b0c0 l     F .text	00000030 cleanup3_LHASH_DOALL
+88f39c2c l       .rodata	00000000 .LANCHOR0
+88f2b0f0 l     F .text	00000034 obj_cmp_BSEARCH_CMP_FN
+8901f538 l       .bss	00000000 .LANCHOR1
+8901f53c l       .bss	00000000 .LANCHOR2
+88f44174 l       .rodata	00000000 .LANCHOR4
+88f3856c l     O .rodata	000016c0 lvalues
+88f39c2c l     O .rodata	000053b8 nid_objs
+88f44174 l     O .rodata	00000d20 obj_objs
+8901f53c l     O .bss	00000004 added
+00000000 l    df *ABS*	00000000 obj_lib.c
+00000000 l    df *ABS*	00000000 obj_xref.c
+88f2bb74 l     F .text	00000004 sid_free
+00000000 l    df *ABS*	00000000 o_names.c
+8901f544 l       .bss	00000000 .LANCHOR0
+88f2bbc8 l     F .text	00000004 name_funcs_free
+8901f548 l       .bss	00000000 .LANCHOR1
+88f2bc70 l     F .text	00000030 names_lh_free_LHASH_DOALL
+8901f540 l       .bss	00000000 .LANCHOR3
+8901f540 l     O .bss	00000004 free_type
+8901f544 l     O .bss	00000004 name_funcs_stack
+8901f548 l     O .bss	00000004 names_lh
+00000000 l    df *ABS*	00000000 pk7_lib.c
+00000000 l    df *ABS*	00000000 rsa_ameth.c
+88f2bd58 l     F .text	00000008 old_rsa_priv_encode
+88f2bd60 l     F .text	000000b4 rsa_pkey_ctrl
+88f2be14 l     F .text	00000008 int_rsa_free
+88f2be1c l     F .text	0000000c rsa_bits
+88f2be28 l     F .text	00000008 int_rsa_size
+88f2be30 l     F .text	00000080 rsa_pub_encode
+88f2beb0 l     F .text	00000064 old_rsa_priv_decode
+88f2bf14 l     F .text	00000044 rsa_priv_decode
+88f2bf58 l     F .text	000000a0 rsa_priv_encode
+88f2bff8 l     F .text	00000050 rsa_pub_cmp
+88f2c048 l     F .text	00000090 rsa_pub_decode
+00000000 l    df *ABS*	00000000 rsa_asn1.c
+88f2c0d8 l     F .text	00000050 rsa_cb
+88f45084 l       .rodata	00000000 .LANCHOR0
+88f45068 l       .rodata	00000000 .LANCHOR1
+88f44fb4 l     O .rodata	000000b4 RSAPrivateKey_seq_tt
+88f450e8 l     O .rodata	00000028 RSAPublicKey_seq_tt
+88f450a0 l     O .rodata	00000018 RSAPublicKey_aux
+88f450d0 l     O .rodata	00000018 RSAPrivateKey_aux
+00000000 l    df *ABS*	00000000 rsa_eay.c
+88f2c158 l     F .text	00000018 RSA_eay_init
+88f2c170 l     F .text	00000040 RSA_eay_finish
+88f2c1b0 l     F .text	000005e8 RSA_eay_mod_exp
+88f2c798 l     F .text	00000380 RSA_eay_private_decrypt
+88f2cb18 l     F .text	000003bc RSA_eay_private_encrypt
+88f2ced4 l     F .text	00000370 RSA_eay_public_decrypt
+88f2d244 l     F .text	000002f8 RSA_eay_public_encrypt
+890120a8 l       .data	00000000 .LANCHOR0
+890120a8 l     O .data	00000038 rsa_pkcs1_eay_meth
+00000000 l    df *ABS*	00000000 rsa_lib.c
+8901f54c l       .bss	00000000 .LANCHOR0
+8901f54c l     O .bss	00000004 default_RSA_meth
+00000000 l    df *ABS*	00000000 rsa_none.c
+00000000 l    df *ABS*	00000000 rsa_pk1.c
+00000000 l    df *ABS*	00000000 rsa_x931.c
+00000000 l    df *ABS*	00000000 sha1_one.c
+8901f550 l       .bss	00000000 .LANCHOR0
+8901f550 l     O .bss	00000014 m.4576
+00000000 l    df *ABS*	00000000 sha1dgst.c
+00000000 l    df *ABS*	00000000 sha256.c
+88f2e1d4 l     F .text	00000104 SHA256_Update.part.0
+8901f564 l       .bss	00000000 .LANCHOR1
+8901f564 l     O .bss	00000020 m.4584
+00000000 l    df *ABS*	00000000 stack.c
+00000000 l    df *ABS*	00000000 x509_cmp.c
+00000000 l    df *ABS*	00000000 x509_obj.c
+88f45268 l       .rodata	00000000 .LANCHOR0
+88f45268 l     O .rodata	00000011 hex.11346
+00000000 l    df *ABS*	00000000 pcy_cache.c
+00000000 l    df *ABS*	00000000 pcy_data.c
+00000000 l    df *ABS*	00000000 v3_akeya.c
+88f452b0 l       .rodata	00000000 .LANCHOR0
+88f452cc l     O .rodata	0000003c AUTHORITY_KEYID_seq_tt
+00000000 l    df *ABS*	00000000 v3_cpols.c
+88f453a0 l       .rodata	00000000 .LANCHOR1
+88f45630 l       .rodata	00000000 .LANCHOR2
+88f453bc l       .rodata	00000000 .LANCHOR3
+88f45320 l     O .rodata	00000028 POLICYQUALINFO_seq_tt
+88f4535c l     O .rodata	0000001c POLICYQUALINFO_adb
+88f45348 l     O .rodata	00000014 policydefault_tt
+88f45600 l     O .rodata	00000030 POLICYQUALINFO_adbtbl
+88f45378 l     O .rodata	00000028 NOTICEREF_seq_tt
+88f455d8 l     O .rodata	00000028 USERNOTICE_seq_tt
+00000000 l    df *ABS*	00000000 v3_crld.c
+88f2ed40 l     F .text	00000040 dpn_cb
+88f4564c l       .rodata	00000000 .LANCHOR1
+88f45690 l       .rodata	00000000 .LANCHOR2
+88f45a34 l       .rodata	00000000 .LANCHOR4
+88f456d8 l     O .rodata	0000003c DIST_POINT_seq_tt
+88f45668 l     O .rodata	00000028 DIST_POINT_NAME_ch_tt
+88f456c0 l     O .rodata	00000018 DIST_POINT_NAME_aux
+88f456ac l     O .rodata	00000014 CRL_DIST_POINTS_item_tt
+00000000 l    df *ABS*	00000000 v3_genn.c
+88f45cbc l       .rodata	00000000 .LANCHOR0
+88f45b34 l       .rodata	00000000 .LANCHOR1
+88f45c78 l       .rodata	00000000 .LANCHOR2
+88f45a50 l       .rodata	00000000 .LANCHOR3
+88f45a6c l     O .rodata	00000014 GENERAL_NAMES_item_tt
+88f45a80 l     O .rodata	000000b4 GENERAL_NAME_ch_tt
+88f45c50 l     O .rodata	00000028 OTHERNAME_seq_tt
+88f45c94 l     O .rodata	00000028 EDIPARTYNAME_seq_tt
+00000000 l    df *ABS*	00000000 v3_ncons.c
+88f45e1c l       .rodata	00000000 .LANCHOR0
+88f45cd8 l       .rodata	00000000 .LANCHOR1
+88f45e38 l     O .rodata	0000003c GENERAL_SUBTREE_seq_tt
+88f45cf4 l     O .rodata	00000028 NAME_CONSTRAINTS_seq_tt
+00000000 l    df *ABS*	00000000 ../../../out/target/product/aries/obj/EMMC_BOOTLOADER_OBJ/build-msm8960/lib/openssl/crypto/sha/asm/sha1-armv4-large.o
+00000000 l    df *ABS*	00000000 ../../../out/target/product/aries/obj/EMMC_BOOTLOADER_OBJ/build-msm8960/lib/openssl/crypto/sha/asm/sha256-armv4.o
+88f2f380 l     O .text	00000100 K256
+00000000 l    df *ABS*	00000000 _udivsi3.o
+88f30560 l       .text	00000000 .udivsi3_skip_div0_test
+00000000 l    df *ABS*	00000000 _divsi3.o
+88f30630 l       .text	00000000 .divsi3_skip_div0_test
+00000000 l    df *ABS*	00000000 _dvmd_tls.o
+00000000 l    df *ABS*	00000000 _arm_addsubdf3.o
+00000000 l    df *ABS*	00000000 _arm_muldivdf3.o
+00000000 l    df *ABS*	00000000 _arm_cmpdf2.o
+00000000 l    df *ABS*	00000000 _arm_fixdfsi.o
+00000000 l    df *ABS*	00000000 _aeabi_uldivmod.o
+00000000 l    df *ABS*	00000000 bpabi.c
+00000000 l    df *ABS*	00000000 libgcc2.c
+00000000 l    df *ABS*	00000000 libgcc2.c
+00000000 l    df *ABS*	00000000 certificate.c
+00000000 l    df *ABS*	00000000 a_time.c
+88f37020 l       .rodata	00000000 .LANCHOR0
+00000000 l    df *ABS*	00000000 x_exten.c
+88f376f4 l       .rodata	00000000 .LANCHOR0
+88f376b8 l     O .rodata	0000003c X509_EXTENSION_seq_tt
+00000000 l    df *ABS*	00000000 x_val.c
+88f3798c l       .rodata	00000000 .LANCHOR0
+88f379cc l     O .rodata	00000028 X509_VAL_seq_tt
+00000000 l    df *ABS*	00000000 
+00000000 l       *UND*	00000000 ERR_load_ECDSA_strings
+00000000 l       *UND*	00000000 BIO_find_type
+00000000 l       *UND*	00000000 BN_rand
+00000000 l       *UND*	00000000 BIO_new_mem_buf
+00000000 l       *UND*	00000000 OCSP_SERVICELOC_it
+00000000 l       *UND*	00000000 i2d_ASN1_SET
+00000000 l       *UND*	00000000 ERR_load_COMP_strings
+00000000 l       *UND*	00000000 ERR_load_ECDH_strings
+00000000 l       *UND*	00000000 ASN1_generate_v3
+00000000 l       *UND*	00000000 BIO_f_cipher
+00000000 l       *UND*	00000000 BIO_s_null
+00000000 l       *UND*	00000000 gpio_config
+00000000 l       *UND*	00000000 ERR_load_OCSP_strings
+00000000 l       *UND*	00000000 AES_set_decrypt_key
+00000000 l       *UND*	00000000 X509_SIG_free
+00000000 l       *UND*	00000000 getenv
+00000000 l       *UND*	00000000 RAND_add
+00000000 l       *UND*	00000000 CONF_module_add
+00000000 l       *UND*	00000000 qsort
+00000000 l       *UND*	00000000 X509_SIG_new
+00000000 l       *UND*	00000000 BIO_free_all
+00000000 l       *UND*	00000000 BIO_method_type
+00000000 l       *UND*	00000000 BIO_set_flags
+00000000 l       *UND*	00000000 AES_set_encrypt_key
+00000000 l       *UND*	00000000 HMAC_Final
+00000000 l       *UND*	00000000 HMAC_Init_ex
+00000000 l       *UND*	00000000 EVP_md5
+00000000 l       *UND*	00000000 BIO_dump_indent
+00000000 l       *UND*	00000000 BIO_indent
+00000000 l       *UND*	00000000 BIO_vfree
+00000000 l       *UND*	00000000 BIO_f_md
+00000000 l       *UND*	00000000 d2i_ASN1_SET
+00000000 l       *UND*	00000000 EVP_read_pw_string
+00000000 l       *UND*	00000000 HMAC
+00000000 l       *UND*	00000000 BN_pseudo_rand
+00000000 l       *UND*	00000000 BIO_next
+00000000 l       *UND*	00000000 BIO_puts
+00000000 l       *UND*	00000000 X509_SIG_it
+00000000 l       *UND*	00000000 OCSP_CRLID_it
+00000000 l       *UND*	00000000 CONF_imodule_get_value
+00000000 l       *UND*	00000000 BIO_free
+00000000 l       *UND*	00000000 ERR_load_PEM_strings
+00000000 l       *UND*	00000000 BIO_ctrl
+00000000 l       *UND*	00000000 d2i_X509_SIG
+00000000 l       *UND*	00000000 BIO_write
+00000000 l       *UND*	00000000 BIO_new_file
+00000000 l       *UND*	00000000 BN_pseudo_rand_range
+00000000 l       *UND*	00000000 BIO_f_base64
+00000000 l       *UND*	00000000 hmac_pkey_meth
+00000000 l       *UND*	00000000 BIO_new
+00000000 l       *UND*	00000000 EVP_md4
+00000000 l       *UND*	00000000 X509_cmp_time
+890120e0 l       .data	00000000 __dtor_end
+00000000 l       *UND*	00000000 RAND_status
+00000000 l       *UND*	00000000 strcasecmp
+00000000 l       *UND*	00000000 BIO_pop
+00000000 l       *UND*	00000000 X509_gmtime_adj
+00000000 l       *UND*	00000000 EVP_ecdsa
+00000000 l       *UND*	00000000 HMAC_CTX_cleanup
+00000000 l       *UND*	00000000 sscanf
+00000000 l       *UND*	00000000 RAND_bytes
+00000000 l       *UND*	00000000 BIO_gets
+00000000 l       *UND*	00000000 BIO_copy_next_retry
+00000000 l       *UND*	00000000 ERR_load_RAND_strings
+00000000 l       *UND*	00000000 ERR_load_UI_strings
+00000000 l       *UND*	00000000 time
+00000000 l       *UND*	00000000 sha512_block_data_order
+00000000 l       *UND*	00000000 BIO_callback_ctrl
+00000000 l       *UND*	00000000 AES_encrypt
+00000000 l       *UND*	00000000 sk_find
+00000000 l       *UND*	00000000 BIO_read
+00000000 l       *UND*	00000000 BIO_f_buffer
+00000000 l       *UND*	00000000 sk_sort
+00000000 l       *UND*	00000000 func
+00000000 l       *UND*	00000000 BIO_clear_flags
+00000000 l       *UND*	00000000 CONF_parse_list
+890120e0 l       .data	00000000 __dtor_list
+00000000 l       *UND*	00000000 print_leak_doall_arg
+00000000 l       *UND*	00000000 OPENSSL_config
+00000000 l       *UND*	00000000 BIO_push
+00000000 l       *UND*	00000000 BIO_s_mem
+00000000 l       *UND*	00000000 ERR_load_DSO_strings
+00000000 l       *UND*	00000000 ERR_load_BIO_strings
+00000000 l       *UND*	00000000 i2d_X509_SIG
+00000000 l       *UND*	00000000 BIO_new_NDEF
+00000000 l       *UND*	00000000 RAND_pseudo_bytes
+00000000 l       *UND*	00000000 HMAC_Update
+00000000 l       *UND*	00000000 AES_decrypt
+00000000 l       *UND*	00000000 PKCS1_MGF1
+00000000 l       *UND*	00000000 HMAC_CTX_init
+88f14998 g     F .text	000001e4 cmd_flash_mmc_sparse_img
+88f02cd4 g     F .text	00000058 smem_ram_ptable_init
+88f06fc8 g     F .text	00000450 flash_write
+88f130d4 g     F .text	000005d0 boot_linux_from_mmc
+88f01b7c g     F .text	0000000c platform_init
+88f31040 g     F .text	00000014 __aeabi_dcmple
+88f0b0ec g     F .text	00000068 hdmi_msm_panel_init
+88f0fc10 g     F .text	00000060 mdelay
+88f187cc g     F .text	00000018 strcpy
+88f31150 g     F .text	0000003c __gnu_uldivmod_helper
+88f29154 g     F .text	00000160 BN_rshift
+88f0d8ac g     F .text	00000020 crypto_eng_init
+88f0a608 g     F .text	000000a4 calculate_crc32
+88f30f60 g     F .text	00000088 __cmpdf2
+88f0f420 g     F .text	00000108 msm_display_off
+88f1dbe0 g     F .text	00000210 asn1_ex_i2c
+88f45e74 g       .rodata	00000000 __commands_end
+88f0c0e4 g     F .text	00000020 mipi_cmd_trigger
+88f16724 g     F .text	000000b8 mipi_toshiba_video_wsvga_config
+88f3723c g     O .rodata	0000001c ASN1_PRINTABLE_it
+88f22810 g     F .text	000000f4 bn_mul_words
+88f115a0 g     F .text	000000b0 wait_queue_block
+88f30f60 g     F .text	00000088 __eqdf2
+88f3118c g     F .text	00000498 __divdi3
+88f02c50 g     F .text	00000084 smem_read_alloc_entry_offset
+88f175dc g     F .text	00000044 _panic
+88f22e04 g     F .text	00000860 bn_mul_comba8
+88f30a80 g     F .text	00000060 __floatdidf
+88f27090 g     F .text	00000028 BN_set_negative
+88f17c80 g     F .text	0000002c printf
+8901f85c g     O .bss	00001000 info_buf
+88f092dc g     F .text	0000000c get_mmc_card
+88f110ac g     F .text	00000074 thread_exit
+88f45cbc g     O .rodata	0000001c GENERAL_NAME_it
+88f1691c g     F .text	00000008 mipi_hitachi_cmd_hd720p_config
+88f1232c g     F .text	0000008c cmd_oem_devinfo
+88f1039c g       .text	00000000 arch_idle
+88f45b34 g     O .rodata	0000001c OTHERNAME_it
+88f0d2c0 g     F .text	00000044 gic_platform_irq
+88f2db40 g     F .text	00000018 RSA_padding_add_PKCS1_type_2
+88f1cc98 g     F .text	000001a0 c2i_ASN1_OBJECT
+88f2e618 g     F .text	00000008 sk_new_null
+88f2b404 g     F .text	00000100 OBJ_bsearch_ex_
+88f2ac00 g     F .text	00000068 lh_free
+88f21168 g     F .text	000000ec asn1_do_adb
+88f2b994 g     F .text	000001e0 OBJ_dup
+88f0df4c g     F .text	00000178 hash_find
+88f103f8 g       .text	00000000 dsb
+88f0d88c g     F .text	00000020 crypto_eng_cleanup
+890147dc g     O .bss	00000004 vfat_count
+88f141ec g     F .text	0000060c aboot_init
+88f0bc14 g     F .text	00000244 mipi_config
+88f27848 g     F .text	0000023c BN_MONT_CTX_set
+88f14054 g     F .text	00000030 cmd_continue
+88f221c0 g     F .text	0000000c X509_CERT_AUX_free
+88f0d800 g     F .text	00000010 mdp_get_revision
+88f20eb4 g     F .text	00000014 asn1_set_choice_selector
+88f1be94 g     F .text	000001bc i2c_ASN1_INTEGER
+88f123b8 g     F .text	00000090 parse_crc_str
+88f2c134 g     F .text	0000000c i2d_RSAPrivateKey
+88f01ca8 g     F .text	00000068 clock_config_uart_dm
+88f18458 g       .text	00000000 memmove
+88f45ff4 g     O .data	00000008 apq8064_qwerty_keymap
+88f00c14 g     F .text	00000038 target_cont_splash_screen
+88f1078c g     F .text	00000014 arm_data_abort_handler
+88f45f74 g     O .data	00000038 msm8930_pm8038_qwerty_keypad
+88f107d4 g     F .text	00000074 arm_mmu_init
+88f221b4 g     F .text	0000000c X509_free
+88f18394 g     F .text	0000002c snprintf
+88f0afdc g     F .text	000000e8 write_partition
+88f26914 g     F .text	0000003c BN_num_bits_word
+88f034c8 g     F .text	00000574 udc_interrupt
+88f1b714 g     F .text	0000003c CRYPTO_get_ex_data
+88f09300 g     F .text	00000030 mmc_boot_mci_clk_enable
+88f103e0 g       .text	00000000 arch_switch_stacks_and_call
+88f29da0 g     F .text	00000058 BUF_strlcat
+88f2e8c4 g     F .text	000003dc X509_NAME_oneline
+88f26cb0 g     F .text	0000010c BN_bin2bn
+88f18444 g     F .text	00000008 __aeabi_unwind_cpp_pr0
+88f30f50 g     F .text	00000098 __gtdf2
+88f47db0 g     O .data	0000002c hdmi_timing_default
+88f20ec8 g     F .text	00000084 asn1_do_lock
+88f21e78 g     F .text	00000180 X509_PUBKEY_get
+88f0d588 g     F .text	000001d4 mdp_dsi_video_config
+88f288d4 g     F .text	00000350 BN_mul
+88f1047c g       .text	00000000 arm_irq
+88f0cd14 g     F .text	00000074 i2c_write
+88f113bc g     F .text	00000044 thread_timer_tick
+88f111c4 g     F .text	000000c4 thread_resume
+88f16a84 g     F .text	00000008 mipi_lgd_cmd_hd720p_on
+8901c1cc g     O .bss	00000004 pu_reason
+88f06278 g     F .text	00000010 flash_get_ptable
+88f271b8 g     F .text	00000074 BN_nnmod
+88f14164 g     F .text	00000028 write_device_info
+88f109a4  w    F .text	00000008 emmc_recovery_init
+88f258e8 g     F .text	000004d0 BN_mod_exp_mont
+88f242bc g     F .text	00000084 BN_CTX_new
+88f46004 g     O .data	00000008 msm8930_keys_pm8917_gpiomap
+88f26908 g     F .text	0000000c BN_value_one
+88f15f38 g     F .text	00000014 keys_init
+88f0d34c g     F .text	00000028 gic_unmask_interrupt
+88f45fac g     O .data	00000008 msm8930_qwerty_keymap
+88f24264 g     F .text	00000058 BN_BLINDING_free
+88f47d90 g     O .data	0000000c vfat_partitions
+88f081cc g     F .text	00000070 mmc_boot_init
+88f1cb70 g     F .text	00000028 ASN1_mbstring_copy
+88f10c0c g     F .text	000000a0 event_signal
+88f0d030 g     F .text	00000154 uart_dm_init
+88f12ed8 g     F .text	000000bc boot_linux
+88f023d8 g     F .text	00000078 gpio_config_i2c
+88f0eef0 g     F .text	00000008 pll_clk_get_parent
+88f02194 g     F .text	00000030 gpio_tlmm_config
+88f31004 g     F .text	00000014 __aeabi_cdcmple
+88f15e08 g     F .text	00000054 getfastbootreason
+88f2059c g     F .text	00000040 ASN1_primitive_free
+88f01d78 g     F .text	00000034 mdp_clock_init
+88f26dbc g     F .text	00000074 BN_bn2bin
+88f0d564 g     F .text	00000014 mdp_dma_on
+88f17620 g     F .text	000000c0 hexdump
+88f28398 g     F .text	0000053c bn_mul_part_recursive
+890120e0 g       .data	00000000 __ctor_list
+88f103cc g       .text	00000000 arm_write_dacr
+88f109b4  w    F .text	00000004 target_usb_stop
+88f27a84 g     F .text	000000e4 BN_MONT_CTX_set_locked
+88f11ca4 g     F .text	0000009c timer_cancel
+89014540 g     O .bss	00000004 ept_list
+88f0e858 g     F .text	00000034 local_clk_enable
+88f29bf8 g     F .text	00000124 BUF_MEM_grow_clean
+88f003ac g     F .text	00000050 target_check_keyinfo
+88f16934 g     F .text	00000148 mipi_hitachi_cmd_hd720p_init
+88f2c128 g     F .text	0000000c d2i_RSAPrivateKey
+88f20ff8 g     F .text	000000a0 asn1_enc_save
+88f11650 g     F .text	00000130 wait_queue_wake_one
+88f2e814 g     F .text	00000010 sk_num
+88f10400 g       .text	00000000 arch_cycle_count
+88f20e98 g     F .text	0000000c ASN1_TYPE_free
+88f2d9c0 g     F .text	00000180 RSA_padding_check_PKCS1_type_1
+88f225a4 g     F .text	00000108 BN_sub
+88f021d4 g     F .text	00000204 gpio_config_uart_dm
+88f2eda4 g     F .text	00000594 sha1_block_data_order
+8902086c g     O .bss	00000004 txn_status
+88f154ec g     F .text	00000060 fastboot_info
+88f1c050 g     F .text	0000021c c2i_ASN1_INTEGER
+88f37290 g     O .rodata	0000001c ASN1_BOOLEAN_it
+88f2b260 g     F .text	000000d0 OBJ_nid2sn
+88f10c04 g     F .text	00000008 event_wait
+88f075cc g     F .text	00000060 mmc_mclk_reg_wr_delay
+88f277a4 g     F .text	00000034 BN_MONT_CTX_init
+88f2d7ac g     F .text	0000003c RSA_up_ref
+88f2b084 g     F .text	0000000c lh_num_items
+88f00c4c g     F .text	0000003c apq8064_ext_3p3V_enable
+88f002f8 g     F .text	00000010 board_ce_type
+88f01f50 g     F .text	000000b4 clock_config_mmc
+88f0fbc0 g     F .text	00000010 current_time
+88f1a668 g     F .text	0000001c OPENSSL_showfatal
+88f011b8 g     F .text	00000008 target_get_scratch_address
+88f009d0 g     F .text	00000010 target_fastboot_init
+88f18458 g       .text	00000000 memcpy
+88f30fe8 g     F .text	00000030 __aeabi_cdrcmple
+88f0d888 g     F .text	00000004 crypto_eng_reset
+88f10330 g       .text	00000000 atomic_add
+88f1d9d8 g     F .text	0000006c ASN1_STRING_type_new
+88f2e180 g     F .text	00000054 SHA1_Init
+88f12300 g     F .text	0000002c cmd_reboot_bootloader
+88f24540 g     F .text	00000160 BN_CTX_get
+88f01684 g     F .text	000000f4 panel_backlight_on_mitwoa
+88f18ecc g     F .text	000001d0 bn_mul_mont
+88f0eee8 g     F .text	00000008 pll_clk_get_rate
+88f30a04 g     F .text	00000028 __floatsidf
+88f30f58 g     F .text	00000090 __ltdf2
+88f0ea00 g     F .text	00000004 branch_clk_disable
+88f4607c g     O .data	00000008 apq8064_pm8921_keys_gpiomap
+88f310d8 g     F .text	00000000 __aeabi_uldivmod
+88f25298 g     F .text	00000650 BN_mod_exp_mont_consttime
+88f45e84 g       .rodata	00000000 __rodata_end
+88f1d880 g     F .text	00000058 ASN1_object_size
+88f1011c g       .text	00000000 arch_enable_cache
+88f0af8c g     F .text	00000050 partition_get_type
+88f20f4c g     F .text	00000048 asn1_enc_init
+88f08f94 g     F .text	00000010 mmc_get_psn
+88f17b28 g     F .text	00000010 tolower
+88f4600c g     O .data	00000038 msm8930_pm8917_qwerty_keypad
+88f183f4 g     F .text	00000008 malloc
+88f30560 g     F .text	000000a8 __udivsi3
+88f1ff34 g     F .text	00000054 ASN1_item_d2i
+88f10380 g       .text	00000000 atomic_or
+88f1d590 g     F .text	00000190 ASN1_get_object
+88f01160 g     F .text	0000002c target_atag_memvendor
+88f00f74 g     F .text	000001c0 target_atag_mem
+890147d4 g     O .bss	00000004 gpt_partitions_exist
+88f244c0 g     F .text	00000080 BN_CTX_end
+88f0b908 g     F .text	00000128 config_dsi_cmd_mode
+88f1c6bc g     F .text	000004b4 ASN1_mbstring_ncopy
+88f027f4 g     F .text	00000094 hdmi_pll_disable
+88f46044 g     O .data	00000038 apq8064_pm8917_qwerty_keypad
+88f17cac g     F .text	000006e8 vsnprintf
+88f47d9c g     O .data	00000014 ext3_partitions
+88f103e8 g       .text	00000000 dmb
+88f27dec g     F .text	00000128 bn_mul_normal
+88f164ec g     F .text	00000014 mipi_chimei_video_wxga_early_config
+88f0ece8 g     F .text	00000084 clk_get
+88f031a0 g     F .text	00000004 udc_request_free
+88f01f4c g     F .text	00000004 clock_init_mmc
+88f243c0 g     F .text	00000100 BN_CTX_start
+88f11488 g     F .text	000000ac thread_init_early
+88f0f048 g     F .text	00000010 board_target_id
+88f03e80 g     F .text	00000050 udc_stop
+88f1bc14 g     F .text	00000118 i2c_ASN1_BIT_STRING
+88f18c64 g     F .text	00000200 strtoul
+88f06288 g     F .text	000000c4 flash_erase
+88f309e0 g     F .text	00000024 __aeabi_ui2d
+8902085c g     O .bss	0000000d sn_buf
+88f2ed80 g     F .text	0000000c CRL_DIST_POINTS_free
+88f1a5a8 g     F .text	0000002c BIO_snprintf
+88f15d58 g     F .text	000000b0 display_image_on_screen
+88f2773c g     F .text	00000068 BN_from_montgomery
+88f0d810 g     F .text	0000003c wr_ce
+88f0b20c g     F .text	0000012c hdmi_msm_avi_info_frame
+88f00308 g     F .text	00000004 target_baseband
+88f0ee8c g     F .text	00000048 pll_clk_enable
+88f10ac0 g     F .text	00000098 dpc_queue
+88f30728 g     F .text	00000000 __aeabi_drsub
+88f45068 g     O .rodata	0000001c RSAPublicKey_it
+88f01b24 g     F .text	00000018 display_shutdown
+88f22500 g     F .text	000000a4 BN_add
+88f0d7b8 g     F .text	00000038 mdp_dsi_cmd_off
+88f1d438 g     F .text	000000a0 EVP_PKEY_asn1_find
+88f4608c g     O .data	00000050 mmu_section_table
+88f0dca8 g     F .text	00000024 crypto_get_ctx
+88f1626c g     F .text	00000270 mipi_d2l_dsi_init_sequence
+88f15f4c g     F .text	00000064 keys_post_event
+88f125b4 g     F .text	000000b0 check_crc
+88f45e84 g       .rodata	00000000 __apps_end
+89100000 g       .bss	00000000 _end_of_ram
+88f17ac4 g     F .text	00000024 isspace
+88f221cc g     F .text	00000124 BN_uadd
+88f45ffc g     O .data	00000008 apq8064_pm8917_keys_gpiomap
+88f3102c g     F .text	00000014 __aeabi_dcmplt
+88f2afe4 g     F .text	00000048 lh_retrieve
+88f2e8a0 g     F .text	00000024 X509_get_pubkey
+88f0247c g     F .text	0000004c msm8930_keypad_gpio_init
+88f17a20 g     F .text	00000068 heap_realloc
+88f025e4 g     F .text	0000002c mi_display_gpio_init
+88f2d8b0 g     F .text	00000074 RSA_padding_check_none
+88f0af48 g     F .text	00000040 partition_get_offset
+88f30a2c g     F .text	00000040 __extendsfdf2
+88f30d4c g     F .text	00000204 __aeabi_ddiv
+88f453a0 g     O .rodata	0000001c POLICYQUALINFO_it
+88f2e358 g     F .text	000001bc SHA256_Final
+88f11534 g     F .text	00000004 thread_init
+88f37694 g     O .rodata	0000001c BIGNUM_it
+88f30734 g     F .text	000002ac __adddf3
+88f1b658 g     F .text	000000bc CRYPTO_set_ex_data
+88f0f098 g     F .text	00000010 board_soc_id
+88f02450 g     F .text	0000002c msm8960_keypad_gpio_init
+89014400 g       .bss	00000000 _heap_end
+88f1bd2c g     F .text	00000168 c2i_ASN1_BIT_STRING
+8901f854 g     O .bss	00000004 current_thread
+88f0bb28 g     F .text	000000ec panel_manu_id_detection
+88f027b4 g     F .text	00000040 hdmi_power_init
+88f30ae0 g     F .text	0000026c __aeabi_dmul
+88f2b5ec g     F .text	000003a8 OBJ_obj2txt
+88f102ec g       .text	00000000 arch_sync_cache_range
+88f09980 g     F .text	000002a8 mmc_boot_read_mbr
+88f15898 g     F .text	0000008c get_boot_info_apps
+8901f500 g     O .bss	00000001 cleanse_ctr
+88f2df00 g     F .text	00000114 SHA1_Update
+88f01dac g     F .text	000000c0 mmss_clock_init
+88f1a684 g     F .text	000000a0 CRYPTO_lock
+88f002f4 g     F .text	00000004 board_machtype
+88f0ecd0 g     F .text	00000018 clk_init
+88f0f7ec g     F .text	000002c4 mipi_dsi_phy_init
+88f2e7c4 g     F .text	00000050 sk_pop_free
+890147d8 g     O .bss	00000004 ext3_count
+88f2e778 g     F .text	00000024 sk_pop
+88f189f4  w    F .text	00000080 strncasecmp
+88f0044c g     F .text	00000084 reboot_device
+8901f460 g     O .bss	00000004 boot_into_recovery
+88f27b68 g     F .text	00000284 bn_sub_part_words
+88f025b8 g     F .text	0000002c apq8064_display_gpio_init
+88f2dd48 g     F .text	00000150 RSA_padding_check_X931
+88f1855c g       .text	00000000 bzero
+88f0b8d8 g     F .text	00000030 trigger_mdp_dsi
+88f2d808 g     F .text	00000024 RSA_public_decrypt
+88f31624 g     F .text	00000404 __udivdi3
+88f11538 g     F .text	00000044 thread_become_idle
+88f2dc94 g     F .text	000000b4 RSA_padding_add_X931
+88f0b154 g     F .text	000000b8 hdmi_video_setup
+88f2e014 g     F .text	0000016c SHA1_Final
+88f139c8 g     F .text	000000cc read_device_info_mmc
+88f029ec g     F .text	000001bc hdmi_dtv_on
+88f0d324 g     F .text	00000028 gic_mask_interrupt
+88f309e0 g     F .text	00000024 __floatunsidf
+88f226ac g     F .text	00000164 bn_mul_add_words
+88f0ba30 g     F .text	00000010 is_cmd_mode_enabled
+88f103bc g       .text	00000000 arm_write_cr1_aux
+88f26c60 g     F .text	00000050 BN_set_word
+88f0e0c4 g     F .text	00000178 image_verify
+88f0d8cc g     F .text	000000e0 crypto_set_sha_ctx
+88f1a660 g     F .text	00000008 CRYPTO_THREADID_hash
+88f0ee60 g     F .text	00000008 pll_vote_clk_get_rate
+88f26950 g     F .text	0000002c BN_num_bits
+88f2bd20 g     F .text	00000028 PKCS7_SIGNER_INFO_get0_algs
+88f10a74 g     F .text	0000004c dpc_init
+88f229c8 g     F .text	0000016c bn_div_words
+88f0fff4 g     F .text	00000018 mdp_lcdc_on
+88f1720c g     F .text	000000f0 pm8921_low_voltage_switch_enable
+88f15fb0 g     F .text	00000050 keys_get_state
+88f08e44 g     F .text	000000cc mmc_write
+88f0f0b8 g     F .text	00000158 msm_display_config
+88f299dc g     F .text	00000084 BN_mul_word
+88f37220 g     O .rodata	0000001c ASN1_OBJECT_it
+88f03168 g     F .text	00000038 udc_request_alloc
+88f177ec g     F .text	000001d4 heap_alloc
+88f18a74 g     F .text	00000068 strnlen
+88f107a0 g     F .text	00000014 arm_prefetch_abort_handler
+88f0f210 g     F .text	0000013c msm_display_on
+88f0c0a8 g     F .text	0000003c mipi_dsi_off
+88f108a0 g     F .text	00000040 arch_thread_initialize
+88f20d94 g     F .text	00000034 ASN1_item_new
+88f45e74 g       .rodata	00000000 __apps_start
+88f10080 g       .text	00000000 arm_context_switch
+88f1d8d8 g     F .text	00000100 ASN1_STRING_set
+88f107b4 g     F .text	00000020 arm_mmu_map_section
+88f16924 g     F .text	00000008 mipi_hitachi_cmd_hd720p_on
+88f16a7c g     F .text	00000008 mipi_lgd_cmd_hd720p_config
+88f02004 g     F .text	0000007c ce_clock_init
+88f0d84c g     F .text	0000003c rd_ce
+88f0cd88 g     F .text	0000013c qup_i2c_init
+88f2780c g     F .text	0000003c BN_MONT_CTX_free
+8901f584 g     O .bss	00000004 nand_cfg1
+88f29a60 g     F .text	00000064 BUF_MEM_new
+88f0b850 g     F .text	00000088 mipi_dsi_cmds_rx
+88f01b98 g     F .text	00000058 platform_init_mmu_mappings
+88f1034c g       .text	00000000 atomic_dw_read
+88f45ef4 g     O .data	00000018 mpq8064_first_256M
+88f2a8b0 g     F .text	0000000c EVP_PKEY_set_type
+88f102d0 g       .text	00000000 arch_invalidate_cache_range
+88f01f30 g     F .text	0000001c mmss_clock_disable
+88f18b34 g     F .text	00000034 strrchr
+88f28f38 g     F .text	000000d0 BN_rshift1
+88f277d8 g     F .text	00000034 BN_MONT_CTX_new
+88f372e4 g     O .rodata	0000001c ASN1_BIT_STRING_it
+88f3107c g     F .text	0000005c __fixdfsi
+88f1840c g     F .text	00000030 calloc
+8901f538 g     O .bss	00000004 obj_cleanup_defer
+88f1da44 g     F .text	00000040 ASN1_STRING_free
+88f03bac g     F .text	00000038 udc_register_gadget
+88f1099c  w    F .text	00000008 target_is_emmc_boot
+88f16c40 g     F .text	000000cc pm8921_init
+88f0e71c g     F .text	00000004 unmask_interrupt
+88f11d40 g     F .text	00000024 timer_init
+8901f7a0 g     O .bss	00000010 mmc_host
+88f1a8cc g     F .text	00000088 CRYPTO_add_lock
+88f0f528 g     F .text	000002a4 lvds_init
+890147d0 g     O .bss	00000004 partition_count
+88f0ebd4 g     F .text	00000004 set_rate_nop
+88f20e74 g     F .text	0000000c ASN1_OCTET_STRING_new
+88f03a3c g     F .text	00000170 udc_init
+88f2a6c4 g     F .text	00000028 EVP_PBE_cleanup
+89020870 g     O .bss	00000004 sigx_app
+88f2e770 g     F .text	00000008 sk_push
+88f157c0 g     F .text	000000d8 set_recovery_message
+88f103b4 g       .text	00000000 arm_read_cr1_aux
+88f026a8 g     F .text	00000054 hdmi_msm_init_phy
+8901f850 g     O .bss	00000004 partition_entries
+88f30734 g     F .text	000002ac __aeabi_dadd
+88f10424 g       .text	00000000 arm_syscall
+88f30f58 g     F .text	00000090 __ledf2
+88f1a984 g     F .text	00000054 CRYPTO_free_locked
+88f011e0 g     F .text	00000038 msm8930_keypad_init
+88f1a724 g     F .text	00000104 CRYPTO_destroy_dynlockid
+88f0c038 g     F .text	00000070 mipi_dsi_on
+88f100a4 g       .text	00000000 arm_save_mode_regs
+88f0fbd0 g     F .text	00000040 platform_uninit_timer
+88f07428 g     F .text	00000010 flash_ecc_bch_enabled
+88f11928 g     F .text	0000010c thread_unblock_from_wait_queue
+88f22ca4 g     F .text	00000160 bn_sub_words
+88f0823c g     F .text	00000c08 mmc_boot_main
+88f1701c g     F .text	0000010c pm8921_ldo_set_voltage
+88f2a534 g     F .text	00000004 ERR_put_error
+88f2d67c g     F .text	00000008 RSA_new
+88f30a6c g     F .text	00000074 __aeabi_ul2d
+88f2e620 g     F .text	000000c4 sk_insert
+88f37884 g     O .rodata	0000001c X509_NAME_ENTRIES_it
+88f0eed4 g     F .text	00000014 pll_clk_disable
+88f011c8 g     F .text	00000018 msm8960_keypad_init
+88f15570 g     F .text	00000024 fastboot_okay
+88f45f3c g     O .data	00000038 msm8960_qwerty_keypad
+88f003fc g     F .text	00000050 target_check_ddrinfo
+88f2a8bc g     F .text	00000030 EVP_PKEY_assign
+88f1ac78 g     F .text	00000054 CRYPTO_free
+88f15c5c g     F .text	000000fc fbcon_setup
+88f297b8 g     F .text	000000f0 BN_sub_word
+88f0e890 g     F .text	000000f4 local_clk_set_rate
+88f1cc14 g     F .text	00000084 ASN1_OBJECT_free
+88f30628 g     F .text	00000000 __aeabi_idiv
+88f11400 g     F .text	00000088 thread_sleep
+88f0ee68 g     F .text	00000008 pll_vote_clk_get_parent
+88f25db8 g     F .text	000009e0 BN_mod_inverse
+88f246a0 g     F .text	00000b34 BN_div
+88f0ea70 g     F .text	00000164 set_rate_mnd_banked
+88f372c8 g     O .rodata	0000001c ASN1_INTEGER_it
+88f1b02c g     F .text	000000e4 CRYPTO_push_info_
+88f100b4 g       .text	00000000 arch_disable_cache
+88f1e398 g     F .text	00000008 ASN1_item_i2d
+88f07418 g     F .text	00000010 flash_page_size
+88f45ed4 g     O .data	00000020 msm8930_default_first_256M
+88f37678 g     O .rodata	0000001c X509_ATTRIBUTE_SET_it
+88f46084 g     O .data	00000008 msm8960_keys_gpiomap
+88f23664 g     F .text	0000099c bn_sqr_comba8
+88f00b7c g     F .text	00000098 target_baseband_detect
+88f11374 g     F .text	00000048 thread_block
+88f02ba8 g     F .text	0000000c _dputc
+88f212f8 g     F .text	0000000c X509_ATTRIBUTE_free
+88f1212c g     F .text	000001a8 cmd_flash
+88f172fc g     F .text	00000088 pm8921_mpp_set_digital_output
+88f2e57c g     F .text	0000009c sk_new
+88f01b88 g     F .text	00000010 platform_uninit
+88f31068 g     F .text	00000014 __aeabi_dcmpgt
+88f2b02c g     F .text	00000058 lh_doall
+88f1cb98 g     F .text	00000008 i2t_ASN1_OBJECT
+88f15594 g     F .text	0000017c fastboot_init
+88f0e5bc g     F .text	000000c0 decrypt_scm
+88f26fb0 g     F .text	000000a8 BN_set_bit
+88f28c24 g     F .text	00000240 BN_bn2dec
+88f185f8 g     F .text	00000048 memchr
+88f092e8 g     F .text	00000018 mmc_boot_mci_clk_disable
+88f482d0 g     O .data	00000010 renesas_panel_info
+88f0af08 g     F .text	00000040 partition_get_size
+88f31054 g     F .text	00000014 __aeabi_dcmpge
+88f1a650 g     F .text	00000008 CRYPTO_THREADID_cmp
+88f2952c g     F .text	000001c4 BN_sqr
+88f30730 g     F .text	000002b0 __aeabi_dsub
+88f030e8 g     F .text	0000007c udc_endpoint_alloc
+88f01b3c g     F .text	00000040 platform_early_init
+88f00000 g       .text.boot	00000000 _start
+88f2e79c g     F .text	00000028 sk_free
+88f45f0c g     O .data	00000028 apq8064_fusion_first_256M
+88f45fb4 g     O .data	00000038 apq8064_pm8921_qwerty_keypad
+88f0d374 g     F .text	000000a8 gic_register_int_handler
+88f011c0 g     F .text	00000008 target_get_max_flash_size
+8901453c g     O .bss	00000004 epts
+88f12c60 g     F .text	00000060 atag_cmdline
+88f30a6c g     F .text	00000074 __floatundidf
+88f2ed34 g     F .text	0000000c POLICYQUALINFO_free
+88f0d774 g     F .text	00000044 mdp_dsi_video_off
+88f24000 g     F .text	00000264 bn_sqr_comba4
+88f10328 g       .text	00000000 atomic_swap
+88f26c2c g     F .text	00000034 BN_clear
+88f2b198 g     F .text	000000c8 OBJ_nid2obj
+88f296f0 g     F .text	000000c8 BN_div_word
+88f0c34c g     F .text	00000964 qup_i2c_xfer
+88f102b4 g       .text	00000000 arch_clean_invalidate_cache_range
+8901c1c8 g     O .bss	00000004 page_size
+88f02888 g     F .text	00000164 hdmi_pll_enable
+88f005d0 g     F .text	000003ac target_init
+88f2e824 g     F .text	0000003c sk_value
+88f108ec  w    F .text	00000008 platform_use_identity_mmu_mappings
+88f18890 g     F .text	00000088 strlcpy
+88f17ae8 g     F .text	00000014 isupper
+88f1896c g     F .text	00000088 strncmp
+88f20d8c g     F .text	00000008 ASN1_item_ex_new
+88f17384 g     F .text	00000054 pm8921_HDMI_Switch
+88f2c14c g     F .text	0000000c i2d_RSAPublicKey
+88f378d0 g     O .rodata	0000001c x509_name_ff
+890120e0 g       .data	00000000 __data_end
+88f0e984 g     F .text	00000008 local_clk_get_rate
+88f20994 g     F .text	00000140 ASN1_primitive_new
+88f16714 g     F .text	00000008 mipi_toshiba_video_wsvga_on
+88f1b570 g     F .text	00000030 CRYPTO_cleanup_all_ex_data
+88f1b5a0 g     F .text	0000005c CRYPTO_new_ex_data
+88f02080 g     F .text	00000048 ce_async_reset
+88f18948 g     F .text	00000024 strncpy
+88f0fc70 g     F .text	00000080 udelay
+88f0d1d0 g     F .text	000000f0 qgic_init
+88f4840c g     O .data	00000004 critical_section_count
+88f10318 g       .text	00000000 arch_disable_ints
+890145c8 g     O .bss	00000001 mmc_slot
+88f10cac g     F .text	00000060 event_unsignal
+88f10948  w    F .text	00000054 platform_get_phys_to_virt_mapping
+88f1a5d4 g     F .text	0000007c CRYPTO_THREADID_current
+88f18440 g     F .text	00000004 realloc
+88f02748 g     F .text	0000006c hdmi_phy_reset
+88f0a3b8 g     F .text	000000d8 partition_read_table
+88f2a834 g     F .text	0000007c EVP_PKEY_new
+88f376f4 g     O .rodata	0000001c X509_EXTENSION_it
+88f12b80 g     F .text	000000e0 atag_ptable
+88f0f058 g     F .text	00000010 board_baseband
+88f45e74 g       .rodata	00000000 __commands_start
+88f2b330 g     F .text	000000d4 OBJ_nid2ln
+88f16a94 g     F .text	0000013c mipi_lgd_cmd_hd720p_init
+88f0634c g     F .text	00000c7c flash_read_ext
+88f37784 g     O .rodata	0000001c LONG_it
+88f30a04 g     F .text	00000028 __aeabi_i2d
+88f269dc g     F .text	00000050 BN_free
+88f01778 g     F .text	000000f4 panel_backlight_on_mitwo
+88f452b0 g     O .rodata	0000001c AUTHORITY_KEYID_it
+88f1844c g       .text	00000000 bcopy
+88f0ee18 g     F .text	00000030 pll_vote_clk_enable
+88f45fec g     O .data	00000008 msm8930_keys_pm8038_gpiomap
+88f18bdc g     F .text	00000088 strtok
+89020874 g     O .bss	00000004 sig_app
+88f46f6c g     O .data	0000003c clk_ops_pll
+88f11780 g     F .text	000001a8 wait_queue_wake_all
+88f18640 g     F .text	0000010c memcmp
+88f1157c g     F .text	00000024 wait_queue_init
+88f2bd48 g     F .text	00000010 PKCS7_RECIP_INFO_get0_alg
+88f0f34c g     F .text	000000d4 msm_display_init
+88f27058 g     F .text	00000038 BN_is_bit_set
+88f10308 g       .text	00000000 arch_enable_ints
+88f01e6c g     F .text	000000c4 liquid_mmss_clock_init
+88f13a94 g     F .text	00000094 write_device_info_flash
+88f374ec g     O .rodata	0000001c DISPLAYTEXT_it
+88f0165c g     F .text	00000028 panel_id_detection
+88f0f078 g     F .text	00000010 board_pmic_ver
+88f30724  w    F .text	00000004 __aeabi_ldiv0
+88f17b10 g     F .text	00000018 isalpha
+88f0ea0c g     F .text	00000008 branch_clk_set_parent
+88f30d4c g     F .text	00000204 __divdf3
+88f45c78 g     O .rodata	0000001c EDIPARTYNAME_it
+88f1ab80 g     F .text	000000f8 CRYPTO_realloc_clean
+88f103a4 g       .text	00000000 arm_read_cr1
+88f11c54 g     F .text	00000028 timer_initialize
+88f109ac  w    F .text	00000008 target_use_signed_kernel
+88f0b0dc g     F .text	00000010 hdmi_set_fb_addr
+88f2d548 g     F .text	00000134 RSA_new_method
+88f17128 g     F .text	0000008c pm8921_ldo_clear_voltage
+88f11288 g     F .text	000000ec thread_preempt
+88f2b524 g     F .text	000000c8 OBJ_obj2nid
+88f01c00 g     F .text	00000090 config_mmss_clk
+88f0eef8 g     F .text	00000140 board_init
+88f03164 g     F .text	00000004 udc_endpoint_free
+88f30ae0 g     F .text	0000026c __muldf3
+88f024c8 g     F .text	00000050 apq8064_keypad_gpio_init
+88f0f088 g     F .text	00000010 board_platform_version
+890120e0 g       .data	00000000 __ctor_end
+88f2e6e4 g     F .text	0000008c sk_delete
+88f02f20 g     F .text	00000070 udc_descriptor_alloc
+88f2ece0 g     F .text	00000048 policy_data_free
+88f1045c g       .text	00000000 arm_data_abort
+88f08fa4 g     F .text	0000032c mmc_erase_card
+88f0e4fc g     F .text	000000c0 encrypt_scm
+88f167dc g     F .text	00000140 mipi_toshiba_video_wsvga_init
+88f10b58 g     F .text	00000020 event_init
+88f24340 g     F .text	00000080 BN_CTX_free
+88f12664 g     F .text	0000051c update_cmdline
+88f0d7f0 g     F .text	00000010 mdp_set_revision
+88f47628 g     O .data	0000003c clk_ops_pll_vote
+88f12048 g     F .text	00000070 cmd_erase
+88f22060 g     F .text	00000050 X509_PUBKEY_get0_param
+88f45084 g     O .rodata	0000001c RSAPrivateKey_it
+88f103d4 g       .text	00000000 arm_invalidate_tlb
+88f0030c g     F .text	00000050 target_check_power_on_reason
+890120e0 g       .bss	00000000 __bss_start
+88f2b124 g     F .text	00000074 OBJ_cleanup
+88f11c7c g     F .text	00000028 timer_set_oneshot
+88f26aa8 g     F .text	00000050 bn_expand2
+88f18564 g       .text	00000000 memset
+88f154b0 g     F .text	0000003c fastboot_publish
+88f2e860 g     F .text	00000040 sk_set
+88f164dc g     F .text	00000008 mipi_chimei_video_wxga_on
+88f15c20 g     F .text	0000003c fbcon_clear
+88f2bbcc g     F .text	000000a4 OBJ_NAME_remove
+88f1671c g     F .text	00000008 mipi_toshiba_video_wsvga_off
+88f12cc0 g     F .text	000000b4 generate_atags
+88f0ccb0 g     F .text	00000064 i2c_read
+88f45a50 g     O .rodata	0000001c GENERAL_NAMES_it
+88f18e64 g     F .text	00000054 ptable_find
+88f108e0 g     F .text	0000000c arch_context_switch
+88f37258 g     O .rodata	0000001c ASN1_SEQUENCE_it
+88f2081c g     F .text	00000008 ASN1_item_ex_free
+88f02f90 g     F .text	000000a4 udc_string_desc_alloc
+88f187e4 g     F .text	000000ac strlcat
+88f0d184 g     F .text	0000004c uart_putc
+88f0d550 g     F .text	00000014 mdp_disable
+88f30560 g     F .text	00000000 __aeabi_uidiv
+88f21098 g     F .text	000000b8 asn1_enc_restore
+88f0ae84 g     F .text	00000084 partition_get_index
+88f15468 g     F .text	00000048 fastboot_register
+88f0035c g     F .text	00000050 target_check_battinfo
+88f11d7c g     F .text	000000cc apps_init
+88f45e1c g     O .rodata	0000001c NAME_CONSTRAINTS_it
+88f10b78 g     F .text	0000008c event_wait_timeout
+88f0e720 g     F .text	00000004 register_int_handler
+88f147f8 g     F .text	000001a0 cmd_flash_mmc_img
+88f03034 g     F .text	000000b4 _udc_endpoint_alloc
+88f3798c g     O .rodata	0000001c X509_VAL_it
+88f15710 g     F .text	000000b0 get_recovery_message
+88f30a80 g     F .text	00000060 __aeabi_l2d
+88f0ee70 g     F .text	0000001c pll_vote_clk_is_enabled
+88f16a8c g     F .text	00000008 mipi_lgd_cmd_hd720p_off
+88f122d4 g     F .text	0000002c cmd_reboot
+88f0fcf0 g     F .text	00000304 mdp_lcdc_config
+88f16f74 g     F .text	0000005c pm8921_irq_get_block_status
+88f0e9d4 g     F .text	0000000c local_clk_get_parent
+88f12f94 g     F .text	00000088 write_device_info_mmc
+88f1ed50 g     F .text	00000018 ASN1_tag2bit
+88f004d0 g     F .text	00000100 check_reboot_mode
+88f30628 g     F .text	000000dc __divsi3
+88f0e718 g     F .text	00000004 mask_interrupt
+88f2a6ec g     F .text	00000050 EVP_cleanup
+8901f858 g     O .bss	00000004 idle_thread
+88f11f5c g     F .text	000000ec cmd_testmem
+88f29ac4 g     F .text	00000038 BUF_MEM_free
+88f2bb78 g     F .text	00000050 OBJ_sigid_free
+88f3765c g     O .rodata	0000001c X509_ATTRIBUTE_it
+88f18798 g     F .text	00000034 strcmp
+8901c198 g     O .bss	00000004 page_mask
+88f0e714 g     F .text	00000004 platform_fiq
+88f0e9e0 g     F .text	00000020 branch_clk_enable
+88f01218 g     F .text	00000038 apq8064_keypad_init
+88f16e18 g     F .text	0000015c pm8921_gpio_config
+88f103f0 g       .text	00000000 isb
+88f0b0c4 g     F .text	00000018 hdmi_msm_set_mode
+88f1f5d0 g     F .text	00000964 ASN1_item_ex_d2i
+8901f7b0 g     O .bss	000000a0 mmc_card
+88f0a6ac g     F .text	000007d8 write_gpt
+88f4564c g     O .rodata	0000001c DIST_POINT_it
+88f30f60 g     F .text	00000088 __nedf2
+88f12448 g     F .text	0000016c update_crc_list
+88f0e88c g     F .text	00000004 local_clk_disable
+88f377bc g     O .rodata	0000001c X509_NAME_it
+88f2f480 g     F .text	00001098 sha256_block_data_order
+88f15924 g     F .text	000002b4 recovery_init
+88f103c4 g       .text	00000000 arm_write_ttbr
+88f20e80 g     F .text	0000000c ASN1_OCTET_STRING_free
+88f1d3fc g     F .text	0000003c EVP_PKEY_asn1_get0
+88f10764 g     F .text	00000014 arm_syscall_handler
+88f183fc g     F .text	00000010 memalign
+88f183c0 g     F .text	00000034 sprintf
+88f00140 g     F .text	00000178 target_early_init
+88f20dc8 g     F .text	000000ac ASN1_template_new
+88f1c390 g     F .text	00000088 ASN1_INTEGER_get
+88f2938c g     F .text	000001a0 bn_sqr_recursive
+88f136a4 g     F .text	00000324 cmd_boot
+88f2d53c g     F .text	0000000c RSA_PKCS1_SSLeay
+88f0099c g     F .text	00000034 target_serialno
+88f1cba0 g     F .text	00000074 ASN1_OBJECT_new
+88f37274 g     O .rodata	0000001c ASN1_UTF8STRING_it
+88f2d684 g     F .text	00000128 RSA_free
+88f160a8 g     F .text	000000b8 ssbi_gpio_keypad_init
+88f164e4 g     F .text	00000008 mipi_chimei_video_wxga_off
+88f10478 g       .text	00000000 arm_reserved
+88f179c0 g     F .text	00000060 heap_free
+88f2ed8c g     F .text	0000000c GENERAL_NAMES_free
+88f1d85c g     F .text	00000024 ASN1_put_eoc
+88f292b4 g     F .text	000000d8 bn_sqr_normal
+88f22904 g     F .text	000000c4 bn_sqr_words
+88f0be58 g     F .text	000001e0 mipi_dsi_video_mode_config
+88f372ac g     O .rodata	0000001c ASN1_ANY_it
+88f11120 g     F .text	000000a4 thread_yield
+88f26af8 g     F .text	000000ec BN_copy
+88f45e84 g       .rodata	00000000 __data_start_rom
+88f0b5e8 g     F .text	00000090 dsi_cmd_dma_trigger_for_panel
+88f298a8 g     F .text	00000134 BN_add_word
+88f0256c g     F .text	0000004c pmic8921_gpio_get
+88f453bc g     O .rodata	0000001c NOTICEREF_it
+88f10024 g     F .text	00000058 arch_early_init
+88f01c90 g     F .text	00000018 hsusb_clock_init
+88f01134 g     F .text	0000002c target_atag_pureason
+88f092d0 g     F .text	0000000c get_mmc_host
+88f0ed6c g     F .text	000000ac clk_get_set_enable
+88f07cb4 g     F .text	00000264 mmc_boot_write_to_card
+88f0118c g     F .text	0000002c target_atag_hwversion
+88f009e0 g     F .text	0000019c target_detect
+88f1d4d8 g     F .text	000000b8 EVP_PKEY_asn1_find_str
+88f0d4bc g     F .text	00000094 mipi_dsi_cmd_config
+88f0186c g     F .text	000002b8 display_init
+88f189f4 g     F .text	00000080 strnicmp
+88f37524 g     O .rodata	0000001c DIRECTORYSTRING_it
+88f2db58 g     F .text	0000013c RSA_padding_check_PKCS1_type_2
+88f17b38 g     F .text	00000058 lcm
+88f1cec0 g     F .text	00000068 ASN1_TYPE_set
+88f0ea14 g     F .text	00000008 branch_clk_is_enabled
+88f2d82c g     F .text	00000084 RSA_padding_add_none
+88f0ea1c g     F .text	00000054 set_rate_mnd
+88f37914 g     O .rodata	0000001c X509_PUBKEY_it
+88f1accc g     F .text	00000054 OPENSSL_cleanse
+88f2aae0 g     F .text	00000120 lh_new
+88f1b5fc g     F .text	0000005c CRYPTO_free_ex_data
+88f1b110 g     F .text	00000054 CRYPTO_pop_info
+88f1da84 g     F .text	000000c4 PKCS8_pkey_set0
+88f0d75c g     F .text	00000018 mdp_dsi_video_on
+88f1a558 g     F .text	00000050 BIO_vsnprintf
+88f0b3c8 g     F .text	0000003c hdmi_msm_turn_on
+88f0b404 g     F .text	000001e4 hdmi_dtv_init
+8901f588 g     O .bss	00000210 empty_buf
+88f27f14 g     F .text	00000484 bn_mul_recursive
+88f0faf8 g     F .text	000000c8 platform_set_periodic_timer
+88f1a828 g     F .text	000000a4 CRYPTO_get_dynlock_value
+88f1cf28 g     F .text	00000288 UTF8_getc
+88f1c26c g     F .text	00000124 ASN1_INTEGER_set
+88f031a4 g     F .text	0000026c udc_request_queue
+88f2e2d8 g     F .text	00000080 SHA256_Init
+88f1a658 g     F .text	00000008 CRYPTO_THREADID_cpy
+88f48410 g     O .data	00000858 part_info
+88f0e3b8 g     F .text	00000144 scm_call
+88f18eb8 g     F .text	00000014 ptable_get
+88f08f10 g     F .text	00000084 mmc_read
+88f01d10 g     F .text	00000068 clock_config_i2c
+88f44ef4 g     O .rodata	000000c0 rsa_asn1_meths
+88f275f8 g     F .text	00000144 BN_mod_mul_montgomery
+88f00ca4 g     F .text	00000008 target_mmc_bus_width
+88f0d578 g     F .text	00000010 mdp_start_dma
+88f0b338 g     F .text	00000090 hdmi_app_clk_init
+88f26be4 g     F .text	00000048 BN_dup
+88f45f34 g     O .data	00000008 msm8960_qwerty_keymap
+88f0b678 g     F .text	000001d8 mipi_dsi_cmds_tx
+88f30608 g     F .text	00000020 __aeabi_uidivmod
+88f17afc g     F .text	00000014 isdigit
+88f31018 g     F .text	00000014 __aeabi_dcmpeq
+88f2ed98 g     F .text	0000000c NAME_CONSTRAINTS_free
+88f1418c g     F .text	00000038 cmd_oem_unlock
+88f0f038 g     F .text	00000010 board_platform_id
+88f28e64 g     F .text	000000d4 BN_lshift1
+88f2a5d4 g     F .text	000000ec ERR_add_error_data
+88f026fc g     F .text	0000004c hdmi_msm_reset_core
+88f0af88 g     F .text	00000004 partition_dump
+88f165b4 g     F .text	00000160 mipi_chimei_video_wxga_init
+88f37508 g     O .rodata	0000001c ASN1_IA5STRING_it
+88f17590 g     F .text	0000004c _dvprintf
+88f0e994 g     F .text	00000040 local_clk_round_rate
+89020878 g       .bss	00000000 _end
+88f1ce38 g     F .text	00000088 ASN1_STRING_to_UTF8
+88f29008 g     F .text	0000014c BN_lshift
+88f45eac g     O .data	00000020 apq8064_standalone_first_256M
+88f0ebd8 g     F .text	00000068 clk_disable
+88f45a34 g     O .rodata	0000001c CRL_DIST_POINTS_it
+88f174bc g     F .text	00000034 halt
+88f141c4 g     F .text	00000028 read_device_info
+88f16d0c g     F .text	0000010c pm8921_boot_done
+88f1007c g     F .text	00000004 arch_init
+88f37a4c g     O .rodata	0000001c X509_CINF_it
+88f1ae7c g     F .text	000001b0 CRYPTO_mem_ctrl
+88f2aa84 g     F .text	0000005c lh_strhash
+88f104dc g       .text	00000000 arm_fiq
+88f02148 g     F .text	0000004c gpio_direction
+88f2bca0 g     F .text	00000080 OBJ_NAME_cleanup
+88f02684 g     F .text	00000024 msm_clocks_init
+88f21150 g     F .text	00000018 asn1_get_field_ptr
+88f120b8 g     F .text	00000074 cmd_erase_mmc
+88f171b4 g     F .text	00000058 pm8921_config_reset_pwr_off
+88f45690 g     O .rodata	0000001c DIST_POINT_NAME_it
+88f09c28 g     F .text	00000790 mmc_boot_read_gpt
+88f14b7c g     F .text	00000244 cmd_flash_mmc
+88f379f4 g     O .rodata	0000001c X509_it
+88f3107c g     F .text	0000005c __aeabi_d2iz
+88f2eca0 g     F .text	00000040 policy_cache_free
+88f377a0 g     O .rodata	0000001c X509_NAME_INTERNAL_it
+88f10778 g     F .text	00000014 arm_undefined_handler
+88f1d720 g     F .text	0000013c ASN1_put_object
+88f0f068 g     F .text	00000010 board_pmic_type
+88f02bc8 g     F .text	00000088 smem_read_alloc_entry
+88f29d1c g     F .text	00000084 BUF_strlcpy
+88f33fdc g     O .rodata	000002d4 certBuffer
+88f2e514 g     F .text	00000068 SHA256
+88f222f0 g     F .text	00000210 BN_usub
+88f215d4 g     F .text	0000000c X509_NAME_ENTRY_free
+88f20824 g     F .text	00000084 ASN1_template_free
+88f16160 g     F .text	00000008 lvds_chimei_wxga_config
+88f00c88 g     F .text	0000001c target_usb_init
+88f37020 g     O .rodata	0000001c ASN1_TIME_it
+88f30724  w    F .text	00000004 __aeabi_idiv0
+88f173d8 g     F .text	00000078 pa1_ssbi2_read_bytes
+88f0a490 g     F .text	00000178 write_mbr
+88f1554c g     F .text	00000024 fastboot_fail
+88f00cac g     F .text	000002c8 target_first_256M_atag
+88f10364 g       .text	00000000 atomic_and
+88f16fd0 g     F .text	0000004c pm8921_gpio_get
+88f17450 g     F .text	0000006c pa1_ssbi2_write_bytes
+88f0bab8 g     F .text	00000070 mipi_dsi_cmd_trigger
+88f21ff8 g     F .text	00000068 X509_PUBKEY_set0_param
+88f10d28 g     F .text	000000ac kmain
+88f16168 g     F .text	00000008 lvds_chimei_wxga_on
+88f16178 g     F .text	0000009c lvds_chimei_wxga_init
+88f207f8 g     F .text	00000024 ASN1_item_free
+88f18b68 g     F .text	00000074 strspn
+88f17a88 g     F .text	0000003c heap_init
+88f2a538 g     F .text	00000054 ERR_remove_thread_state
+88f27144 g     F .text	00000074 bn_cmp_part_words
+88f16170 g     F .text	00000008 lvds_chimei_wxga_off
+88f45e74 g     O .rodata	00000010 _app_aboot
+88f0ee48 g     F .text	00000018 pll_vote_clk_disable
+88f18918 g     F .text	00000030 strlen
+88f01bf0 g     F .text	00000010 platform_tick_rate
+88f26a2c g     F .text	0000000c BN_init
+88f0d304 g     F .text	00000020 gic_platform_fiq
+88f31004 g     F .text	00000014 __aeabi_cdcmpeq
+88f26e30 g     F .text	00000088 BN_ucmp
+88f30f50 g     F .text	00000098 __gedf2
+88f29afc g     F .text	000000fc BUF_MEM_grow
+88f2ac68 g     F .text	000001f4 lh_insert
+88f2a58c g     F .text	00000048 ERR_set_error_data
+88f374d0 g     O .rodata	0000001c ASN1_OCTET_STRING_it
+89015668 g       .bss	00000000 irq_save_spot
+88f02bb4 g     F .text	00000014 platform_halt
+88f10298 g       .text	00000000 arch_clean_cache_range
+88f02518 g     F .text	00000054 pmic8921_gpio_set
+88f021c4 g     F .text	00000010 gpio_set
+88f31114 g     F .text	0000003c __gnu_ldivmod_helper
+88f21e44 g     F .text	0000000c X509_NAME_free
+88f2a8ec g     F .text	00000058 EVP_PKEY_get1_RSA
+88f03be4 g     F .text	0000029c udc_start
+88f0e67c g     F .text	00000088 switch_ce_chn_cmd
+88f1874c g     F .text	0000004c strchr
+88f10440 g       .text	00000000 arm_prefetch_abort
+88f2ae5c g     F .text	00000188 lh_delete
+88f1a9d8 g     F .text	000000d8 CRYPTO_malloc
+88f20ea4 g     F .text	00000010 asn1_get_choice_selector
+88f1aab0 g     F .text	000000d0 CRYPTO_realloc
+88f37bc4 g     O .rodata	0000001c X509_CERT_AUX_it
+88f2697c g     F .text	00000060 BN_clear_free
+88f30a2c g     F .text	00000040 __aeabi_f2d
+88f10f90 g     F .text	0000011c thread_create
+88f0dc04 g     F .text	000000a4 crypto_get_digest
+88f0d41c g     F .text	000000a0 mdp_dsi_cmd_config
+8901c19c g     O .bss	00000004 fastboot_reason
+88f45e84 g       .rodata	00000000 __data_start
+88f0f0a8 g     F .text	00000010 board_soc_version
+88f45ecc g     O .data	00000008 msm8960_default_first_256M
+88f37594 g     O .rodata	0000001c X509_ALGOR_it
+88f0ea04 g     F .text	00000008 branch_clk_get_parent
+88f483c0 g     O .data	0000001c local_dummy_freq
+88f221a8 g     F .text	0000000c d2i_X509
+88f10408 g       .text	00000000 arm_undefined
+88f45630 g     O .rodata	0000001c USERNOTICE_it
+88f20e8c g     F .text	0000000c ASN1_TYPE_new
+88f2d7e8 g     F .text	00000020 RSA_size
+88f14084 g     F .text	000000e0 read_device_info_flash
+88f10848 g     F .text	00000014 arch_disable_mmu
+88f0e704 g     F .text	00000010 platform_irq
+88f0e98c g     F .text	00000008 local_clk_is_enabled
+88f0ec40 g     F .text	00000090 clk_enable
+88f1d1b0 g     F .text	00000234 UTF8_putc
+88f10400 g       .text	00000000 arm_read_cycle_count
+88f103ac g       .text	00000000 arm_write_cr1
+88f1ed68 g     F .text	00000354 asn1_ex_c2i
+88f15e5c g     F .text	000000dc display_fastboot_image_on_screen
+88f30730 g     F .text	000002b0 __subdf3
+88f0d9ac g     F .text	00000258 crypto_send_data
+88f2ed28 g     F .text	0000000c AUTHORITY_KEYID_free
+88f0ba40 g     F .text	00000078 mipi_dsi_cmd_mode_trigger
+88f002b8 g     F .text	0000003c shutdown_device
+88f2de98 g     F .text	00000068 SHA1
+88f0f7cc g     F .text	00000020 lvds_on
+88f21254 g     F .text	000000a4 X509_ALGOR_set0
+8901c1c0 g     O .bss	00000004 reboot_mode
+88f1000c g     F .text	00000018 mdp_lcdc_off
+88f30704 g     F .text	00000020 __aeabi_idivmod
+88f108f4  w    F .text	00000054 platform_get_virt_to_phys_mapping
+88f0097c g     F .text	00000020 target_pause_for_battery_charge
+88f22b34 g     F .text	00000170 bn_add_words
+88f26a38 g     F .text	00000070 BN_new
+88f45cd8 g     O .rodata	0000001c GENERAL_SUBTREE_it
+88f13b28 g     F .text	0000052c boot_linux_from_flash
+88f1df04 g     F .text	000003ec ASN1_item_ex_i2d
+88f12d74 g     F .text	00000164 dump_mem
+88f1692c g     F .text	00000008 mipi_hitachi_cmd_hd720p_off
+88f2a944 g     F .text	00000088 EVP_PKEY_free
+88f16500 g     F .text	000000b4 mipi_chimei_video_wxga_config
+88f270b8 g     F .text	0000008c bn_cmp_words
+88f2d924 g     F .text	0000009c RSA_padding_add_PKCS1_type_1
+88f20f94 g     F .text	00000064 asn1_enc_free
+88f26eb8 g     F .text	000000f8 BN_cmp
+88f2c140 g     F .text	0000000c d2i_RSAPublicKey
+88f1db48 g     F .text	00000098 PKCS8_pkey_get0
+88f07f18 g     F .text	000002b4 mmc_boot_read_from_card
+88f18adc g     F .text	00000058 strpbrk
+88f174f0 g     F .text	000000a0 _dprintf
+890145cc g     O .bss	00000004 mmc_boot_mci_base
+88f1843c g     F .text	00000004 free
+88f2b504 g     F .text	00000020 OBJ_bsearch_
+88f378a0 g     O .rodata	0000001c X509_NAME_ENTRY_it
+8901f798 g     O .bss	00000004 nand_cfg0
+
+

@@ -1,0 +1,60 @@
+#==========================================================
+#
+# RPM full-system build script
+#
+# Copyright (c) 2009-2009 by QUALCOMM, Incorporated.
+# All Rights Reserved.
+# QUALCOMM Proprietary/GTDR
+#
+#==========================================================
+# $Header: $
+
+import sys
+import os
+import glob
+Import('env')
+
+
+#------------------------------------------------------------------------------
+# Define the "rpm" image
+#------------------------------------------------------------------------------
+aliases = ['rpm', 'cbsp_rpm', 'all']
+
+env.InitImageVars(
+   alias_list=aliases,
+   proc='arm7',
+   plat='DALNative',
+   config='rpm',
+   build_tags = ['CORE_RPM', 'RPM_IMAGE'],
+   tools = ['${BUILD_ROOT}/core/bsp/build/scripts/mbn_tools.py',
+            '${BUILD_ROOT}/core/bsp/build/scripts/mbn_builder.py',
+            '${BUILD_ROOT}/tools/build/scons/scripts/rpmtools_defs.py',
+            '${BUILD_ROOT}/core/bsp/build/scripts/scl_builder.py',
+            '${BUILD_ROOT}/core/bsp/build/scripts/bin_builder.py',
+            '${BUILD_ROOT}/tools/build/scons/scripts/buildspec_builder.py',
+           ])
+
+if not env.CheckAlias():
+   Return()
+
+env.InitBuildConfig()
+
+#------------------------------------------------------------------------------
+# Set up image name, flash type, kernel config, etc.
+#------------------------------------------------------------------------------
+env.Replace(TARGET_NAME = 'RPM')
+env.Replace(TARGET_IMAGE = 'RPM')
+
+# secboot requirements
+env.Replace(USES_MBNTOOLS = 'yes')
+#env.Replace(USES_SECBOOT = 'yes')
+#env.Replace(USES_SECBOOT_QDST = 'yes')
+
+#env.Replace(USES_NO_STRIP_NO_ODM = 'yes')
+#env.Replace(USES_NO_DEBUG = 'yes')
+
+#------------------------------------------------------------------------------
+# Load in RPM build rules
+#------------------------------------------------------------------------------
+env.Tool('RPM', toolpath = ['${BUILD_ROOT}/build/rpm/8064/build'])
+

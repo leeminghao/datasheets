@@ -1,0 +1,48 @@
+CODE_ROM  0x8FF00000 0x0100000
+{
+  SBL3_CODE  +0x0
+  {
+     sbl3.o (SBL3_ENTRY, +FIRST)
+     .ANY (+RO-CODE)
+     .ANY (+RO-DATA, LAST)
+  }
+  SBL3_RAM_RW  +0x0 ALIGN 0x1000
+  {
+     .ANY (+RW)
+  }
+  SBL3_IND_VEC_TBL  0x2E000000 + 0x20  
+  {
+    sbl3.o (SBL3_INDIRECT_VECTOR_TABLE, +FIRST)
+  }  
+  SBL3_RAM_ZI   ImageLimit(SBL3_RAM_RW)
+  {
+     .ANY (+ZI)
+  }
+  SBL3_RAMDUMP_DATA +0x0 UNINIT
+  {
+    * (SBL3_RAMDUMP_DATA_ZONE)
+  }   
+  SBL3_ERR_DATA +0x0
+  {
+    * (ERR_DATA)
+  }
+  SBL3_DLOAD_RAM_ZI 0x80100000 0x0100000
+  {
+    qhsusb_*.o (+ZI)	
+    dloadarm.o (+ZI)
+  }
+  SBL3_STACK  (0x8FF00000+0x0100000) EMPTY -0x2000
+  {
+  }
+  SBL3_PAGE_TABLE_SECTION ((0x2E000000+0x0060000)-0x2000)-0x6000
+  {
+    boot_armv7_mmu.o (L1_PAGE_TABLE_BASE)
+    boot_armv7_mmu.o (L2_PAGE_TABLE_BASE)
+  }      
+  SBL3_LOG_BUF_SECTION ((0x8FF00000+0x0100000)-0x2000-1536) EMPTY 1536
+  {
+  }
+  SBL3_LOG_META_INFO_SECTION (((0x8FF00000+0x0100000)-0x2000-1536)-64) EMPTY 64
+  {
+  }
+}

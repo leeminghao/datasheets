@@ -1,0 +1,163 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         ;*====*====*====*====*====*====*====*====*====*====*====
+                       *====*====*====*====*
+    2 00000000         ;
+    3 00000000         ;                              RPM RAM DATA
+    4 00000000         ;
+    5 00000000         ; GENERAL DESCRIPTION
+    6 00000000         ;   Renames linker symbols for use by "C" modules.  Thes
+                       e symbols are
+    7 00000000         ;   used to load the vector table, RW region, and zero o
+                       ut the ZI region.
+    8 00000000         ;
+    9 00000000         ; EXTERNALIZED SYMBOLS
+   10 00000000         ; Load__RPM_DATA_RW__Base
+   11 00000000         ; Image__RPM_DATA_RW__Base
+   12 00000000         ; Image__RPM_DATA_RW__Length
+   13 00000000         ; Image__RPM_DATA_ZI__Base
+   14 00000000         ; Image__RPM_DATA_ZI__Length
+   15 00000000         ; Image__RPM_STACK__Base
+   16 00000000         ; Image__RPM_STACK__Length
+   17 00000000         ; INITIALIZATION AND SEQUENCING REQUIREMENTS
+   18 00000000         ;   None
+   19 00000000         ;
+   20 00000000         ; Copyright (c) 2009 by QUALCOMM Technologies, Incorpora
+                       ted.All Rights Reserved      .
+   21 00000000         ;*====*====*====*====*====*====*====*====*====*====*====
+                       *====*====*====*====*
+   22 00000000         ;=======================================================
+                       =====================
+   23 00000000         ;
+   24 00000000         ;                           MODULE INCLUDE FILES
+   25 00000000         ;
+   26 00000000         ;=======================================================
+                       =====================
+   27 00000000         ;=======================================================
+                       =====================
+   28 00000000         ;
+   29 00000000         ;                             MODULE IMPORTS
+   30 00000000         ;
+   31 00000000         ;=======================================================
+                       =====================
+   32 00000000         ; Import the linker generated symbols that correspond to
+                        the base
+   33 00000000         ; addresses and sizes of the boot code data areas in bot
+                       h ROM and RAM.
+   34 00000000                 IMPORT           |Load$$RPM_DATA_RW$$Base|
+   35 00000000                 IMPORT           |Image$$RPM_DATA_RW$$Base|
+   36 00000000                 IMPORT           |Image$$RPM_DATA_RW$$Length|
+   37 00000000                 IMPORT           |Image$$RPM_DATA_ZI$$ZI$$Base|
+   38 00000000                 IMPORT           |Image$$RPM_DATA_ZI$$ZI$$Length
+|
+   39 00000000                 IMPORT           |Image$$DAL_HEAP$$Base|
+   40 00000000                 IMPORT           |Image$$DAL_HEAP$$Length|
+   41 00000000                 IMPORT           |Image$$RPM_STACK$$ZI$$Base|
+   42 00000000                 IMPORT           |Image$$RPM_STACK$$ZI$$Length|
+   43 00000000         ;=======================================================
+                       =====================
+   44 00000000         ;
+   45 00000000         ;                             MODULE EXPORTS
+   46 00000000         ;
+
+
+
+ARM Macro Assembler    Page 2 
+
+
+   47 00000000         ;=======================================================
+                       =====================
+   48 00000000         ; Export the renamed linker symbols for use by the other
+                        boot modules.
+   49 00000000                 EXPORT           Load__RPM_DATA_RW__Base
+   50 00000000                 EXPORT           Image__RPM_DATA_RW__Base
+   51 00000000                 EXPORT           Image__RPM_DATA_RW__Length
+   52 00000000                 EXPORT           Image__RPM_DATA_ZI__Base
+   53 00000000                 EXPORT           Image__RPM_DATA_ZI__Length
+   54 00000000                 EXPORT           Image__DAL_HEAP__Base
+   55 00000000                 EXPORT           Image__DAL_HEAP__Length
+   56 00000000                 EXPORT           Image__RPM_STACK__Base
+   57 00000000                 EXPORT           Image__RPM_STACK__Length
+   58 00000000         ;=======================================================
+                       =====================
+   59 00000000         ;                       BOOT BLOCK DATA LOCATIONS
+   60 00000000         ;
+   61 00000000         ;  Locations and sizes of data areas in ROM and RAM are 
+                       imported from the
+   62 00000000         ;  linker and stored as data items that are used at runt
+                       ime by the boot
+   63 00000000         ;  kernel routines.
+   64 00000000         ;=======================================================
+                       =====================
+   65 00000000                 AREA             BOOTSYS_DATA, DATA, READONLY
+   66 00000000         ; The $$ convention used by the linker is replaced to av
+                       oid the need
+   67 00000000         ; for the -pcc option required by the ARM compiler when 
+                       symbols that
+   68 00000000         ; include $$ are used in 'C' code.
+   69 00000000         Load__RPM_DATA_RW__Base
+   70 00000000 00000000        DCD              |Load$$RPM_DATA_RW$$Base|
+   71 00000004         Image__RPM_DATA_RW__Base
+   72 00000004 00000000        DCD              |Image$$RPM_DATA_RW$$Base|
+   73 00000008         Image__RPM_DATA_RW__Length
+   74 00000008 00000000        DCD              |Image$$RPM_DATA_RW$$Length|
+   75 0000000C         Image__RPM_DATA_ZI__Base
+   76 0000000C 00000000        DCD              |Image$$RPM_DATA_ZI$$ZI$$Base|
+   77 00000010         Image__RPM_DATA_ZI__Length
+   78 00000010 00000000        DCD              |Image$$RPM_DATA_ZI$$ZI$$Length
+|
+   79 00000014         Image__DAL_HEAP__Base
+   80 00000014 00000000        DCD              |Image$$DAL_HEAP$$Base|
+   81 00000018         Image__DAL_HEAP__Length
+   82 00000018 00000000        DCD              |Image$$DAL_HEAP$$Length|
+   83 0000001C         Image__RPM_STACK__Base
+   84 0000001C 00000000        DCD              |Image$$RPM_STACK$$ZI$$Base|
+   85 00000020         Image__RPM_STACK__Length
+   86 00000020 00000000        DCD              |Image$$RPM_STACK$$ZI$$Length|
+   87 00000024                 END
+Command Line: --16 --debug --dwarf2 --cpu=ARM7TDMI-S --apcs=/noswst/interwork -
+orpm/8064/build/rpm_ram_data.o -Irpm/8064/build -Irpm/8064/src -Icust -Ims -I/h
+ome/liminghao/aries-l/vendor/qcom/fusion/8064/rpm_proc/core/power/rpm/inc -I/ho
+me/liminghao/aries-l/vendor/qcom/fusion/8064/rpm_proc/core/hal/common/include -
+I/home/liminghao/aries-l/vendor/qcom/fusion/8064/rpm_proc/core/dal/framework/sy
+s/src/rex -I/home/liminghao/aries-l/vendor/qcom/fusion/8064/rpm_proc/core/api/b
+oot -I/home/liminghao/aries-l/vendor/qcom/fusion/8064/rpm_proc/core/api/buses -
+I/home/liminghao/aries-l/vendor/qcom/fusion/8064/rpm_proc/core/api/buses/privat
+e -I/home/liminghao/aries-l/vendor/qcom/fusion/8064/rpm_proc/core/api/dal -I/ho
+
+
+
+ARM Macro Assembler    Page 3 
+
+
+me/liminghao/aries-l/vendor/qcom/fusion/8064/rpm_proc/core/api/power -I/home/li
+minghao/aries-l/vendor/qcom/fusion/8064/rpm_proc/core/api/systemdrivers -I/home
+/liminghao/aries-l/vendor/qcom/fusion/8064/rpm_proc/core/api/systemdrivers/hwio
+/apq8064/inc -I/home/liminghao/aries-l/vendor/qcom/fusion/8064/rpm_proc/core/ap
+i/systemdrivers/hwio/apq8064/inc/hal -I/home/liminghao/aries-l/vendor/qcom/fusi
+on/8064/rpm_proc/core/boot/ddr/common -I/home/liminghao/aries-l/vendor/qcom/fus
+ion/8064/rpm_proc/core/buses/api/icb -I/home/liminghao/aries-l/vendor/qcom/fusi
+on/8064/rpm_proc/core/dal/framework/sys/inc -I/home/liminghao/aries-l/vendor/qc
+om/fusion/8064/rpm_proc/core/dal/config -I/home/liminghao/aries-l/vendor/qcom/f
+usion/8064/rpm_proc/core/dal/remote/inc -I/home/liminghao/aries-l/vendor/qcom/f
+usion/8064/rpm_proc/core/power/mpm/inc -I/home/liminghao/aries-l/vendor/qcom/fu
+sion/8064/rpm_proc/core/power/mpm/hal/include -I/home/liminghao/aries-l/vendor/
+qcom/fusion/8064/rpm_proc/core/power/mpm/hal/bsp/include -I/home/liminghao/arie
+s-l/vendor/qcom/fusion/8064/rpm_proc/core/power/sleep/inc -I/home/liminghao/ari
+es-l/vendor/qcom/fusion/8064/rpm_proc/core/power/sleep/src/common -I/home/limin
+ghao/aries-l/vendor/qcom/fusion/8064/rpm_proc/core/power/utils/inc -I/home/limi
+nghao/aries-l/vendor/qcom/fusion/8064/rpm_proc/core/systemdrivers/hal/qgic/inc 
+-I/home/liminghao/aries-l/vendor/qcom/fusion/8064/rpm_proc/core/systemdrivers/h
+al/qgic/src -I/home/liminghao/aries-l/vendor/qcom/fusion/8064/rpm_proc/core/sys
+temdrivers/busywait/inc -I/home/liminghao/aries-l/vendor/qcom/fusion/8064/rpm_p
+roc/core/systemdrivers/clk/inc -I/home/liminghao/aries-l/vendor/qcom/fusion/806
+4/rpm_proc/core/systemdrivers/tramp/src -I/home/liminghao/aries-l/vendor/qcom/f
+usion/8064/rpm_proc/core/systemdrivers/tramp/src/platform/qgic -I/home/limingha
+o/aries-l/vendor/qcom/fusion/8064/rpm_proc/pmic/api -I/home/liminghao/aries-l/v
+endor/qcom/fusion/8064/rpm_proc/core/buses/xpu/hal/inc -I/home/liminghao/aries-
+l/vendor/qcom/fusion/8064/rpm_proc/core/buses/m2vmt/hal/inc --list=rpm/8064/bui
+ld/rpm_ram_data.o.lst rpm/8064/build/rpm_ram_data.o.i
